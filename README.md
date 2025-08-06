@@ -6,18 +6,18 @@ This is my personal portfolio site, built to showcase my projects, skills and ba
 
 ## ✨ Features
 
-- Clean minimal design  
-- Fully responsive and fast  
-- Projects with GitHub links and tech tags  
-- About section with contact and socials  
-- Custom domain with HTTPS (`umerk.me`)  
-- 100% client-side (HTML CSS JS)  
-- No frameworks or dependencies  
+- Clean minimal design
+- Fully responsive and fast
+- Projects with GitHub links and tech tags
+- About section with contact and socials
+- Custom domain with HTTPS (`umerk.me`)
+- 100% client-side (HTML CSS JS)
+- No frameworks or dependencies
 
 ## 🛠 Tech Stack
 
-- HTML  
-- CSS (custom with variables and responsive layout)  
+- HTML
+- CSS (custom with variables and responsive layout)
 - JavaScript (vanilla)
 
 ## 🚀 Getting Started
