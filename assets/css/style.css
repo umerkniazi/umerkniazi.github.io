@@ -1,27 +1,33 @@
+/* === IMPORT FONTS === */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap");
 
+/* === ROOT VARIABLES === */
 :root {
   --bg: hsl(240, 10%, 6%);
   --text: hsl(0, 0%, 98%);
   --bg-secondary: hsl(240, 10%, 12%);
   --nav-bg: hsl(240, 10%, 8%);
-  --accent: hsl(210, 85%, 45%);
-  --accent-hover: hsl(210, 85%, 55%);
-  --border: hsl(240, 10%, 20%);
-  --muted: hsl(0, 0%, 65%);
+  --accent: hsl(165, 70%, 28%);
+  --accent-hover: hsl(165, 70%, 38%);
+  --accent-muted: hsl(165, 70%, 22%);
+  --muted: hsl(0, 0%, 60%);
   --radius: 12px;
-  --shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
   --font-sans: "Inter", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
-  --transition: 0.2s ease;
+  --transition: 0.15s ease;
   --content-width: 960px;
+  --border: hsl(240, 10%, 22%);
 }
 
+/* === GLOBAL TRANSITIONS === */
 * {
   transition: background var(--transition), color var(--transition),
-    border var(--transition), transform var(--transition);
+    border var(--transition), transform var(--transition),
+    box-shadow var(--transition);
 }
 
+/* === BASE STYLES === */
 body {
   background: var(--bg);
   color: var(--text);
@@ -36,13 +42,14 @@ main {
   max-width: var(--content-width);
   margin: 0 auto;
   padding: 3rem 1.5rem 5rem;
-  animation: fadeIn 0.6s ease;
+  animation: fadeIn 0.5s ease;
 }
 
+/* === ANIMATIONS === */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(6px);
   }
   to {
     opacity: 1;
@@ -50,14 +57,23 @@ main {
   }
 }
 
+/* === HEADINGS === */
 h1,
 h2,
 h3 {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-weight: 600;
   margin: 0 0 1rem;
 }
 
+/* === HEADING ACCENTS === */
+h1 span,
+h2 span,
+h3 span {
+  color: var(--accent);
+}
+
+/* === HEADING SIZES === */
 h1 {
   font-size: clamp(2.2rem, 4vw, 2.8rem);
 }
@@ -70,10 +86,11 @@ h3 {
   font-size: clamp(1.2rem, 2.2vw, 1.5rem);
 }
 
+/* === LINKS === */
 a {
   color: var(--accent);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color var(--transition);
 }
 
 a:hover {
@@ -81,10 +98,12 @@ a:hover {
   text-decoration: underline;
 }
 
+/* === PARAGRAPH SPACING === */
 p {
   margin-bottom: 1.2rem;
 }
 
+/* === SECTIONS === */
 section {
   margin-bottom: 4rem;
   padding: clamp(2rem, 4vw, 3rem);
@@ -92,9 +111,10 @@ section {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  animation: fadeIn 0.6s ease;
+  animation: fadeIn 0.5s ease;
 }
 
+/* === TOP NAVIGATION === */
 .top-nav {
   position: sticky;
   top: 0;
@@ -108,6 +128,7 @@ section {
   padding: 1rem 2rem;
 }
 
+/* === LOGO === */
 .logo {
   font-family: var(--font-mono);
   font-weight: 700;
@@ -116,6 +137,7 @@ section {
   text-decoration: none;
 }
 
+/* === NAV MENU LIST === */
 .top-nav ul {
   display: flex;
   list-style: none;
@@ -125,37 +147,82 @@ section {
   align-items: center;
 }
 
+/* === NAV LINKS === */
 .top-nav li a {
   font-size: 0.95rem;
   padding: 0.4rem 0.6rem;
   border-radius: 6px;
   color: var(--text);
-  transition: background 0.15s ease;
+  transition: background var(--transition), color var(--transition);
 }
 
 .top-nav li a:hover {
-  background: var(--border);
+  background: var(--accent-muted);
+  color: var(--accent);
 }
 
+.top-nav li a.active {
+  border-bottom: 2px solid var(--accent);
+}
+
+/* === MOBILE MENU TOGGLE === */
 .mobile-menu-toggle {
   display: none;
   background: none;
   border: none;
   cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0;
 }
 
+/* === ICONS === */
 .icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 1.4rem;
   height: 1.4rem;
   filter: invert(1) brightness(1.2);
-  transition: opacity 0.2s ease;
+  transition: opacity var(--transition);
+  pointer-events: none;
 }
 
 .icon:hover {
   opacity: 0.8;
 }
 
+.icon-close {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.mobile-menu-toggle.open .icon-hamburger {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.mobile-menu-toggle.open .icon-close {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* === DESKTOP NAVIGATION === */
+.mobile-menu-toggle {
+  display: none;
+}
+
+/* === MOBILE NAVIGATION === */
 @media (max-width: 768px) {
+  .top-nav {
+    position: relative;
+  }
+
   .top-nav ul {
     display: none;
     flex-direction: column;
@@ -166,6 +233,9 @@ section {
     border: 1px solid var(--border);
     padding: 1rem;
     border-radius: 10px;
+    z-index: 10;
+    width: max-content;
+    min-width: 160px;
   }
 
   .top-nav ul.open {
@@ -177,18 +247,21 @@ section {
   }
 }
 
+/* === PROJECTS GRID === */
 .projects {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
 }
 
+/* === RESPONSIVE PROJECT LAYOUT === */
 @media (min-width: 600px) {
   .projects {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 }
 
+/* === INDIVIDUAL PROJECT CARD === */
 .project-card {
   background: var(--bg-secondary);
   border: 1px solid var(--border);
@@ -198,15 +271,17 @@ section {
   display: flex;
   flex-direction: column;
   transform: scale(1);
-  transition: transform var(--transition);
+  transition: transform var(--transition), box-shadow var(--transition);
 }
 
 .project-card:hover {
-  transform: scale(1.02);
+  transform: scale(1.015);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
+/* === PROJECT ICON SECTION === */
 .project-icon {
-  padding: 1.2rem;
+  padding: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -214,13 +289,20 @@ section {
   border-bottom: 1px solid var(--border);
 }
 
-.project-icon img {
-  width: 2.2rem;
-  height: 2.2rem;
-  filter: invert(1) brightness(1.2);
+.project-icon svg {
+  width: 3.4rem;
+  height: 3.4rem;
+  fill: var(--text);
   opacity: 0.9;
+  transition: opacity var(--transition), transform var(--transition);
 }
 
+.project-icon svg:hover {
+  opacity: 1;
+  transform: scale(1.02);
+}
+
+/* === PROJECT CONTENT SECTION === */
 .project-content {
   padding: 1.2rem;
   display: flex;
@@ -231,7 +313,6 @@ section {
 .project-content h3 {
   margin-top: 0;
   margin-bottom: 0.8rem;
-  color: var(--text);
 }
 
 .project-content p {
@@ -241,6 +322,7 @@ section {
   flex-grow: 1;
 }
 
+/* === PROJECT TAGS === */
 .project-tags {
   display: flex;
   gap: 0.4rem;
@@ -254,10 +336,24 @@ section {
   border-radius: 999px;
   background-color: var(--border);
   color: var(--text);
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   opacity: 0.8;
+  transition: background var(--transition), color var(--transition);
+  cursor: default;
 }
 
+.tag:hover {
+  background-color: var(--accent-muted);
+  color: var(--text);
+  cursor: default;
+}
+
+.tag.accent {
+  background-color: var(--accent);
+  color: var(--bg);
+}
+
+/* === PROJECT LINKS / BUTTONS === */
 .project-links {
   display: flex;
   gap: 0.6rem;
@@ -266,32 +362,42 @@ section {
 
 .button {
   display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  padding: 0.45rem 0.9rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem;
   border-radius: var(--radius);
   border: none;
   color: var(--bg);
   background: var(--accent);
   text-decoration: none;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transform: translateY(0);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  transition: background var(--transition), transform var(--transition),
+    color var(--transition);
 }
 
 .button:hover {
   background: var(--accent-hover);
   color: var(--text);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
+.button:focus,
+.button:focus-visible {
+  outline: 2px solid var(--accent-hover);
+  outline-offset: 2px;
+}
+
+/* === FOOTER === */
 footer {
   text-align: center;
   padding: 3rem 1rem 5rem;
   font-size: 0.9rem;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   opacity: 0.75;
 }
 
+/* === FOOTER SOCIAL ICONS === */
 footer .social-icons {
   display: flex;
   justify-content: center;
@@ -300,18 +406,26 @@ footer .social-icons {
   margin-bottom: 1rem;
 }
 
-footer .social-icons img {
+footer .social-icons svg {
   width: 1.6rem;
   height: 1.6rem;
-  filter: invert(1) brightness(1.2);
-  transition: opacity 0.2s, transform 0.2s;
+  fill: var(--muted); /* soft gray */
+  transition: opacity var(--transition), transform var(--transition),
+    fill var(--transition);
 }
 
-footer .social-icons a:hover img {
-  transform: scale(1.1);
-  opacity: 0.75;
+footer .social-icons a:hover svg {
+  transform: scale(1.05);
+  opacity: 0.85;
+  fill: var(--text); /* white on hover */
 }
 
+/* === FOOTER ACCENT TEXT === */
+footer p strong {
+  color: var(--accent);
+}
+
+/* === HERO / INTRO SOCIAL ICONS === */
 .hero-social,
 #intro .social-icons {
   display: flex;
@@ -319,16 +433,48 @@ footer .social-icons a:hover img {
   margin-top: 1rem;
 }
 
-.hero-social img,
-#intro .social-icons img {
+.hero-social svg,
+#intro .social-icons svg {
   width: 1.6rem;
   height: 1.6rem;
-  filter: invert(1) brightness(1.2);
-  transition: opacity 0.2s, transform 0.2s;
+  fill: var(--accent);
+  transition: opacity var(--transition), transform var(--transition),
+    fill var(--transition);
 }
 
-.hero-social a:hover img,
-#intro .social-icons a:hover img {
+.hero-social a:hover svg,
+#intro .social-icons a:hover svg {
   transform: scale(1.1);
   opacity: 0.75;
+  fill: var(--accent-hover);
+}
+
+/* === ACCENT STYLES === */
+hr.accent {
+  border: none;
+  height: 2px;
+  background: var(--accent-muted);
+  width: 60px;
+  margin: 2rem 0;
+}
+
+.accent-border-left {
+  border-left: 4px solid var(--accent);
+  padding-left: 1rem;
+}
+
+.accent-border-top {
+  border-top: 2px solid var(--accent);
+}
+
+.accent {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.bg-accent-muted {
+  background-color: var(--accent-muted);
+  color: var(--text);
+  padding: 1rem;
+  border-radius: var(--radius);
 }
