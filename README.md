@@ -1,38 +1,37 @@
-# Umer Khan – Portfolio
+# Umer Khan Niazi – Portfolio
 
 This is my personal portfolio site, built to showcase my projects, skills and background as an AI student and developer.
 
-**Live:** [umerk.me](https://umerk.me)
+**Live site:** [umerk.me](https://umerk.me)
 
-## Features
+## ✨ Features
 
-- Minimal, fast and fully responsive
-- Project highlights with live demos and GitHub links
-- About me section with contact info
-- Custom domain with HTTPS (umerk.me)
-- 100% client-side (HTML, CSS, JS)
+- Clean minimal design  
+- Fully responsive and fast  
+- Projects with GitHub links and tech tags  
+- About section with contact and socials  
+- Custom domain with HTTPS (`umerk.me`)  
+- 100% client-side (HTML CSS JS)  
+- No frameworks or dependencies  
 
-## Tech Stack
+## 🛠 Tech Stack
 
-- HTML
-- CSS
-- JavaScript
+- HTML  
+- CSS (custom with variables and responsive layout)  
+- JavaScript (vanilla)
 
-## Getting Started
+## 🚀 Getting Started
 
-Clone the repo and open `index.html` in your browser.
-
-```bash
-git clone https://github.com/umerk-404/umerk-404.github.io.git
-cd umerk-404.github.io
-```
-
-Then open `index.html` directly in a browser or use a simple local server like:
+Clone the repo and serve the site locally:
 
 ```bash
+git clone https://github.com/umerkniazi/umerkniazi.github.io.git
+cd umerkniazi.github.io
 npx serve .
 ```
 
-## License
+Or just open `index.html` directly in your browser.
+
+## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
