@@ -1,32 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Basic Page Setup -->
     <meta charset="UTF-8" />
+    <title>404 - Page Not Found</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>404 – Not Found</title>
-    <meta name="robots" content="noindex" />
+    <style>
+      :root {
+        --text-color: #f8f8f8;
+        --bg-color: #111111;
+        --accent-color: #4a90e2;
+        --card-bg: #1a1a1a;
+        --border-color: #2a2a2a;
+        --transition: all 0.3s ease;
+      }
 
-    <!-- Favicon & Styles -->
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="/assets/css/style.css" />
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+        max-width: 600px;
+        color: #aaa;
+        margin-bottom: 2rem;
+      }
+
+      a {
+        color: var(--accent-color);
+        text-decoration: none;
+        font-weight: 500;
+        border: 1px solid var(--accent-color);
+        padding: 0.6rem 1.2rem;
+        border-radius: 4px;
+        transition: var(--transition);
+      }
+
+      a:hover {
+        background-color: var(--accent-color);
+        color: white;
+      }
+
+      .glitch {
+        color: var(--accent-color);
+        font-family: monospace;
+        font-size: 1rem;
+        margin-top: 2rem;
+        animation: flicker 1s infinite alternate;
+      }
+
+      @keyframes flicker {
+        0% {
+          opacity: 0.7;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    </style>
   </head>
-
   <body>
-    <!-- 404 Message -->
-    <main style="text-align: center; padding: 4rem 2rem">
-      <h1 style="font-size: 3rem; margin-bottom: 1rem">404</h1>
-      <p
-        style="
-          font-size: 1.2rem;
-          color: var(--muted);
-          max-width: 480px;
-          margin: 0 auto 2rem;
-        "
-      >
-        You’ve reached a glitch in the Matrix. This page doesn’t exist.
-      </p>
-      <a href="/" class="button">Go back home</a>
-    </main>
+    <h1>404 - Page Not Found</h1>
+    <p>This page doesn't exist.</p>
+    <a href="/">Go back home</a>
+    <div class="glitch">A glitch in the Matrix?</div>
   </body>
 </html>
