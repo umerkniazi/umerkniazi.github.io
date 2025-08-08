@@ -404,46 +404,6 @@
         text-align: center;
       }
 
-      /* ===== BACK TO TOP BUTTON ===== */
-      #back-to-top {
-        position: fixed;
-        bottom: 1.5rem;
-        right: 1.5rem;
-        width: 2.5rem;
-        height: 2.5rem;
-        border-radius: 50%;
-        background: var(--card-bg);
-        border: 1px solid var(--border-color);
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 100;
-        opacity: 0;
-        transform: translateY(10px);
-        transition: opacity 0.3s ease, transform 0.3s ease;
-      }
-
-      #back-to-top.visible {
-        opacity: 0.7;
-        transform: translateY(0);
-      }
-
-      #back-to-top:hover {
-        opacity: 1;
-        background: rgba(74, 144, 226, 0.15);
-        transform: translateY(-3px) scale(1.05);
-      }
-
-      #back-to-top .icon {
-        color: var(--text-color);
-        transition: transform 0.2s ease;
-      }
-
-      #back-to-top:hover .icon {
-        transform: translateY(-2px);
-      }
-
       /* ===== RESPONSIVE DESIGN ===== */
       @media (max-width: 768px) {
         :root {
@@ -539,13 +499,6 @@
         .section-subtitle {
           font-size: 1rem;
         }
-
-        #back-to-top {
-          width: 3rem;
-          height: 3rem;
-          bottom: 1rem;
-          right: 1rem;
-        }
       }
     </style>
   </head>
@@ -553,7 +506,7 @@
   <body>
     <!-- Navigation -->
     <nav class="top-nav">
-      <a href="#" class="logo">Umer K. Niazi</a>
+      <a href="#hero" class="logo">Umer K. Niazi</a>
       <button
         class="mobile-menu-toggle"
         aria-label="Toggle menu"
@@ -895,14 +848,6 @@
       <p>&copy; 2025 <strong>Umer Khan Niazi</strong>. All rights reserved.</p>
     </footer>
 
-    <button id="back-to-top" aria-label="Back to top">
-      <svg class="icon" viewBox="0 0 24 24" width="20" height="20">
-        <path
-          d="M 12 3.3417969 C 11.744125 3.3417969 11.488469 3.4412187 11.292969 3.6367188 L 5.6367188 9.2929688 C 5.2457188 9.6829687 5.2457187 10.316031 5.6367188 10.707031 L 5.7226562 10.792969 C 6.1126563 11.183969 6.7457187 11.183969 7.1367188 10.792969 L 11 6.9296875 L 11 20 C 11 20.552 11.448 21 12 21 C 12.552 21 13 20.552 13 20 L 13 6.9296875 L 16.863281 10.792969 C 17.253281 11.183969 17.886344 11.183969 18.277344 10.792969 L 18.363281 10.707031 C 18.754281 10.317031 18.754281 9.6839688 18.363281 9.2929688 L 12.707031 3.6367188 C 12.512031 3.4412187 12.255875 3.3417969 12 3.3417969 z"
-        ></path>
-      </svg>
-    </button>
-
     <script>
       // ===== MOBILE NAVIGATION =====
       const menuToggle = document.querySelector(".mobile-menu-toggle");
@@ -953,21 +898,6 @@
           closeIcon.style.display = "none";
           menuToggle.setAttribute("aria-expanded", "false");
         }
-      });
-
-      // ===== BACK TO TOP BUTTON =====
-      const backToTop = document.getElementById("back-to-top");
-
-      window.addEventListener("scroll", () => {
-        if (window.pageYOffset > 300) {
-          backToTop.classList.add("visible");
-        } else {
-          backToTop.classList.remove("visible");
-        }
-      });
-
-      backToTop.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
       });
 
       // ===== SMOOTH SCROLLING =====
