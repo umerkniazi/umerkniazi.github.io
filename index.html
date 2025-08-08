@@ -14,9 +14,8 @@
     <meta name="color-scheme" content="dark" />
     <link rel="icon" href="favicon.png" type="image/png" />
 
-    <!-- Inline critical CSS for performance -->
     <style>
-      /* Base styles */
+      /* ===== BASE STYLES ===== */
       :root {
         --text-color: #f8f8f8;
         --bg-color: #111111;
@@ -53,7 +52,7 @@
         opacity: 0.8;
       }
 
-      /* Layout */
+      /* ===== LAYOUT ===== */
       .container {
         width: 100%;
         max-width: 1200px;
@@ -70,12 +69,11 @@
         border-bottom: none;
       }
 
-      /* Compact layout adjustments */
       .compact-section {
         padding: var(--compact-spacing) 0;
       }
 
-      /* Typography */
+      /* ===== TYPOGRAPHY ===== */
       h1,
       h2,
       h3,
@@ -115,13 +113,12 @@
         color: #aaa;
       }
 
-      /* Emoji styling */
       .emoji {
         display: inline-block;
         margin-right: 0.3rem;
       }
 
-      /* Navigation */
+      /* ===== NAVIGATION ===== */
       .top-nav {
         position: fixed;
         top: 0;
@@ -181,7 +178,7 @@
         z-index: 1001;
       }
 
-      /* SVG icons */
+      /* ===== ICONS ===== */
       .icon {
         width: 24px;
         height: 24px;
@@ -189,7 +186,7 @@
         vertical-align: middle;
       }
 
-      /* Hero section */
+      /* ===== HERO SECTION ===== */
       #hero {
         text-align: center;
         padding: 2.5rem 0;
@@ -232,7 +229,7 @@
         background: rgba(74, 144, 226, 0.2);
       }
 
-      /* Projects */
+      /* ===== PROJECTS SECTION ===== */
       .projects {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -320,7 +317,7 @@
         opacity: 1;
       }
 
-      /* Skills Section */
+      /* ===== SKILLS SECTION ===== */
       .skills-container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -360,7 +357,7 @@
         color: var(--accent-color);
       }
 
-      /* Personality section */
+      /* ===== ABOUT SECTION ===== */
       .personality-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -393,7 +390,7 @@
         font-size: 1.5rem;
       }
 
-      /* Footer */
+      /* ===== FOOTER ===== */
       footer {
         text-align: center;
         padding: 1.5rem 0;
@@ -407,7 +404,7 @@
         text-align: center;
       }
 
-      /* Back to top button */
+      /* ===== BACK TO TOP BUTTON ===== */
       #back-to-top {
         position: fixed;
         bottom: 1.5rem;
@@ -418,25 +415,36 @@
         background: var(--card-bg);
         border: 1px solid var(--border-color);
         cursor: pointer;
-        display: none;
+        display: flex;
         align-items: center;
         justify-content: center;
         z-index: 100;
-        transition: var(--transition);
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+
+      #back-to-top.visible {
+        opacity: 0.7;
+        transform: translateY(0);
       }
 
       #back-to-top:hover {
-        background: var(--accent-color);
-        border-color: var(--accent-color);
-        transform: translateY(-3px);
+        opacity: 1;
+        background: rgba(74, 144, 226, 0.15);
+        transform: translateY(-3px) scale(1.05);
       }
 
       #back-to-top .icon {
         color: var(--text-color);
-        transition: var(--transition);
+        transition: transform 0.2s ease;
       }
 
-      /* Responsive */
+      #back-to-top:hover .icon {
+        transform: translateY(-2px);
+      }
+
+      /* ===== RESPONSIVE DESIGN ===== */
       @media (max-width: 768px) {
         :root {
           --section-spacing: 2rem;
@@ -531,6 +539,13 @@
         .section-subtitle {
           font-size: 1rem;
         }
+
+        #back-to-top {
+          width: 3rem;
+          height: 3rem;
+          bottom: 1rem;
+          right: 1rem;
+        }
       }
     </style>
   </head>
@@ -577,7 +592,7 @@
     </nav>
 
     <main class="container">
-      <!-- Hero -->
+      <!-- Hero Section -->
       <section id="hero">
         <div class="hero-content">
           <h1>Hi there, I'm Umer 👋</h1>
@@ -621,7 +636,7 @@
         </div>
       </section>
 
-      <!-- Projects -->
+      <!-- Projects Section -->
       <section id="projects" class="compact-section">
         <h2><span class="emoji">🚀</span> Projects</h2>
         <p class="section-subtitle">Projects I'm building and learning from</p>
@@ -733,7 +748,7 @@
         </div>
       </section>
 
-      <!-- Skills -->
+      <!-- Skills Section -->
       <section id="skills" class="compact-section">
         <h2><span class="emoji">🛠️</span> Skills and Learning</h2>
         <p class="section-subtitle">
@@ -776,7 +791,7 @@
         </div>
       </section>
 
-      <!-- About -->
+      <!-- About Section -->
       <section id="about" class="compact-section">
         <h2><span class="emoji">👤</span> About Me</h2>
         <p class="section-subtitle">More than just code</p>
@@ -828,7 +843,7 @@
         </div>
       </section>
 
-      <!-- Contact -->
+      <!-- Contact Section -->
       <section id="contact" class="compact-section">
         <h2><span class="emoji">📬</span> Get in Touch</h2>
         <p>
@@ -888,9 +903,8 @@
       </svg>
     </button>
 
-    <!-- Inline JS for performance -->
     <script>
-      // Mobile menu toggle
+      // ===== MOBILE NAVIGATION =====
       const menuToggle = document.querySelector(".mobile-menu-toggle");
       const navLinks = document.querySelector(".nav-links");
       const hamburgerIcon = document.querySelector(".icon-hamburger");
@@ -925,35 +939,6 @@
         });
       });
 
-      // Back to top button
-      const backToTop = document.getElementById("back-to-top");
-
-      window.addEventListener("scroll", () => {
-        if (window.pageYOffset > 300) {
-          backToTop.style.display = "flex";
-        } else {
-          backToTop.style.display = "none";
-        }
-      });
-
-      backToTop.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
-
-      // Smooth scrolling for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
-          if (target) {
-            window.scrollTo({
-              top: target.offsetTop - 60,
-              behavior: "smooth",
-            });
-          }
-        });
-      });
-
       // Close menu when clicking outside
       document.addEventListener("click", (e) => {
         if (
@@ -969,9 +954,37 @@
           menuToggle.setAttribute("aria-expanded", "false");
         }
       });
+
+      // ===== BACK TO TOP BUTTON =====
+      const backToTop = document.getElementById("back-to-top");
+
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+          backToTop.classList.add("visible");
+        } else {
+          backToTop.classList.remove("visible");
+        }
+      });
+
+      backToTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      // ===== SMOOTH SCROLLING =====
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            window.scrollTo({
+              top: target.offsetTop - 60,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
     </script>
 
-    <!-- Fallback for no-JS -->
     <noscript>
       <style>
         .mobile-menu-toggle {
