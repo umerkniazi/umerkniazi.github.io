@@ -2,7 +2,7 @@
 
 This is my personal portfolio site, built to showcase my projects, skills and background as an AI student and developer.
 
-**Live site:** [umerk.me](https://umerk.me)
+**Live site:** [umerkniazi.dev](https://umerkniazi.dev)
 
 ## ✨ Features
 
@@ -10,7 +10,7 @@ This is my personal portfolio site, built to showcase my projects, skills and ba
 - Fully responsive and fast
 - Projects with GitHub links and tech tags
 - About section with contact and socials
-- Custom domain with HTTPS (`umerk.me`)
+- Custom domain with HTTPS (`umerkniazi.dev`)
 - 100% client-side (HTML CSS JS)
 - No frameworks or dependencies
 
