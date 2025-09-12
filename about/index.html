@@ -5,13 +5,14 @@ permalink: /about/
 description: Learn more about Umer Khan – an AI student who codes in C++, Python, loves Linux and cares about animals and open source.
 ---
 
-<header class="hero compact fade-in">
-  <h1>About Me</h1>
+<header class="hero compact fade-in" role="banner">
+  <h1 id="about-heading">About Me</h1>
   <p class="tagline">AI student, coder and FOSS enthusiast</p>
 </header>
 
-<main>
-  <section class="fade-in">
+<main role="main" aria-labelledby="about-heading">
+  <section class="fade-in" aria-labelledby="intro-section">
+    <h2 id="intro-section" class="sr-only">Introduction</h2>
     <div class="card">
       <div class="card-content">
         <p>
@@ -23,21 +24,21 @@ description: Learn more about Umer Khan – an AI student who codes in C++, Pyth
       </div>
     </div>
 
-    <h2>What I Do</h2>
-    <div class="card">
+    <h2 id="activities-heading">What I Do</h2>
+    <div class="card" role="region" aria-labelledby="activities-heading">
       <div class="card-content">
         <p>When I'm not buried in code or coursework, you'll find me:</p>
-        <ul>
-          <li>🐧 Tinkering with my Linux setup</li>
-          <li>🌟 Contributing to open-source projects</li>
-          <li>🐱 Spending time with animals</li>
-          <li>🔍 Building things that matter</li>
+        <ul role="list" aria-label="Activities and interests">
+          <li role="listitem">🐧 Tinkering with my Linux setup</li>
+          <li role="listitem">🌟 Contributing to open-source projects</li>
+          <li role="listitem">🐱 Spending time with animals</li>
+          <li role="listitem">🔍 Building things that matter</li>
         </ul>
       </div>
     </div>
 
-    <h2>My AI Journey</h2>
-    <div class="card">
+    <h2 id="journey-heading">My AI Journey</h2>
+    <div class="card" role="region" aria-labelledby="journey-heading">
       <div class="card-content">
         <p>
           My journey into AI started with a simple question:
@@ -48,8 +49,8 @@ description: Learn more about Umer Khan – an AI student who codes in C++, Pyth
       </div>
     </div>
 
-    <h2>Let's Connect</h2>
-    <div class="card">
+    <h2 id="connect-heading">Let's Connect</h2>
+    <div class="card" role="region" aria-labelledby="connect-heading">
       <div class="card-content">
         <p>
           I'm always eager to learn from others and share discoveries. Whether
@@ -59,15 +60,22 @@ description: Learn more about Umer Khan – an AI student who codes in C++, Pyth
         <p>
           Got an interesting project or just want to chat about tech, cats or
           Batman?
-          <a href="mailto:hello@umerkniazi.dev"
-            ><strong>Drop me a line!</strong></a
+          <a
+            href="mailto:hello@umerkniazi.dev"
+            aria-label="Send email to Umer Khan"
           >
+            <strong>Drop me a line!</strong>
+          </a>
         </p>
       </div>
     </div>
   </section>
 
-  <p class="back-home">
-    <a href="/" class="button secondary">← Back to Home</a>
-  </p>
+  <nav aria-label="Page navigation">
+    <p class="back-home">
+      <a href="/" class="button secondary" aria-label="Return to homepage"
+        >← Back to Home</a
+      >
+    </p>
+  </nav>
 </main>

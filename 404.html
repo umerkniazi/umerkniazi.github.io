@@ -6,19 +6,26 @@ permalink: /404.html
 robots: noindex
 ---
 
-<header class="hero compact fade-in">
-  <h1>404 – Page Not Found</h1>
+<header class="hero compact fade-in" role="banner">
+  <h1 id="error-heading">404 – Page Not Found</h1>
   <p class="tagline">There's a glitch in the matrix.</p>
 </header>
 
-<main class="not-found fade-in">
-  <div class="terminal">
+<main class="not-found fade-in" role="main" aria-labelledby="error-heading">
+  <div
+    class="terminal"
+    role="region"
+    aria-label="Terminal output"
+    aria-live="polite"
+  >
     $ whoami<br />
     neo<br />
     $ find /matrix -name "page-you-seek"<br />
     find: '/matrix': No such file or directory<br />
   </div>
   <div>
-    <a href="/" class="button secondary">Take the Blue Pill (Go Home)</a>
+    <a href="/" class="button secondary" aria-label="Return to homepage"
+      >Take the Blue Pill (Go Home)</a
+    >
   </div>
 </main>

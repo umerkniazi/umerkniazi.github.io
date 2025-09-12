@@ -4,14 +4,14 @@ title: Umer Khan
 description: Personal site of Umer Khan, an AI student exploring code, Linux and curiosity-driven learning.
 ---
 
-<header class="hero compact fade-in">
-  <h1>Hi, I'm Umer</h1>
+<header class="hero compact fade-in" role="banner">
+  <h1 id="main-heading">Hi, I'm Umer</h1>
   <p class="tagline">AI student and developer</p>
 </header>
 
-<main>
-  <section class="about-preview fade-in">
-    <h2>About Me</h2>
+<main role="main" aria-labelledby="main-heading">
+  <section class="about-preview fade-in" aria-labelledby="about-heading">
+    <h2 id="about-heading">About Me</h2>
     <div class="card">
       <div class="card-content">
         <p>
@@ -19,52 +19,66 @@ description: Personal site of Umer Khan, an AI student exploring code, Linux and
           <strong>C++</strong> and <strong>Python</strong>, explore Linux and
           care about open-source tools and animal welfare.
         </p>
-        <a href="/about/" class="button">Learn More →</a>
+        <a href="/about/" class="button" aria-label="Learn more about Umer Khan"
+          >Learn More →</a
+        >
       </div>
     </div>
   </section>
 
-  <section class="featured-project fade-in">
-    <h2>Featured Project</h2>
+  <section class="featured-project fade-in" aria-labelledby="project-heading">
+    <h2 id="project-heading">Featured Project</h2>
     <div class="card">
       <div class="card-content">
-        <h3>Hospital Patient Management System</h3>
+        <h3 id="hospital-project">Hospital Patient Management System</h3>
         <p>
           My first major coding project! This console-based system manages
           patient records, allowing users to register new patients, search
           existing records and organize information by symptoms and diagnoses.
         </p>
-        <div class="project-meta">
-          <span class="tech-tag">C++</span>
-          <span class="tech-tag">File I/O</span>
-          <span class="tech-tag">Data Management</span>
+        <div class="project-meta" role="list" aria-label="Technologies used">
+          <span class="tech-tag" role="listitem">C++</span>
+          <span class="tech-tag" role="listitem">File I/O</span>
+          <span class="tech-tag" role="listitem">Data Management</span>
         </div>
-        <a href="/projects/" class="button">View All Projects →</a>
+        <a
+          href="/projects/"
+          class="button"
+          aria-label="View all projects by Umer Khan"
+          >View All Projects →</a
+        >
       </div>
     </div>
   </section>
 
-  <section class="blog-preview fade-in">
-    <h2>Recent Thoughts</h2>
+  <section class="blog-preview fade-in" aria-labelledby="blog-heading">
+    <h2 id="blog-heading">Recent Thoughts</h2>
     <div class="card">
       <div class="card-content">
         <p>
           What I'm learning and building as I explore AI, development and
           open-source.
         </p>
-        <a href="/blog/" class="button">Read the Blog →</a>
+        <a href="/blog/" class="button" aria-label="Read Umer Khan's blog posts"
+          >Read the Blog →</a
+        >
       </div>
     </div>
   </section>
 
-  <section class="contact fade-in">
-    <h2>Let's Connect</h2>
+  <section class="contact fade-in" aria-labelledby="contact-heading">
+    <h2 id="contact-heading">Let's Connect</h2>
     <div class="card">
       <div class="card-content">
         <p>
           I'd love to chat about ideas, projects or potential collaborations.
         </p>
-        <a href="mailto:hello@umerkniazi.dev" class="button">Get in Touch →</a>
+        <a
+          href="mailto:hello@umerkniazi.dev"
+          class="button"
+          aria-label="Send email to Umer Khan"
+          >Get in Touch →</a
+        >
       </div>
     </div>
   </section>

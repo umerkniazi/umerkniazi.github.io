@@ -4,20 +4,21 @@ title: Projects
 description: Projects by Umer Khan including software, systems and experiments.
 ---
 
-<header class="hero compact fade-in">
-  <h1>My Projects</h1>
+<header class="hero compact fade-in" role="banner">
+  <h1 id="projects-heading">My Projects</h1>
   <p class="tagline">
     Things I've built, learned from and enjoyed creating during my journey as a
     developer.
   </p>
 </header>
 
-<main>
-  <section class="fade-in">
-    <div class="card-group">
-      <div class="card">
+<main role="main" aria-labelledby="projects-heading">
+  <section class="fade-in" aria-labelledby="project-list-heading">
+    <h2 id="project-list-heading" class="sr-only">Project list</h2>
+    <div class="card-group" role="list" aria-label="List of projects">
+      <div class="card" role="listitem">
         <div class="card-content">
-          <h3>Hospital Patient Management System</h3>
+          <h3 id="hpms-project">Hospital Patient Management System</h3>
           <p>
             Meet HPMS, my first major coding project! This console-based system
             was built with C++ during my first semester. It manages patient
@@ -30,26 +31,31 @@ description: Projects by Umer Khan including software, systems and experiments.
             uses simple text files for data persistence, proving that elegant
             solutions don't need to be complex.
           </p>
-          <div class="project-tech">
-            <span class="tech-tag">C++</span>
-            <span class="tech-tag">File I/O</span>
-            <span class="tech-tag">Data Management</span>
-            <span class="tech-tag">Team Project</span>
+          <div
+            class="project-tech"
+            role="list"
+            aria-label="Technologies used in HPMS"
+          >
+            <span class="tech-tag" role="listitem">C++</span>
+            <span class="tech-tag" role="listitem">File I/O</span>
+            <span class="tech-tag" role="listitem">Data Management</span>
+            <span class="tech-tag" role="listitem">Team Project</span>
           </div>
           <a
             href="https://github.com/umerkniazi/hpms"
             class="button"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="View Hospital Patient Management System on GitHub (opens in new tab)"
           >
             Explore on GitHub →
           </a>
         </div>
       </div>
 
-      <div class="card">
+      <div class="card" role="listitem">
         <div class="card-content">
-          <h3>Personal Website</h3>
+          <h3 id="website-project">Personal Website</h3>
           <p>
             This very site you're browsing! Built with Jekyll and hosted on
             GitHub Pages. I focused on creating a clean, minimal design that
@@ -60,26 +66,31 @@ description: Projects by Umer Khan including software, systems and experiments.
             animations. It's been a great way to learn about static site
             generators and modern web development practices.
           </p>
-          <div class="project-tech">
-            <span class="tech-tag">Jekyll</span>
-            <span class="tech-tag">HTML/CSS</span>
-            <span class="tech-tag">GitHub Pages</span>
-            <span class="tech-tag">Responsive Design</span>
+          <div
+            class="project-tech"
+            role="list"
+            aria-label="Technologies used in personal website"
+          >
+            <span class="tech-tag" role="listitem">Jekyll</span>
+            <span class="tech-tag" role="listitem">HTML/CSS</span>
+            <span class="tech-tag" role="listitem">GitHub Pages</span>
+            <span class="tech-tag" role="listitem">Responsive Design</span>
           </div>
           <a
             href="https://github.com/umerkniazi/umerkniazi.github.io"
             class="button"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="View personal website source code on GitHub (opens in new tab)"
           >
             View Source →
           </a>
         </div>
       </div>
 
-      <div class="card coming-soon">
+      <div class="card coming-soon" role="listitem">
         <div class="card-content">
-          <h3>More Projects in Development</h3>
+          <h3 id="upcoming-projects">More Projects in Development</h3>
           <p>
             I'm continuously working on new projects and expanding my skills.
             Check back soon to see what I'm building next.
@@ -89,7 +100,11 @@ description: Projects by Umer Khan including software, systems and experiments.
     </div>
   </section>
 
-  <p class="back-home">
-    <a href="/" class="button secondary">← Back to Home</a>
-  </p>
+  <nav aria-label="Page navigation">
+    <p class="back-home">
+      <a href="/" class="button secondary" aria-label="Return to homepage"
+        >← Back to Home</a
+      >
+    </p>
+  </nav>
 </main>

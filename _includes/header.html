@@ -1,49 +1,54 @@
-<nav class="top-nav">
-  <a href="/" class="logo">Umer Khan</a>
+<nav class="top-nav" role="navigation" aria-label="Main navigation">
+  <a href="/" class="logo" aria-label="Umer Khan - Home">Umer Khan</a>
   <button
     class="mobile-menu-toggle"
-    aria-label="Toggle menu"
+    aria-label="Toggle navigation menu"
     title="Toggle menu"
     aria-expanded="false"
+    aria-controls="nav-links"
   >
     <img
       src="/assets/icons/dark/menu.svg"
-      alt="Menu"
+      alt=""
       width="24"
       height="24"
       class="dark-icon"
+      aria-hidden="true"
     />
     <img
       src="/assets/icons/light/menu.svg"
-      alt="Menu"
+      alt=""
       width="24"
       height="24"
       class="light-icon"
+      aria-hidden="true"
     />
   </button>
-  <ul class="nav-links">
-    <li>
-      <a href="/" {% if page.url == "/" %}aria-current="page"{% endif %}>Home</a>
+  <ul class="nav-links" id="nav-links" role="menubar" aria-label="Site pages">
+    <li role="none">
+      <a href="/" role="menuitem" {% if page.url == "/" %}aria-current="page"{% endif %}>Home</a>
     </li>
-    <li>
-      <a href="/projects/" {% if page.url == "/projects/" %}aria-current="page"{% endif %}>Projects</a>
+    <li role="none">
+      <a href="/projects/" role="menuitem" {% if page.url == "/projects/" %}aria-current="page"{% endif %}>Projects</a>
     </li>
-    <li>
-      <a href="/blog/" {% if page.url == "/blog/" or page.url contains "/blog/" %}aria-current="page"{% endif %}>Blog</a>
+    <li role="none">
+      <a href="/blog/" role="menuitem" {% if page.url == "/blog/" or page.url contains "/blog/" %}aria-current="page"{% endif %}>Blog</a>
     </li>
-    <li>
-      <a href="/about/" {% if page.url == "/about/" %}aria-current="page"{% endif %}>About</a>
+    <li role="none">
+      <a href="/about/" role="menuitem" {% if page.url == "/about/" %}aria-current="page"{% endif %}>About</a>
     </li>
-    <li>
+    <li role="none">
       <button
         type="button"
         id="theme-toggle"
-        aria-label="Toggle theme"
+        aria-label="Toggle dark/light theme"
         title="Toggle theme"
+        aria-pressed="false"
+        role="menuitem"
       >
         <img
           src="/assets/icons/dark/sun.svg"
-          alt="Sun icon"
+          alt=""
           width="24"
           height="24"
           class="dark-icon"
@@ -51,7 +56,7 @@
         />
         <img
           src="/assets/icons/light/moon.svg"
-          alt="Moon icon"
+          alt=""
           width="24"
           height="24"
           class="light-icon"
