@@ -3,10 +3,45 @@ document.addEventListener("DOMContentLoaded", () => {
     s = document.querySelector(".nav-links");
   if (!e || !s) return;
   let t = e.querySelector("img");
+
+  const getCurrentTheme = () => {
+    return (
+      document.documentElement.getAttribute("data-theme") ||
+      (window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light")
+    );
+  };
+
+  const updateIcon = (isOpen) => {
+    const theme = getCurrentTheme();
+    const iconName = isOpen ? "x" : "menu";
+    t.src = `/assets/icons/${theme}/${iconName}.svg`;
+    t.alt = isOpen ? "Close menu" : "Open menu";
+  };
+
   e.addEventListener("click", () => {
     s.classList.toggle("open");
-    let e = s.classList.contains("open");
-    (t.src = e ? "/assets/icons/x.svg" : "/assets/icons/menu.svg"),
-      (t.alt = e ? "Close menu" : "Open menu");
+    let isOpen = s.classList.contains("open");
+    updateIcon(isOpen);
   });
+
+  const observer = new MutationObserver(() => {
+    let isOpen = s.classList.contains("open");
+    updateIcon(isOpen);
+  });
+
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["data-theme"],
+  });
+
+  window
+    .matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", () => {
+      let isOpen = s.classList.contains("open");
+      updateIcon(isOpen);
+    });
+
+  updateIcon(false);
 });
