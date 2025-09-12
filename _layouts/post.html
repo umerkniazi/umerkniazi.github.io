@@ -2,18 +2,18 @@
 layout: default
 ---
 
-<main>
-  <section class="fade-in blog-article">
-    <article>
-      <header>
-        <p><a href="/blog/">← Back to Blog</a></p>
-        <h1>{{ page.title }}</h1>
-        <p class="post-meta">
-          Published: {{ page.date | date: "%B %-d, %Y" }}{% if page.author %} by {{ page.author }}{% endif %}
-        </p>
-      </header>
+<header class="hero compact fade-in">
+  <h1>{{ page.title }}</h1>
+  <p class="tagline">
+    {{ page.date | date: "%B %-d, %Y" }}{% if page.author %} by {{ page.author
+    }}{% endif %}
+  </p>
+</header>
 
-      <section class="post-content">{{ content }}</section>
-    </article>
-  </section>
+<main>
+  <article class="post-content fade-in">{{ content }}</article>
+
+  <p class="back-home">
+    <a href="/blog/" class="button secondary">← Back to Blog</a>
+  </p>
 </main>
