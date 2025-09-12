@@ -20,15 +20,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="{{ page.description | default: site.description }}"
+      content="{{ page.description | default: site.description | truncate: 160 }}"
+    />
+    <meta
+      name="keywords"
+      content="{{ page.keywords | default: site.keywords | default: 'Umer Khan, AI Student, Developer, React, Node.js, JavaScript, Portfolio, Artificial Intelligence' }}"
     />
     <meta name="author" content="Umer Khan" />
-    <meta name="robots" content="index, follow" />
+    <meta
+      name="robots"
+      content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+    />
+    <meta name="googlebot" content="index, follow" />
     <meta name="theme-color" content="#ffffff" />
     <meta name="color-scheme" content="dark light" />
     <link rel="canonical" href="{{ page.url | absolute_url }}" />
-    <title>{{ page.title }}</title>
+    <title>
+      {{ page.title }}{% if page.title != site.title %} | {{ site.title }}{%
+      endif %}
+    </title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <link
       rel="preload"
       href="/assets/fonts/inter-v19-latin-regular.woff2"
@@ -51,13 +65,112 @@
       crossorigin
     />
     <link rel="stylesheet" href="/assets/css/style.css" />
-    <meta property="og:title" content="{{ page.title }}" />
+    <meta
+      property="og:title"
+      content="{{ page.title }}{% if page.title != site.title %} | {{ site.title }}{% endif %}"
+    />
     <meta
       property="og:description"
-      content="{{ page.description | default: site.description }}"
+      content="{{ page.description | default: site.description | truncate: 300 }}"
     />
-    <meta property="og:type" content="website" />
+    <meta
+      property="og:type"
+      content="{% if page.layout == 'post' %}article{% else %}website{% endif %}"
+    />
     <meta property="og:url" content="{{ page.url | absolute_url }}" />
+    <meta
+      property="og:site_name"
+      content="{{ site.title | default: 'Umer Khan Portfolio' }}"
+    />
+    <meta
+      property="og:image"
+      content="{{ page.image | default: site.image | default: '/assets/images/og-image.jpg' | absolute_url }}"
+    />
+    <meta
+      property="og:image:alt"
+      content="{{ page.image_alt | default: 'Umer Khan - AI Student & Developer Portfolio' }}"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:site"
+      content="@{{ site.twitter_username | default: 'umerkniazi' }}"
+    />
+    <meta
+      name="twitter:creator"
+      content="@{{ page.twitter_username | default: site.twitter_username | default: 'umerkniazi' }}"
+    />
+    <meta
+      name="twitter:title"
+      content="{{ page.title }}{% if page.title != site.title %} | {{ site.title }}{% endif %}"
+    />
+    <meta
+      name="twitter:description"
+      content="{{ page.description | default: site.description | truncate: 200 }}"
+    />
+    <meta
+      name="twitter:image"
+      content="{{ page.image | default: site.image | default: '/assets/images/twitter-card.jpg' | absolute_url }}"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="{{ page.image_alt | default: 'Umer Khan - AI Student & Developer Portfolio' }}"
+    />
+    {% if page.layout == 'post' %}
+    <meta property="article:author" content="Umer Khan" />
+    <meta
+      property="article:published_time"
+      content="{{ page.date | date_to_xmlschema }}"
+    />
+    {% if page.modified_date %}
+    <meta
+      property="article:modified_time"
+      content="{{ page.modified_date | date_to_xmlschema }}"
+    />
+    {% endif %} {% for tag in page.tags %}
+    <meta property="article:tag" content="{{ tag }}" />
+    {% endfor %} {% endif %}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "{% if page.layout == 'post' %}BlogPosting{% else %}Person{% endif %}",
+        {% if page.layout == 'post' %}
+        "headline": "{{ page.title | escape }}",
+        "description": "{{ page.description | default: site.description | escape }}",
+        "author": {
+          "@type": "Person",
+          "name": "Umer Khan",
+          "url": "{{ site.url }}"
+        },
+        "datePublished": "{{ page.date | date_to_xmlschema }}",
+        {% if page.modified_date %}
+        "dateModified": "{{ page.modified_date | date_to_xmlschema }}",
+        {% endif %}
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "{{ page.url | absolute_url }}"
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "Umer Khan"
+        }
+        {% else %}
+        "name": "Umer Khan",
+        "jobTitle": "AI Student & Developer",
+        "description": "{{ site.description | escape }}",
+        "url": "{{ site.url }}",
+        "sameAs": [
+          "https://github.com/umerkniazi",
+          "https://linkedin.com/in/umerkniazi"
+        ],
+        "knowsAbout": ["Artificial Intelligence", "Software Development", "JavaScript", "React", "Node.js", "Machine Learning"]
+        {% endif %}
+      }
+    </script>
+    <link rel="preconnect" href="https://gc.zgo.at" />
+    <link rel="dns-prefetch" href="https://gc.zgo.at" />
   </head>
 
   <body>

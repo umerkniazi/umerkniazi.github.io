@@ -1,11 +1,18 @@
 title: "Umer Khan"
-description: "Personal site of Umer Khan – AI undergrad exploring code, Linux, and ideas."
-url: "https://umerkn.me"
+description: "AI student and developer exploring artificial intelligence, code, Linux, and innovative solutions. Building projects with React, Node.js, and modern technologies."
+url: "https://umerkniazi.dev"
 baseurl: ""
 
 author:
   name: "Umer Khan"
-  email: "hi@umerkn.me"
+  email: "hello@umerkniazi.dev"
+
+keywords: "Umer Khan, AI Student, Developer, Artificial Intelligence, React, Node.js, JavaScript, TypeScript, Portfolio, Machine Learning, Linux"
+twitter_username: "umerkniazi"
+github_username: "umerkniazi"
+linkedin_username: "umerkniazi"
+image: "/assets/images/og-image.jpg"
+lang: "en_US"
 
 theme_color: "#ffffff"
 
@@ -17,6 +24,7 @@ permalink: /blog/:title/
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
 
 collections:
   projects:
@@ -28,9 +36,6 @@ exclude:
   - Gemfile.lock
   - README.md
   - LICENSE
-
-include:
-  - projects/gpa-calculator
 
 defaults:
   - scope:
