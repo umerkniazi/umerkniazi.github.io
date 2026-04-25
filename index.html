@@ -1,93 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Umer Khan</title>
-    <meta name="description" content="AI student and developer focused on bioinformatics, machine learning, Linux, and applying AI to environmental and animal welfare challenges." />
-    <link rel="canonical" href="https://umerkniazi.github.io/" />
-    <meta property="og:title" content="Umer Khan" />
-    <meta property="og:description" content="AI student and developer focused on bioinformatics, ML, and Linux." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://umerkniazi.github.io/" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="theme-color" content="#0ea5e9" />
-    <link rel="stylesheet" href="assets/css/styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Umer Khan Niazi - second-year AI student focused on systems development and artificial intelligence." />
+  <title>Umer Khan Niazi | AI Student & Systems Developer</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <header class="site-header">
-        <h1 class="brand">Umer Khan</h1>
-        <nav class="nav">
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="#hero" aria-label="Umer Khan Niazi home">
+        <span class="brand-mark">UK</span>
+        <span class="brand-text">Umer Khan Niazi</span>
+      </a>
 
-    <main class="content">
-        <section id="about" class="panel">
-            <h2>About</h2>
-            <p>
-                I'm a second-year AI student and developer focused on bioinformatics,
-                machine learning, Linux, and applying AI to animal welfare and environmental challenges.
-            </p>
-            <ul class="meta">
-                <li>Interests: bioinformatics, ML, Linux, applying AI to animal welfare and the environment</li>
-                <li>Stack: C++ and Python</li>
-                <li>Currently exploring: practical ML projects, better Linux workflows, and ways AI can help with ecology</li>
-            </ul>
-        </section>
+      <div class="nav-actions">
+        <button class="icon-button theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme" aria-pressed="false">
+          <span class="icon" aria-hidden="true">◐</span>
+          <span class="button-text">Theme</span>
+        </button>
 
-        <section id="projects" class="panel">
-            <h2>Projects</h2>
+        <button class="icon-button menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="siteNav">
+          <span class="menu-icon" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+          <span class="button-text">Menu</span>
+        </button>
+      </div>
 
-            <article class="card">
-                <h3>hpms</h3>
-                <p>
-                    A console-based system to register, search, update, delete, list, and categorize patients. Developed as a first-semester Programming Fundamentals group project, achieved full marks (30/30), and improved based on instructor feedback.
-                </p>
-                <div class="tags">C++</div>
-                <a class="link" href="https://github.com/umerkniazi/hpms" aria-label="View hpms repo">View on GitHub</a>
-            </article>
+      <nav class="site-nav" id="siteNav">
+        <a href="#hero">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-            <article class="card">
-                <h3>wmus</h3>
-                <p>
-                    A lightweight terminal music player for Windows, written in Python and inspired by cmus.
-                </p>
-                <div class="tags">Python</div>
-                <a class="link" href="https://github.com/umerkniazi/wmus" aria-label="View wmus repo">View on GitHub</a>
-            </article>
+  <main id="main">
+    <section class="section hero" id="hero">
+      <div class="container hero-grid">
+        <div class="eyebrow">// systems and AI focus</div>
+        <h1>Umer Khan Niazi</h1>
+        <p class="title">AI Student &amp; Systems Developer</p>
+        <p class="tech-stack">Currently focused on ML, systems, and building small projects.</p>
+        <p class="intro">I am a second-year AI student focused on systems development and practical artificial intelligence. I build useful tools that stay simple, fast, and easy to maintain.</p>
+        <p class="code-line"><span>const</span> focus = <span>"C++, Python, ML, and Linux"</span>;</p>
+        <div class="hero-actions">
+          <a class="hero-cta" href="#projects">View Projects</a>
+          <a class="hero-cta hero-cta-secondary" href="https://github.com/umerkniazi" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </div>
+    </section>
 
-            <article class="card">
-                <h3>Waddle Away</h3>
-                <p>
-                    A small 2D endless runner made with Godot, inspired by the Chrome Dino game.
-                    Play as a penguin dodging obstacles to survive as long as possible.
-                </p>
-                <div class="tags">Godot</div>
-                <a class="link" href="https://umerkniazi.itch.io/waddle-away" target="_blank" rel="noopener noreferrer" aria-label="Play Waddle Away on itch.io">Play on itch.io</a>
-                <br />
-                <a class="link" href="https://github.com/umerkniazi/waddle-away" target="_blank" rel="noopener noreferrer" aria-label="View Waddle Away source code on GitHub">View source on GitHub</a>
-            </article>
-        </section>
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">// projects</span>
+          <h2>Selected work</h2>
+        </div>
 
-        <section id="contact" class="panel">
-            <h2>Contact</h2>
-            <p>Open to internships, research collaborations, and mentorship.</p>
-            <ul class="meta">
-                <li>Email: <a href="mailto:hello@umerkniazi.dev">hello@umerkniazi.dev</a></li>
-                <li>Student Email: <a href="mailto:2025sai85@student.uet.edu.pk">2025sai85@student.uet.edu.pk</a></li>
-                <li>GitHub: <a href="https://github.com/umerkniazi">github.com/umerkniazi</a></li>
-                <li>LinkedIn: <a href="https://linkedin.com/in/umerkniazi">linkedin.com/in/umerkniazi</a></li>
-            </ul>
-        </section>
-    </main>
+        <div class="projects-grid">
+          <article class="project-card">
+            <h3>HPMS</h3>
+            <p>A console-based system to register, search, update, delete, list, and categorize patients. Developed as a first-semester Programming Fundamentals group project and improved from instructor feedback after scoring full marks.</p>
+            <p class="tech-stack">Category: Academic Project · Stack: C++</p>
+            <div class="project-links">
+              <a href="https://github.com/umerkniazi/hpms" target="_blank" rel="noreferrer" aria-label="HPMS GitHub link">GitHub</a>
+            </div>
+          </article>
 
-    <footer class="site-footer">
-        <span>© <time data-year></time> Umer Khan</span>
-    </footer>
+          <article class="project-card">
+            <h3>WMUS</h3>
+            <p>A lightweight terminal music player for Windows, inspired by cmus. Built for fast and minimal music playback directly in the terminal.</p>
+            <p class="tech-stack">Category: Systems / CLI Tool · Stack: Python</p>
+            <div class="project-links">
+              <a href="https://github.com/umerkniazi/wmus" target="_blank" rel="noreferrer" aria-label="WMUS GitHub link">GitHub</a>
+            </div>
+          </article>
 
-    <script src="assets/js/main.js"></script>
+          <article class="project-card">
+            <h3>Waddle Away</h3>
+            <p>A small 2D endless runner game made with Godot, inspired by the Chrome Dino game. Play as a penguin dodging obstacles to survive as long as possible.</p>
+            <p class="tech-stack">Category: Game Development · Stack: Godot</p>
+            <div class="project-links">
+              <a href="https://umerkniazi.itch.io/waddle-away" target="_blank" rel="noreferrer" aria-label="Play Waddle Away on itch.io">Play on itch.io</a>
+              <a href="https://github.com/umerkniazi/waddle-away" target="_blank" rel="noreferrer" aria-label="View Waddle Away source on GitHub">View source on GitHub</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container narrow">
+        <div class="section-heading">
+          <span class="eyebrow">// about</span>
+          <h2>About me</h2>
+        </div>
+
+        <div class="about-copy">
+          <p>I am a second-year AI student, and I spend most of my time working on systems development and practical artificial intelligence. I usually build with C++ and Python.</p>
+          <p>My interests include machine learning, bioinformatics, Linux systems, and game development. I also pay attention to areas outside tech, including animal welfare.</p>
+          <p>I learn best by building real projects, so I keep the work practical, readable, and focused on solving one problem well.</p>
+          <p>Skills:</p>
+          <ul>
+            <li>C++</li>
+            <li>Python</li>
+            <li>Linux</li>
+            <li>Machine Learning (basic)</li>
+            <li>Godot</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container narrow">
+        <div class="section-heading">
+          <span class="eyebrow">// contact</span>
+          <h2>Get in touch</h2>
+        </div>
+
+        <p class="contact-note">Open to internships, research opportunities, and collaborative projects.</p>
+
+        <div class="contact-list">
+          <a href="mailto:hello@umerkniazi.dev">
+            <span>Email</span>
+            <strong>hello@umerkniazi.dev</strong>
+          </a>
+          <a href="mailto:2025sai85@student.uet.edu.pk">
+            <span>Student Email</span>
+            <strong>2025sai85@student.uet.edu.pk</strong>
+          </a>
+          <a href="https://github.com/umerkniazi" target="_blank" rel="noreferrer">
+            <span>GitHub</span>
+            <strong>github.com/umerkniazi</strong>
+          </a>
+          <a href="https://linkedin.com/in/umerkniazi" target="_blank" rel="noreferrer">
+            <span>LinkedIn</span>
+            <strong>linkedin.com/in/umerkniazi</strong>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© 2026 Umer Khan Niazi</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
