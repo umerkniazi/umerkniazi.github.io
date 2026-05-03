@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Umer Khan Niazi - second-year AI student focused on systems development and software engineering." />
   <title>Umer Khan Niazi | AI Student & Systems Developer</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="assets/styles.css" />
 </head>
 
 <body>
@@ -20,9 +20,9 @@
       </a>
 
       <div class="nav-actions">
-        <button class="icon-button theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme" aria-pressed="false">
-          <span class="icon" aria-hidden="true">◐</span>
-          <span class="button-text">Theme</span>
+        <button class="icon-button theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false" title="Toggle color theme">
+          <span class="icon" aria-hidden="true">☀️</span>
+          <span class="sr-only">Toggle color theme</span>
         </button>
 
         <button class="icon-button menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="siteNav">
@@ -86,12 +86,18 @@
 
           <!-- WMUS -->
           <article class="project-card">
+            <figure class="project-media">
+              <img src="assets/images/wmus-screenshot.png" alt="WMUS project screenshot" loading="lazy" />
+            </figure>
             <h3>WMUS</h3>
             <p>
-              A lightweight terminal music player for Windows inspired by cmus.
-              Built as a modular CLI system focused on speed, simplicity, and clean architecture.
+              A lightweight terminal music player for Windows inspired by cmus. Features a modular architecture, fuzzy search with intelligent filtering, vim-style navigation and configurable keybindings, fast metadata caching, multi-format audio support (MP3/FLAC/OGG), an Inno Setup installer, and versioned releases.
             </p>
-            <p class="tech-stack">Python · CLI Tool · Systems Programming</p>
+            <p class="tech-stack" aria-label="Project tags">
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">CLI Tool</span>
+              <span class="tech-pill">Systems Programming</span>
+            </p>
             <div class="project-links">
               <a href="https://github.com/umerkniazi/wmus" target="_blank">GitHub</a>
             </div>
@@ -99,11 +105,17 @@
 
           <!-- WADDLE AWAY -->
           <article class="project-card small">
+            <figure class="project-media">
+              <img src="assets/images/waddle-away-screenshot.png" alt="Waddle Away project screenshot" loading="lazy" />
+            </figure>
             <h3>Waddle Away</h3>
             <p>
               A small 2D endless runner game built with Godot.
             </p>
-            <p class="tech-stack">Godot · Game Development</p>
+            <p class="tech-stack" aria-label="Project tags">
+              <span class="tech-pill">Godot</span>
+              <span class="tech-pill">Game Development</span>
+            </p>
 
             <div class="project-links">
               <a href="https://umerkniazi.itch.io/waddle-away" target="_blank">Play</a>
@@ -128,25 +140,43 @@
         <div class="about-copy">
 
           <p>
-            I am a second-year AI student. I focus on learning programming fundamentals and building small but complete software systems.
+            I am a second-year AI student who learns by building, shipping small, complete projects that people can use. I prefer hands-on work that combines systems engineering with applied research, rather than theoretical exercises alone.
           </p>
 
           <p>
-            My main tools are Python and C++. I enjoy working on systems-style projects that emphasize clarity, structure, and performance.
+            My primary tools are Python and C++. I enjoy projects that emphasize clarity, maintainability, and practical impact, from CLI tools to small games and data experiments.
           </p>
 
           <p>
-            I’m currently strengthening my foundation in AI concepts while continuing to build practical engineering projects.
+            I’m especially interested in applying ML to bioinformatics and animal-welfare problems. Currently I’m experimenting with data pipelines, model evaluation, and short end-to-end demos to build that bridge between research and real software.
           </p>
 
-          <p>Skills:</p>
-          <ul>
-            <li>C++</li>
-            <li>Python</li>
-            <li>Linux</li>
-            <li>Git</li>
-            <li>CLI Tool Development</li>
-          </ul>
+          <div class="skills-grid" aria-label="Skills">
+            <div class="skill-group">
+              <span class="skill-label">Languages</span>
+              <div class="skill-pills">
+                <span class="skill-pill">Python</span>
+                <span class="skill-pill">C++</span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <span class="skill-label">Tools</span>
+              <div class="skill-pills">
+                <span class="skill-pill">Linux</span>
+                <span class="skill-pill">Git</span>
+                <span class="skill-pill">Godot</span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <span class="skill-label">AI / Data</span>
+              <div class="skill-pills">
+                <span class="skill-pill">NumPy</span>
+                <span class="skill-pill">Pandas</span>
+              </div>
+            </div>
+          </div>
 
         </div>
 
@@ -198,7 +228,7 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="assets/script.js"></script>
 
 </body>
 </html>

@@ -7,14 +7,30 @@ const storedTheme = localStorage.getItem('theme');
 const systemPreference = window.matchMedia('(prefers-color-scheme: dark)');
 
 function applyTheme(theme) {
-  if (theme) {
-    root.setAttribute('data-theme', theme);
-    themeToggle.setAttribute('aria-pressed', theme === 'dark');
-    return;
+  let resolved = theme;
+  if (resolved) {
+    root.setAttribute('data-theme', resolved);
+  } else {
+    root.removeAttribute('data-theme');
+    resolved = systemPreference.matches ? 'dark' : 'light';
   }
 
-  root.removeAttribute('data-theme');
-  themeToggle.setAttribute('aria-pressed', systemPreference.matches);
+  // Update aria-pressed
+  themeToggle.setAttribute('aria-pressed', resolved === 'dark');
+
+  // Update icon and aria-label (icon-only button)
+  const icon = themeToggle.querySelector('.icon');
+  if (resolved === 'dark') {
+    // Currently dark; clicking will switch to light
+    if (icon) icon.textContent = '☀️';
+    themeToggle.setAttribute('aria-label', 'Switch to light theme');
+    themeToggle.title = 'Switch to light theme';
+  } else {
+    // Currently light; clicking will switch to dark
+    if (icon) icon.textContent = '🌙';
+    themeToggle.setAttribute('aria-label', 'Switch to dark theme');
+    themeToggle.title = 'Switch to dark theme';
+  }
 }
 
 function currentTheme() {
