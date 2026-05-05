@@ -2,5 +2,5 @@
 
 Personal website for projects, learnings, and work.
 
-**Stack**: HTML, CSS, JavaScript  
+**Stack**: Astro, HTML, CSS, JavaScript, Tailwind CSS  
 **Hosted on**: GitHub Pages

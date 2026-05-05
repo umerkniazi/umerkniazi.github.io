@@ -1,0 +1,84 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = '404 | Page Not Found';
+---
+
+<Layout title={title} description="The page you requested could not be found.">
+  <Header />
+  <main id="main">
+    <section class="section error-page" data-reveal>
+      <div class="container narrow error-shell">
+        <p class="error-code" aria-label="Error code">404</p>
+        <h1>Signal Lost</h1>
+        <p class="error-copy">
+          You found a glitch in the matrix. The route you requested doesn&apos;t exist in this timeline.
+        </p>
+        <div class="error-actions">
+          <a class="hero-cta" href="/">Return Home</a>
+          <a class="hero-cta hero-cta-secondary" href="/">Reload Reality</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+  <script is:inline src="/script.js"></script>
+</Layout>
+
+<style>
+  .error-page {
+    min-height: calc(100vh - 14rem);
+    display: grid;
+    align-items: center;
+    padding-top: 5rem;
+  }
+
+  .error-shell {
+    border: 1px solid color-mix(in srgb, var(--border) 72%, var(--accent));
+    border-radius: 1.2rem;
+    padding: clamp(1.4rem, 3vw, 2.3rem);
+    background: color-mix(in srgb, var(--surface-raised) 88%, transparent);
+  }
+
+  .error-code {
+    margin: 0 0 0.6rem;
+    color: var(--accent);
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+  }
+
+  .error-page h1 {
+    max-width: none;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    margin-bottom: 0.8rem;
+    position: relative;
+  }
+
+  .error-page h1::after {
+    content: 'Signal Lost';
+    position: absolute;
+    inset: 0;
+    color: color-mix(in srgb, var(--accent) 45%, transparent);
+    clip-path: inset(0 0 46% 0);
+    transform: translate(1px, -1px);
+    opacity: 0.45;
+    pointer-events: none;
+  }
+
+  .error-copy {
+    margin: 0;
+    max-width: 58ch;
+    color: var(--text-muted);
+    line-height: 1.85;
+  }
+
+  .error-actions {
+    margin-top: 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+</style>
