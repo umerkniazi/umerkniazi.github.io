@@ -5,6 +5,7 @@ const themeToggle = document.getElementById('themeToggle');
 const navLinks = document.querySelectorAll('#siteNav a');
 const revealItems = document.querySelectorAll('[data-reveal]');
 const whoamiOutput = document.getElementById('whoamiOutput');
+
 const storedTheme = localStorage.getItem('theme');
 const systemPreference = window.matchMedia('(prefers-color-scheme: dark)');
 
@@ -63,22 +64,33 @@ if (whoamiOutput) {
 
   if (!reducedMotion && text) {
     whoamiOutput.textContent = '';
-    let index = 0;
-    const type = () => {
-      index += 1;
-      whoamiOutput.textContent = text.slice(0, index);
-      if (index < text.length) {
-        window.setTimeout(type, 22);
+    
+    let start = null;
+    const typeSpeed = 22; // ms per character
+    const delay = 260; // initial delay
+    
+    const type = (timestamp) => {
+      if (!start) start = timestamp;
+      const elapsed = timestamp - start;
+      
+      if (elapsed > delay) {
+        const typingTime = elapsed - delay;
+        const targetIndex = Math.floor(typingTime / typeSpeed);
+        const currentIndex = whoamiOutput.textContent.length;
+        
+        if (targetIndex > currentIndex) {
+          whoamiOutput.textContent = text.slice(0, Math.min(targetIndex, text.length));
+        }
+      }
+      
+      if (whoamiOutput.textContent.length < text.length) {
+        window.requestAnimationFrame(type);
       }
     };
-    window.setTimeout(type, 260);
+    
+    window.requestAnimationFrame(type);
   }
 }
-
-window.addEventListener('pointermove', (event) => {
-  root.style.setProperty('--pointer-x', `${event.clientX}px`);
-  root.style.setProperty('--pointer-y', `${event.clientY}px`);
-});
 
 if ('IntersectionObserver' in window) {
   const revealObserver = new IntersectionObserver((entries) => {

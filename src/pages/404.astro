@@ -24,7 +24,7 @@ const title = '404 | Page Not Found';
     </section>
   </main>
   <Footer />
-  <script is:inline src="/script.js"></script>
+  <script is:inline src="/script.js" defer></script>
 </Layout>
 
 <style>
@@ -57,16 +57,7 @@ const title = '404 | Page Not Found';
     position: relative;
   }
 
-  .error-page h1::after {
-    content: 'Signal Lost';
-    position: absolute;
-    inset: 0;
-    color: color-mix(in srgb, var(--accent) 45%, transparent);
-    clip-path: inset(0 0 46% 0);
-    transform: translate(1px, -1px);
-    opacity: 0.45;
-    pointer-events: none;
-  }
+
 
   .error-copy {
     margin: 0;
