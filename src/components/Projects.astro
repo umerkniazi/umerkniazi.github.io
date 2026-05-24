@@ -1,5 +1,5 @@
 ---
-import { ArrowUpRight, GithubLogo } from '@phosphor-icons/react/dist/ssr';
+import { ArrowUpRight, GithubLogo, GameController } from '@phosphor-icons/react/dist/ssr';
 ---
 <section class="section" id="projects" data-reveal>
   <div class="container">
@@ -8,11 +8,9 @@ import { ArrowUpRight, GithubLogo } from '@phosphor-icons/react/dist/ssr';
       <h2>Featured Work</h2>
     </div>
     <div class="projects-grid">
+      
       <article class="project-card featured">
         <div class="project-kicker">Featured</div>
-        <figure class="project-media">
-          <img src="/images/news-nlp-pipeline.png" alt="News NLP Pipeline project screenshot" width="1280" height="720" loading="lazy" decoding="async" />
-        </figure>
         <h3>News NLP Pipeline</h3>
         <p>
           Processes and classifies 350k+ news articles from Dawn using an automated NLP pipeline. Built with Python and BERTopic to perform sentiment analysis, named entity recognition, and topic modeling at scale.
@@ -25,20 +23,17 @@ import { ArrowUpRight, GithubLogo } from '@phosphor-icons/react/dist/ssr';
           <span class="tech-pill">spaCy / NLTK</span>
         </p>
         <div class="project-links">
-          <a href="https://news-nlp-pipeline.streamlit.app/" target="_blank" rel="noreferrer">
-            <ArrowUpRight aria-hidden="true" weight="bold" /> Live Demo
-          </a>
           <a href="https://github.com/umerkniazi/news-nlp-pipeline" target="_blank" rel="noreferrer">
             <GithubLogo aria-hidden="true" weight="bold" /> GitHub
+          </a>
+          <a href="https://news-nlp-pipeline.streamlit.app/" target="_blank" rel="noreferrer">
+            <ArrowUpRight aria-hidden="true" weight="bold" /> Live Demo
           </a>
         </div>
       </article>
 
       <article class="project-card featured">
         <div class="project-kicker">Featured</div>
-        <figure class="project-media">
-          <img src="/images/shelter-outcome-predictor.png" alt="Shelter Outcome Predictor project screenshot" width="1280" height="720" loading="lazy" decoding="async" />
-        </figure>
         <h3>Shelter Outcome Predictor</h3>
         <p>
           Predicts adoption and euthanasia risks for shelter animals using a Random Forest classifier trained on 62k+ real intake records. Deployed as a high-recall Streamlit application to assist in shelter triage operations.
@@ -50,20 +45,17 @@ import { ArrowUpRight, GithubLogo } from '@phosphor-icons/react/dist/ssr';
           <span class="tech-pill">Streamlit</span>
         </p>
         <div class="project-links">
-          <a href="https://shelter-outcome-predictor.streamlit.app/" target="_blank" rel="noreferrer">
-            <ArrowUpRight aria-hidden="true" weight="bold" /> Live Demo
-          </a>
           <a href="https://github.com/umerkniazi/shelter-outcome-predictor" target="_blank" rel="noreferrer">
             <GithubLogo aria-hidden="true" weight="bold" /> GitHub
+          </a>
+          <a href="https://shelter-outcome-predictor.streamlit.app/" target="_blank" rel="noreferrer">
+            <ArrowUpRight aria-hidden="true" weight="bold" /> Live Demo
           </a>
         </div>
       </article>
 
       <article class="project-card featured">
         <div class="project-kicker">Featured</div>
-        <figure class="project-media">
-          <img src="/images/wmus-screenshot.png" alt="WMUS project screenshot" width="1280" height="720" loading="lazy" decoding="async" />
-        </figure>
         <h3>WMUS</h3>
         <p>
           Powers seamless terminal-based audio playback through a lightweight, Cmus-inspired music player. Engineered with Python to feature fast metadata caching, fuzzy search, and vim-style navigation.
@@ -82,9 +74,6 @@ import { ArrowUpRight, GithubLogo } from '@phosphor-icons/react/dist/ssr';
 
       <article class="project-card">
         <div class="project-kicker">Other</div>
-        <figure class="project-media">
-          <img src="/images/waddle-away-screenshot.png" alt="Waddle Away project screenshot" width="1280" height="720" loading="lazy" decoding="async" />
-        </figure>
         <h3>Waddle Away</h3>
         <p>
           Delivers a responsive 2D endless runner experience built in Godot, optimizing for tight gameplay feel and smooth collision mechanics.
@@ -94,14 +83,15 @@ import { ArrowUpRight, GithubLogo } from '@phosphor-icons/react/dist/ssr';
           <span class="tech-pill">Game Development</span>
         </p>
         <div class="project-links">
-          <a href="https://umerkniazi.itch.io/waddle-away" target="_blank" rel="noreferrer">
-            <ArrowUpRight aria-hidden="true" weight="bold" /> Play
-          </a>
           <a href="https://github.com/umerkniazi/waddle-away" target="_blank" rel="noreferrer">
             <GithubLogo aria-hidden="true" weight="bold" /> GitHub
           </a>
+          <a href="https://umerkniazi.itch.io/waddle-away" target="_blank" rel="noreferrer">
+            <GameController aria-hidden="true" weight="duotone" /> Play
+          </a>
         </div>
       </article>
+
     </div>
   </div>
 </section>

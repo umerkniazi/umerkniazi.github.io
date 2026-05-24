@@ -1,104 +1,117 @@
 <section class="section" id="about" data-reveal>
-  <div class="container narrow">
+  <div class="container">
     <div class="section-heading">
       <span class="eyebrow">// about</span>
-      <h2>About Me</h2>
+      <h2>About</h2>
     </div>
 
-    <div class="about-copy">
-      <p>
-        I'm a second-year AI student who enjoys building complete, practical software instead of stopping at prototypes. I like working at the intersection of systems engineering, applied machine learning, and product thinking. I care about writing code that is clean, maintainable, and useful beyond a notebook or demo.
-      </p>
+    <div class="about-grid" style="display: grid; gap: 3rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+      
+      <div class="about-copy">
+        <p>
+          I am a second-year AI student obsessed with making models actually work in the real world. I specialize in the infrastructure around machine learning: writing clean data ingestion scripts, optimizing inference speeds, and building the CLI tools that support them.
+        </p>
 
-      <p>
-        I'm especially interested in ML for bioinformatics and animal welfare: problems that sit between research and engineering, where the work involves data pipelines, evaluation systems, and deployable tools built on real-world data.
-      </p>
+        <p>
+          When I am not writing Python or C++, I am studying core computer science fundamentals to ensure the systems I build are robust, scalable, and maintainable.
+        </p>
 
-      <div class="skills-grid" aria-label="Skills">
+        <div class="skills-grid" aria-label="Skills">
+          <div class="skill-group">
+            <span class="skill-label">Languages</span>
+            <div class="skill-pills">
+              <span class="skill-pill">
+                <i class="devicon-python-plain skill-icon skill-devicon" aria-hidden="true"></i> Python
+              </span>
+              <span class="skill-pill">
+                <i class="devicon-cplusplus-plain skill-icon skill-devicon" aria-hidden="true"></i> C++
+              </span>
+              <span class="skill-pill">
+                <i class="devicon-html5-plain skill-icon skill-devicon" aria-hidden="true"></i> HTML
+              </span>
+              <span class="skill-pill">
+                <i class="devicon-css3-plain skill-icon skill-devicon" aria-hidden="true"></i> CSS
+              </span>
+            </div>
+          </div>
 
-        <div class="skill-group">
-          <span class="skill-label">Languages</span>
-          <div class="skill-pills">
-            <span class="skill-pill">
-              <i class="devicon-python-plain skill-icon skill-devicon" aria-hidden="true"></i>
-              Python
-            </span>
-            <span class="skill-pill">
-              <i class="devicon-cplusplus-plain skill-icon skill-devicon" aria-hidden="true"></i>
-              C++
-            </span>
-            <span class="skill-pill">
-              <i class="devicon-html5-plain skill-icon skill-devicon" aria-hidden="true"></i>
-              HTML
-            </span>
-            <span class="skill-pill">
-              <i class="devicon-css3-plain skill-icon skill-devicon" aria-hidden="true"></i>
-              CSS
-            </span>
+          <div class="skill-group">
+            <span class="skill-label">Tools</span>
+            <div class="skill-pills">
+              <span class="skill-pill">
+                <i class="devicon-linux-plain skill-icon skill-devicon" aria-hidden="true"></i> Linux
+              </span>
+              <span class="skill-pill">
+                <i class="devicon-git-plain skill-icon skill-devicon" aria-hidden="true"></i> Git
+              </span>
+              <span class="skill-pill">
+                <i class="devicon-streamlit-plain skill-icon skill-devicon" aria-hidden="true"></i> Streamlit
+              </span>
+              <span class="skill-pill">
+                <i class="devicon-sqlite-plain skill-icon skill-devicon" aria-hidden="true"></i> SQLite
+              </span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <span class="skill-label">AI / Data</span>
+            <div class="skill-pills">
+              <span class="skill-pill">
+                <i class="devicon-numpy-plain skill-icon skill-devicon" aria-hidden="true"></i> NumPy
+              </span>
+              <span class="skill-pill">
+                <i class="devicon-pandas-plain skill-icon skill-devicon" aria-hidden="true"></i> Pandas
+              </span>
+              <span class="skill-pill">
+                <i class="devicon-matplotlib-plain skill-icon skill-devicon" aria-hidden="true"></i> Matplotlib
+              </span>
+              <span class="skill-pill">
+                <i class="devicon-scikitlearn-plain skill-icon skill-devicon" aria-hidden="true"></i> scikit-learn
+              </span>
+              <span class="skill-pill">Seaborn</span>
+              <span class="skill-pill">
+                <i class="devicon-pytorch-original skill-icon skill-devicon" aria-hidden="true"></i> PyTorch
+              </span>
+              <span class="skill-pill">BERTopic</span>
+              <span class="skill-pill">Transformers</span>
+              <span class="skill-pill">Hugging Face</span>
+            </div>
           </div>
         </div>
-
-        <div class="skill-group">
-          <span class="skill-label">Tools</span>
-          <div class="skill-pills">
-            <span class="skill-pill">
-              <i class="devicon-linux-plain skill-icon skill-devicon" aria-hidden="true"></i>
-              Linux
-            </span>
-            <span class="skill-pill">
-              <i class="devicon-git-plain skill-icon skill-devicon" aria-hidden="true"></i>
-              Git
-            </span>
-            <span class="skill-pill">
-              <i class="devicon-streamlit-plain skill-icon skill-devicon" aria-hidden="true"></i>
-              Streamlit
-            </span>
-            <span class="skill-pill">
-              <i class="devicon-sqlite-plain skill-icon skill-devicon" aria-hidden="true"></i>
-              SQLite
-            </span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <span class="skill-label">AI / Data</span>
-          <div class="skill-pills">
-            <span class="skill-pill">
-              <i class="devicon-numpy-plain skill-icon skill-devicon" aria-hidden="true"></i>
-              NumPy
-            </span>
-            <span class="skill-pill">
-              <i class="devicon-pandas-plain skill-icon skill-devicon" aria-hidden="true"></i>
-              Pandas
-            </span>
-            <span class="skill-pill">
-              <i class="devicon-matplotlib-plain skill-icon skill-devicon" aria-hidden="true"></i>
-              Matplotlib
-            </span>
-            <span class="skill-pill">
-              <i class="devicon-scikitlearn-plain skill-icon skill-devicon" aria-hidden="true"></i>
-              scikit-learn
-            </span>
-            <span class="skill-pill">
-              Seaborn
-            </span>
-            <span class="skill-pill">
-              <i class="devicon-pytorch-original skill-icon skill-devicon" aria-hidden="true"></i>
-              PyTorch
-            </span>
-            <span class="skill-pill">
-              BERTopic
-            </span>
-            <span class="skill-pill">
-              Transformers
-            </span>
-            <span class="skill-pill">
-              Hugging Face
-            </span>
-          </div>
-        </div>
-
       </div>
+
+      <div class="timeline-list">
+        <article class="timeline-item primary">
+          <div>
+            <div class="timeline-year">2024 — Present</div>
+          </div>
+          <div>
+            <h3>BS Artificial Intelligence, UET</h3>
+            <p>Focused on machine learning architecture, systems programming, and applied mathematics.</p>
+          </div>
+        </article>
+        
+        <article class="timeline-item">
+          <div>
+            <div class="timeline-year">Current Focus</div>
+          </div>
+          <div>
+            <h3>Coursework and Practice</h3>
+            <p>Data Structures, Algorithms, Linear Algebra, and OS concepts.</p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div>
+            <div class="timeline-year">Next</div>
+          </div>
+          <div>
+            <h3>Open Source and Internships</h3>
+            <p>Actively seeking 2026 internship roles in ML engineering and applied AI. Also looking for open source projects to contribute to — particularly in NLP tooling, data pipelines, or ML infrastructure.</p>
+          </div>
+        </article>
+      </div>
+
     </div>
   </div>
 </section>
