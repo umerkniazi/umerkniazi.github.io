@@ -628,12 +628,17 @@ h3 {
   box-shadow: 0 12px 24px -10px var(--accent-soft);
 }
 
+/* Updated Non-Featured Styling: Removed Opacity */
 .project-card:not(.featured) {
-  opacity: 0.85;
+  border-color: transparent;
+  background: transparent;
+  box-shadow: none;
 }
 
 .project-card:not(.featured):hover {
-  opacity: 1;
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+  background: var(--surface);
+  box-shadow: 0 12px 24px -10px var(--accent-soft);
 }
 
 .project-kicker {

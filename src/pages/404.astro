@@ -11,10 +11,13 @@ const title = '404 | Page Not Found';
   <main id="main">
     <section class="section error-page" data-reveal>
       <div class="container narrow error-shell">
-        <p class="error-code" aria-label="Error code">404</p>
+        <p class="error-code" aria-label="Error code">// ERROR 404</p>
         <h1>Signal Lost</h1>
+        <p class="error-copy" style="font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: var(--accent); margin-bottom: 1rem;">
+          > bash: /requested-route: No such file or directory
+        </p>
         <p class="error-copy">
-          You found a glitch in the matrix. The route you requested doesn&apos;t exist in this timeline.
+          You found a glitch in the matrix. The route you requested doesn't exist in this timeline.
         </p>
         <div class="error-actions">
           <a class="hero-cta" href="/">Return Home</a>
@@ -61,6 +64,14 @@ const title = '404 | Page Not Found';
     max-width: 58ch;
     color: var(--text-muted);
     line-height: 1.85;
+  }
+
+  .error-copy code {
+    background: var(--surface-strong);
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.3rem;
+    font-size: 0.85em;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
   }
 
   .error-actions {
