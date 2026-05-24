@@ -1,32 +1,28 @@
 ---
-import { CircleHalf, List, X } from '@phosphor-icons/react/dist/ssr';
+import { Sun, Moon, List, X } from '@phosphor-icons/react/dist/ssr';
 ---
-
 <header class="site-header" data-reveal>
   <div class="container nav-shell">
     <a class="brand" href="#hero" aria-label="Umer Khan Niazi home">
       <span class="brand-mark">UK</span>
       <span class="brand-text">Umer Khan Niazi</span>
     </a>
-
+    <nav class="site-nav" id="siteNav">
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
     <div class="nav-actions">
-      <button class="icon-button theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false" title="Toggle color theme">
-        <CircleHalf className="theme-icon" aria-hidden="true" weight="fill" />
-        <span class="sr-only">Toggle color theme</span>
+      <a href="/resume.pdf" download class="nav-cta">Resume</a>
+      <button class="theme-icon-btn" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false" title="Toggle color theme">
+        <Sun className="theme-btn-icon theme-btn-icon--light" aria-hidden="true" weight="bold" />
+        <Moon className="theme-btn-icon theme-btn-icon--dark" aria-hidden="true" weight="bold" />
       </button>
-
       <button class="icon-button menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="siteNav">
         <List className="menu-icon menu-icon-open" aria-hidden="true" weight="bold" />
         <X className="menu-icon menu-icon-close" aria-hidden="true" weight="bold" />
         <span class="button-text">Menu</span>
       </button>
     </div>
-
-    <nav class="site-nav" id="siteNav">
-      <a href="#hero">Home</a>
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
   </div>
 </header>

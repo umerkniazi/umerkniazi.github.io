@@ -1,15 +1,31 @@
 ---
-import { GithubLogo, LinkedinLogo } from '@phosphor-icons/react/dist/ssr';
+import { GithubLogo, LinkedinLogo, Stack, ChartLineUp, TerminalWindow } from '@phosphor-icons/react/dist/ssr';
 ---
-
 <section class="section hero" id="hero" data-reveal>
+  <div class="hero-ambient-glow" aria-hidden="true"></div>
   <div class="container hero-grid">
     <div class="hero-status">// currently: building practical systems and polishing this portfolio</div>
     <h1>Umer Khan Niazi</h1>
-    <p class="title">AI Student & Systems Developer</p>
+    <p class="title">AI Student focused on ML pipelines & systems design</p>
     <p class="intro">
-      I'm a second-year AI student focused on building useful software, from command-line tools to small games and practical tools.
+      Second-year AI student at UET Lahore. I build end-to-end ML systems and developer tools, from high-throughput NLP pipelines to predictive models deployed in production environments.
     </p>
+    
+    <div class="proof-signals">
+      <div class="proof-item">
+        <Stack weight="duotone" className="proof-icon" />
+        <span><strong>4+</strong> End-to-End Projects</span>
+      </div>
+      <div class="proof-item">
+        <ChartLineUp weight="duotone" className="proof-icon" />
+        <span><strong>2+</strong> ML Models in Production</span>
+      </div>
+      <div class="proof-item">
+        <TerminalWindow weight="duotone" className="proof-icon" />
+        <span>Actively building systems</span>
+      </div>
+    </div>
+
     <div class="hero-terminal" aria-label="Terminal introduction">
       <div class="terminal-chrome" aria-hidden="true">
         <span class="dot red"></span>
@@ -22,8 +38,8 @@ import { GithubLogo, LinkedinLogo } from '@phosphor-icons/react/dist/ssr';
         <code
           class="terminal-line terminal-output"
           id="whoamiOutput"
-          data-text="Umer Khan Niazi · AI student building practical systems with Python and C++."
-        >Umer Khan Niazi · AI student building practical systems with Python and C++.</code>
+          data-text="Umer Khan Niazi • AI @ UET Lahore • Python, Machine Learning, Systems • Open to internships"
+        >Umer Khan Niazi • AI @ UET Lahore • Python, Machine Learning, Systems • Open to internships</code>
       </pre>
     </div>
     <div class="hero-actions">

@@ -1,3 +1,6 @@
+---
+import { ArrowUpRight, GithubLogo } from '@phosphor-icons/react/dist/ssr';
+---
 <section class="section" id="projects" data-reveal>
   <div class="container">
     <div class="section-heading">
@@ -12,11 +15,7 @@
         </figure>
         <h3>News NLP Pipeline</h3>
         <p>
-          An end-to-end NLP system built on 350k+ articles and headlines from Dawn (2010–2025).
-          Covers the full pipeline from automated ingestion and cleaning to downstream tasks
-          including sentiment analysis, named entity recognition, news classification, and
-          topic modeling using BERTopic with UMAP and KMeans. Modular architecture designed
-          for easy extension and experimentation.
+          Processes and classifies 350k+ news articles from Dawn using an automated NLP pipeline. Built with Python and BERTopic to perform sentiment analysis, named entity recognition, and topic modeling at scale.
         </p>
         <p class="tech-stack" aria-label="Project tags">
           <span class="tech-pill">Python</span>
@@ -26,8 +25,12 @@
           <span class="tech-pill">spaCy / NLTK</span>
         </p>
         <div class="project-links">
-          <a href="https://news-nlp-pipeline.streamlit.app/" target="_blank" rel="noreferrer">Live Demo</a>
-          <a href="https://github.com/umerkniazi/news-nlp-pipeline" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://news-nlp-pipeline.streamlit.app/" target="_blank" rel="noreferrer">
+            <ArrowUpRight aria-hidden="true" weight="bold" /> Live Demo
+          </a>
+          <a href="https://github.com/umerkniazi/news-nlp-pipeline" target="_blank" rel="noreferrer">
+            <GithubLogo aria-hidden="true" weight="bold" /> GitHub
+          </a>
         </div>
       </article>
 
@@ -38,10 +41,7 @@
         </figure>
         <h3>Shelter Outcome Predictor</h3>
         <p>
-          A machine learning tool that predicts whether a shelter animal is likely to be adopted,
-          transferred, or at risk of euthanasia. Trained on 62k+ real intake records from the
-          Austin Animal Center using a Random Forest classifier with balanced class weighting to
-          prioritize recall on at-risk animals. Deployed as an interactive Streamlit app.
+          Predicts adoption and euthanasia risks for shelter animals using a Random Forest classifier trained on 62k+ real intake records. Deployed as a high-recall Streamlit application to assist in shelter triage operations.
         </p>
         <p class="tech-stack" aria-label="Project tags">
           <span class="tech-pill">Python</span>
@@ -50,8 +50,12 @@
           <span class="tech-pill">Streamlit</span>
         </p>
         <div class="project-links">
-          <a href="https://shelter-outcome-predictor.streamlit.app/" target="_blank" rel="noreferrer">Live Demo</a>
-          <a href="https://github.com/umerkniazi/shelter-outcome-predictor" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://shelter-outcome-predictor.streamlit.app/" target="_blank" rel="noreferrer">
+            <ArrowUpRight aria-hidden="true" weight="bold" /> Live Demo
+          </a>
+          <a href="https://github.com/umerkniazi/shelter-outcome-predictor" target="_blank" rel="noreferrer">
+            <GithubLogo aria-hidden="true" weight="bold" /> GitHub
+          </a>
         </div>
       </article>
 
@@ -62,10 +66,7 @@
         </figure>
         <h3>WMUS</h3>
         <p>
-          A lightweight terminal music player for Windows inspired by cmus. It features a modular
-          architecture, fuzzy search with intelligent filtering, vim-style navigation, configurable
-          keybindings, fast metadata caching, multi-format audio support, and a packaged installer
-          with versioned releases.
+          Powers seamless terminal-based audio playback through a lightweight, Cmus-inspired music player. Engineered with Python to feature fast metadata caching, fuzzy search, and vim-style navigation.
         </p>
         <p class="tech-stack" aria-label="Project tags">
           <span class="tech-pill">Python</span>
@@ -73,29 +74,34 @@
           <span class="tech-pill">Systems Programming</span>
         </p>
         <div class="project-links">
-          <a href="https://github.com/umerkniazi/wmus" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://github.com/umerkniazi/wmus" target="_blank" rel="noreferrer">
+            <GithubLogo aria-hidden="true" weight="bold" /> GitHub
+          </a>
         </div>
       </article>
 
       <article class="project-card">
-        <div class="project-kicker">Side Project</div>
+        <div class="project-kicker">Other</div>
         <figure class="project-media">
           <img src="/images/waddle-away-screenshot.png" alt="Waddle Away project screenshot" width="1280" height="720" loading="lazy" decoding="async" />
         </figure>
         <h3>Waddle Away</h3>
         <p>
-          A small 2D endless runner built with Godot, focused on gameplay feel and responsive controls.
+          Delivers a responsive 2D endless runner experience built in Godot, optimizing for tight gameplay feel and smooth collision mechanics.
         </p>
         <p class="tech-stack" aria-label="Project tags">
           <span class="tech-pill">Godot</span>
           <span class="tech-pill">Game Development</span>
         </p>
         <div class="project-links">
-          <a href="https://umerkniazi.itch.io/waddle-away" target="_blank" rel="noreferrer">Play</a>
-          <a href="https://github.com/umerkniazi/waddle-away" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://umerkniazi.itch.io/waddle-away" target="_blank" rel="noreferrer">
+            <ArrowUpRight aria-hidden="true" weight="bold" /> Play
+          </a>
+          <a href="https://github.com/umerkniazi/waddle-away" target="_blank" rel="noreferrer">
+            <GithubLogo aria-hidden="true" weight="bold" /> GitHub
+          </a>
         </div>
       </article>
-
     </div>
   </div>
 </section>
