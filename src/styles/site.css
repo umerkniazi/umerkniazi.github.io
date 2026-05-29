@@ -84,6 +84,12 @@ html {
   color: var(--accent);
 }
 
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -558,7 +564,7 @@ h3 {
   transition: all var(--transition-fast);
 }
 
-.hero-cta:hover { 
+.hero-cta:hover {
   background: color-mix(in srgb, var(--accent) 90%, black);
   color: var(--surface) !important;
   transform: translateY(-1px);
@@ -567,15 +573,15 @@ h3 {
 
 .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
 
-.hero-cta-secondary { 
-  border-color: var(--border); 
+.hero-cta-secondary {
+  border-color: var(--border);
   color: var(--text) !important;
   background: transparent;
   box-shadow: none;
 }
 
-.hero-cta-secondary:hover { 
-  border-color: var(--accent); 
+.hero-cta-secondary:hover {
+  border-color: var(--accent);
   color: var(--accent) !important;
   background: var(--surface-raised);
 }
@@ -592,7 +598,7 @@ h3 {
   transition: all var(--transition-fast);
 }
 
-.hero-icon-link:hover { 
+.hero-icon-link:hover {
   color: var(--accent);
   border-color: color-mix(in srgb, var(--accent) 60%, var(--border));
   background: var(--surface-raised);
@@ -806,7 +812,7 @@ h3 {
 .timeline-item.primary .timeline-year { color: var(--accent); font-weight: 600; }
 
 .contact-list {
-  gap: 0.85rem;
+  gap: 1.25rem;
   max-width: 600px;
   width: 100%;
   margin: 0 auto;
@@ -889,16 +895,16 @@ h3 {
 @media (max-width: 699px) {
   .nav-controls { margin-left: auto; }
   .nav-cta { display: none !important; }
-  .site-nav { 
-    width: 100%; 
-    order: 3; 
+  .site-nav {
+    width: 100%;
+    order: 3;
   }
   .projects-grid { grid-template-columns: 1fr; }
   .contact-list a, .timeline-item { grid-template-columns: 1fr; }
   .contact-list a { flex-direction: column; align-items: flex-start; }
   .button-text { display: none; }
   .footer-inner { gap: 0.5rem; }
-  .hero-grid > * { animation-delay: 0ms !important; } 
+  .hero-grid > * { animation-delay: 0ms !important; }
   .hero { padding-top: 2.5rem; padding-bottom: 3rem; }
   h1 { font-size: clamp(2.5rem, 10vw, 3.5rem); }
   .proof-signals {
