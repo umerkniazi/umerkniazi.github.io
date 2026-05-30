@@ -13,16 +13,17 @@ import { ArrowUpRight, GithubLogo, GameController } from '@phosphor-icons/react/
 
       <article class="project-item flagship">
         <div class="project-header">
-          <div class="project-kicker"><strong>// flagship &mdash; unguided analysis</strong></div>
+          <div class="project-kicker"><strong>// flagship — unguided analysis</strong></div>
           <h3>News NLP Pipeline</h3>
-          <div class="project-metric"><strong>Metric:</strong> 350k+ articles processed</div>
+          <div class="project-metric-badge">Metric: 350k+ articles processed</div>
         </div>
         <p>
-          I wanted to know what Dawn actually writes about, so I built a pipeline to find out. Runs the raw data through BERTopic for topic modeling, spaCy for NER, and a classifier for sentiment. No labels, no supervision. The structure emerges from the text itself.
+          I wanted to know what Dawn actually writes about, so I built a pipeline for unguided analysis. Runs the raw data through BERTopic for topic modeling, spaCy for NER, and a classifier for sentiment. No labels, no supervision. The structure emerges from the text itself.
         </p>
         <p class="tech-stack" aria-label="Project tags">
           <span class="tech-pill">Python</span>
           <span class="tech-pill">NLP</span>
+          <span class="tech-pill">spaCy</span>
           <span class="tech-pill">BERTopic</span>
         </p>
         <div class="project-links">
@@ -30,16 +31,16 @@ import { ArrowUpRight, GithubLogo, GameController } from '@phosphor-icons/react/
             <GithubLogo aria-hidden="true" weight="bold" /> GitHub
           </a>
           <a href="https://news-nlp-pipeline.streamlit.app/" target="_blank" rel="noopener noreferrer">
-            <ArrowUpRight aria-hidden="true" weight="bold" /> Live Demo
+            <ArrowUpRight aria-hidden="true" weight="bold" /> Streamlit App
           </a>
         </div>
       </article>
 
       <article class="project-item">
         <div class="project-header">
-          <div class="project-kicker">// machine learning &mdash; predictive triage</div>
+          <div class="project-kicker">// machine learning — predictive triage</div>
           <h3>Shelter Outcome Predictor</h3>
-          <div class="project-metric"><strong>Metric:</strong> 80k+ intake records modeled</div>
+          <div class="project-metric-badge">Metric: 80k+ intake records modeled</div>
         </div>
         <p>
           Trained a Random Forest on data from Austin Animal Center to predict which animals are at risk. Built for recall over precision because a missed at-risk animal is worse than a false alarm. Deployed as a Streamlit app. This one matters to me personally.
@@ -54,14 +55,14 @@ import { ArrowUpRight, GithubLogo, GameController } from '@phosphor-icons/react/
             <GithubLogo aria-hidden="true" weight="bold" /> GitHub
           </a>
           <a href="https://shelter-outcome-predictor.streamlit.app/" target="_blank" rel="noopener noreferrer">
-            <ArrowUpRight aria-hidden="true" weight="bold" /> Live Demo
+            <ArrowUpRight aria-hidden="true" weight="bold" /> Streamlit App
           </a>
         </div>
       </article>
 
       <article class="project-item">
         <div class="project-header">
-          <div class="project-kicker">// systems &mdash; terminal music player</div>
+          <div class="project-kicker">// systems — terminal music player</div>
           <h3>WMUS</h3>
         </div>
         <p>
@@ -81,7 +82,7 @@ import { ArrowUpRight, GithubLogo, GameController } from '@phosphor-icons/react/
 
       <article class="project-item side-project">
         <div class="project-header">
-          <div class="project-kicker">// side project</div>
+          <div class="project-kicker">// game dev — endless runner</div>
           <h3>Waddle Away</h3>
         </div>
         <p>
@@ -96,7 +97,7 @@ import { ArrowUpRight, GithubLogo, GameController } from '@phosphor-icons/react/
             <GithubLogo aria-hidden="true" weight="bold" /> GitHub
           </a>
           <a href="https://umerkniazi.itch.io/waddle-away" target="_blank" rel="noopener noreferrer">
-            <GameController aria-hidden="true" weight="duotone" /> Play
+            <GameController aria-hidden="true" weight="duotone" /> Itch.io
           </a>
         </div>
       </article>
@@ -104,3 +105,147 @@ import { ArrowUpRight, GithubLogo, GameController } from '@phosphor-icons/react/
     </div>
   </div>
 </section>
+
+<style>
+  .section-heading {
+    display: grid;
+    gap: 0.55rem;
+    margin-bottom: 2.5rem; /* Tightened from 3.5rem to reduce dead space */
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    color: var(--accent);
+    font-size: 0.84rem;
+    letter-spacing: 0.02em;
+  }
+
+  .projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+    max-width: 680px;
+    border-top: 1px solid var(--border); /* Added to intentionally anchor the list */
+    padding-top: 3rem;
+  }
+
+  .project-item {
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+    transition: none;
+  }
+
+  .project-item:hover {
+    transform: none;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .project-header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-kicker,
+  .project-kicker strong {
+    font-family: var(--font-serif) !important;
+    font-style: italic !important;
+    font-weight: 300 !important;
+    font-size: 1.1rem !important;
+    color: var(--accent) !important;
+    opacity: 0.85;
+    border: none;
+    padding: 0;
+    text-transform: none;
+    letter-spacing: normal;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    width: auto;
+    justify-self: start;
+    align-self: start;
+    margin-bottom: 0.5rem;
+    white-space: normal;
+  }
+
+  .project-metric-badge {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    background: var(--surface-strong);
+    color: var(--text);
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+    margin-top: 0.75rem;
+    letter-spacing: 0.02em;
+    border: 1px solid var(--border);
+  }
+
+  .project-item h3 {
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: var(--text);
+    margin: 0;
+  }
+
+  .project-item > p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.75;
+    margin: 0;
+  }
+
+  .tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 0;
+  }
+
+  .tech-pill {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+    letter-spacing: 0.03em;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    transition: all var(--transition-fast);
+  }
+
+  .project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-top: 0.25rem;
+  }
+
+  .project-links a {
+    color: var(--text-muted);
+    font-weight: 400;
+    font-size: 0.94rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .project-item:hover .project-links a {
+    color: var(--accent);
+  }
+
+  .project-links a:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+</style>

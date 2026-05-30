@@ -1,8 +1,11 @@
+---
+---
+
 <section class="section" id="about" data-reveal>
   <div class="container narrow">
     <div class="section-heading">
       <span class="eyebrow">// about</span>
-      <h2>About</h2>
+      <h2>Builder. Second year.</h2>
     </div>
 
     <div class="about-grid" style="display: grid; gap: 4rem; grid-template-columns: 1fr;">
@@ -22,39 +25,21 @@
 
         <div class="skills-grid" aria-label="Skills">
           <div class="skill-group">
-            <span class="skill-label">Languages</span>
+            <span class="skill-label">Core</span>
             <div class="skill-pills">
               <span class="skill-pill">Python</span>
               <span class="skill-pill">C++</span>
-              <span class="skill-pill">HTML</span>
-              <span class="skill-pill">CSS</span>
+              <span class="skill-pill">Linux</span>
             </div>
           </div>
 
           <div class="skill-group">
-            <span class="skill-label">Tools & Libraries</span>
+            <span class="skill-label">ML & Data</span>
             <div class="skill-pills">
-              <span class="skill-pill">Linux</span>
-              <span class="skill-pill">Git</span>
-              <span class="skill-pill">scikit-learn</span>
               <span class="skill-pill">PyTorch</span>
-              <span class="skill-pill">BERTopic</span>
+              <span class="skill-pill">scikit-learn</span>
+              <span class="skill-pill">spaCy</span>
             </div>
-          </div>
-        </div>
-        
-        <div style="margin-top: 3.5rem;">
-          <h3 style="font-size: 1.1rem; margin-bottom: 1rem;">Current Rabbitholes</h3>
-          <div class="timeline-list">
-            <article class="timeline-item" style="padding: 1rem 0;">
-              <div>
-                <span class="timeline-year">Reading</span>
-              </div>
-              <div>
-                <h3 style="font-size: 1.05rem; margin-bottom: 0.2rem;">Hands-On Machine Learning</h3>
-                <p style="font-size: 0.95rem; margin: 0;">Aurélien Géron</p>
-              </div>
-            </article>
           </div>
         </div>
       </div>
@@ -76,7 +61,17 @@
           </div>
           <div>
             <h3>Systems & Infrastructure</h3>
-            <p>Moving past standard model training to focus on data structures, Linux operating systems concepts, and low-latency implementation.</p>
+            <p>Building the infrastructure layer beneath the models. Moving past standard model training to focus on data structures, Linux concepts, and low-latency implementation.</p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div>
+            <div class="timeline-year">Current Rabbithole</div>
+          </div>
+          <div>
+            <h3>Hands-On Machine Learning</h3>
+            <p>Reading Aurélien Géron.</p>
           </div>
         </article>
       </div>
@@ -84,3 +79,124 @@
     </div>
   </div>
 </section>
+
+<style>
+  .section-heading {
+    display: grid;
+    gap: 0.55rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    color: var(--accent);
+    font-size: 0.84rem;
+    letter-spacing: 0.02em;
+  }
+
+  .about-copy {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .about-copy p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .skills-grid {
+    display: grid;
+    gap: 1.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .skill-group {
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .skill-label {
+    color: var(--text);
+    font-size: 0.95rem;
+    font-weight: 400;
+  }
+
+  .skill-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .skill-pill {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+    letter-spacing: 0.03em;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    transition: all var(--transition-fast);
+  }
+
+  .timeline-list {
+    display: grid;
+    gap: 0;
+  }
+
+  .timeline-item {
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: minmax(9rem, 12rem) 1fr;
+    padding: 1.5rem 0; /* Tightened from 2rem to create a denser log feel */
+    border: none;
+    border-top: 1px solid var(--border);
+    background: transparent;
+  }
+
+  .timeline-item:hover {
+    border-color: var(--border);
+    background: transparent;
+    transform: none;
+  }
+
+  .timeline-item.primary {
+    border: none;
+    border-top: 1px solid var(--border);
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .timeline-item p {
+    margin: 0;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .timeline-item h3 {
+    margin: 0 0 0.35rem;
+    color: var(--text);
+  }
+
+  .timeline-year {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .timeline-item.primary .timeline-year {
+    color: var(--accent);
+  }
+
+  @media (max-width: 699px) {
+    .timeline-item {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

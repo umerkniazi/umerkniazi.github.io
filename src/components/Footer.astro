@@ -14,3 +14,38 @@ const currentYear = new Date().getFullYear();
     </div>
   </div>
 </footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--border);
+    padding: 3rem 0;
+    margin-top: 4rem;
+    background: transparent;
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.1rem;
+    flex-wrap: wrap;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  .nav-name {
+    font-family: var(--font-serif) !important;
+    font-style: italic !important;
+    font-weight: 300 !important;
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 699px) {
+    .footer-inner {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      text-align: center;
+    }
+  }
+</style>

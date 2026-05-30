@@ -1,6 +1,7 @@
 ---
 import { Sun, Moon, List, X } from '@phosphor-icons/react/dist/ssr';
 ---
+
 <header class="site-header" data-reveal>
   <div class="container nav-shell">
     <a class="brand" href="/#hero" aria-label="Umer Khan Niazi home">
@@ -28,3 +29,198 @@ import { Sun, Moon, List, X } from '@phosphor-icons/react/dist/ssr';
     </div>
   </div>
 </header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: color-mix(in srgb, var(--bg) 95%, transparent);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-shell {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0;
+    flex-wrap: wrap;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 400;
+  }
+
+  .nav-name {
+    font-family: var(--font-serif) !important;
+    font-style: italic !important;
+    font-weight: 300 !important;
+    font-size: 1.1rem;
+  }
+
+  .brand-mark {
+    display: inline-grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 2px;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.45rem 0.9rem;
+    border-radius: 2px;
+    border: 1px solid var(--border);
+    font-weight: 400;
+    font-size: 0.85rem;
+    background: transparent;
+    color: var(--text);
+    transition: all var(--transition-fast);
+  }
+
+  .nav-cta:hover {
+    background: var(--surface);
+    color: var(--accent);
+  }
+
+  .theme-icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 2px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .theme-icon-btn:hover {
+    color: var(--accent);
+    background: var(--surface);
+  }
+
+  .theme-btn-icon {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+  }
+
+  .theme-btn-icon--dark { display: block; }
+  .theme-btn-icon--light { display: none; }
+
+  :global([data-theme='dark']) .theme-btn-icon--dark { display: none; }
+  :global([data-theme='dark']) .theme-btn-icon--light { display: block; }
+
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme='light'])) .theme-btn-icon--dark { display: none; }
+    :global(:root:not([data-theme='light'])) .theme-btn-icon--light { display: block; }
+  }
+
+  .icon-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+    border-radius: 2px;
+    padding: 0.5rem 0.9rem;
+    font: inherit;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .icon-button:hover {
+    border-color: var(--text-muted);
+    background: var(--surface);
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0;
+  }
+
+  .menu-icon {
+    width: 1.15rem;
+    height: 1.15rem;
+    display: inline-block;
+    flex: 0 0 auto;
+  }
+
+  .menu-icon-close { display: none; }
+
+  .site-nav {
+    display: none;
+    width: 100%;
+    padding: 0.25rem 0 0.6rem;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .site-nav a {
+    padding: 0.45rem 0.8rem;
+    border-radius: 2px;
+    color: var(--text-muted);
+    font-weight: 400;
+    transition: all var(--transition-fast);
+  }
+
+  .site-nav a:hover {
+    background: var(--surface);
+    color: var(--accent);
+  }
+
+  .site-header.nav-open .site-nav { display: flex; }
+  .site-header.nav-open .menu-icon-open { display: none; }
+  .site-header.nav-open .menu-icon-close { display: inline-block; }
+
+  @media (min-width: 700px) {
+    .menu-toggle { display: none; }
+
+    .site-nav {
+      display: flex !important;
+      width: auto;
+      padding: 0;
+      flex-direction: row;
+      gap: 0.5rem;
+      align-items: center;
+      margin-left: auto;
+    }
+
+    .site-nav a {
+      border: 0;
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  @media (max-width: 699px) {
+    .nav-controls { margin-left: auto; }
+    .nav-cta { display: none !important; }
+    .site-nav { order: 3; }
+    .button-text { display: none; }
+  }
+</style>

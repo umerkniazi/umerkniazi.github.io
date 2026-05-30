@@ -10,15 +10,23 @@ const title = '404 | Page Not Found';
   <Header />
   <main id="main">
     <section class="section error-page" data-reveal>
-      <div class="container narrow error-shell">
-        <p class="error-code" aria-label="Error code">// ERROR 404</p>
+      <div class="container narrow">
+        <p class="eyebrow">// ERROR 404</p>
         <h1>Signal Lost</h1>
-        <p class="error-copy" style="font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: var(--accent); margin-bottom: 1rem;">
-          > bash: /requested-route: No such file or directory
-        </p>
+        
+        <div class="terminal-error" aria-label="Terminal error output">
+          <div class="terminal-line">
+            <span class="terminal-prompt">$</span> cat /requested-route
+          </div>
+          <div class="terminal-line terminal-output">
+            cat: /requested-route: No such file or directory
+          </div>
+        </div>
+
         <p class="error-copy">
-          You found a glitch in the matrix. The route you requested doesn't exist in this timeline.
+          The route you requested doesn't exist on this machine.
         </p>
+        
         <div class="error-actions">
           <a class="hero-cta" href="/">Return Home</a>
         </div>
@@ -30,6 +38,10 @@ const title = '404 | Page Not Found';
 </Layout>
 
 <style>
+  .section {
+    padding: 6rem 0;
+  }
+
   .error-page {
     min-height: calc(100vh - 14rem);
     display: grid;
@@ -37,47 +49,85 @@ const title = '404 | Page Not Found';
     padding-top: 5rem;
   }
 
-  .error-shell {
-    border: 1px solid color-mix(in srgb, var(--border) 72%, var(--accent));
-    border-radius: 1.2rem;
-    padding: clamp(1.4rem, 3vw, 2.3rem);
-    background: color-mix(in srgb, var(--surface-raised) 88%, transparent);
-  }
-
-  .error-code {
-    margin: 0 0 0.6rem;
-    color: var(--accent);
+  .eyebrow {
     font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.85rem;
-    letter-spacing: 0.08em;
+    color: var(--accent);
+    font-size: 0.84rem;
+    letter-spacing: 0.02em;
+    margin: 0 0 0.6rem;
   }
 
   .error-page h1 {
     max-width: none;
-    font-size: clamp(2.2rem, 6vw, 4rem);
-    margin-bottom: 0.8rem;
-    position: relative;
+    font-size: clamp(3rem, 8vw, 4.5rem);
+    margin-bottom: 2rem;
+  }
+
+  .terminal-error {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.85rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.25rem;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+    max-width: 520px;
+  }
+
+  .terminal-line {
+    display: block;
+    white-space: pre-wrap;
+    color: var(--text-muted);
+  }
+
+  .terminal-prompt {
+    color: var(--accent);
+    margin-right: 0.45ch;
+  }
+
+  .terminal-output {
+    color: var(--text);
   }
 
   .error-copy {
-    margin: 0;
-    max-width: 58ch;
+    margin: 0 0 2rem;
+    max-width: 55ch;
     color: var(--text-muted);
-    line-height: 1.85;
-  }
-
-  .error-copy code {
-    background: var(--surface-strong);
-    padding: 0.2rem 0.4rem;
-    border-radius: 0.3rem;
-    font-size: 0.85em;
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    line-height: 1.75;
+    font-size: 1.08rem;
   }
 
   .error-actions {
-    margin-top: 1.25rem;
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    min-height: 2.5rem;
+    padding: 0.6rem 1.4rem;
+    border: 1px solid var(--accent);
+    border-radius: 2px;
+    color: var(--bg) !important;
+    font-weight: 400;
+    font-size: 0.92rem;
+    background: var(--accent);
+    transition: all var(--transition-fast);
+  }
+
+  .hero-cta:hover {
+    background: transparent;
+    color: var(--accent) !important;
+  }
+
+  @media (max-width: 699px) {
+    .section {
+      padding: 4rem 0;
+    }
   }
 </style>
