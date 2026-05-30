@@ -2,64 +2,69 @@
 import { ArrowUpRight, GithubLogo, GameController } from '@phosphor-icons/react/dist/ssr';
 ---
 <section class="section" id="projects">
-  <div class="container">
+  <div class="container narrow">
     <div class="section-heading">
       <span class="eyebrow">// projects</span>
-      <h2>Featured Work</h2>
+      <h2>Things I've Built</h2>
     </div>
-    <div class="projects-grid">
 
-      <article class="project-card featured">
-        <div class="project-kicker">Featured</div>
-        <h3>News NLP Pipeline</h3>
+    <div class="projects-list">
+
+      <article class="project-item flagship">
+        <div class="project-header">
+          <div class="project-kicker"><strong>// flagship &mdash; unguided analysis</strong></div>
+          <h3>News NLP Pipeline</h3>
+          <div class="project-metric"><strong>Metric:</strong> 350k+ articles processed</div>
+        </div>
         <p>
-          Processes and classifies 350k+ news articles from Dawn using an automated NLP pipeline. Built with Python and BERTopic to perform sentiment analysis, named entity recognition, and topic modeling at scale.
+          I wanted to know what Dawn actually writes about, so I built a pipeline to find out. Runs the raw data through BERTopic for topic modeling, spaCy for NER, and a classifier for sentiment. No labels, no supervision. The structure emerges from the text itself.
         </p>
         <p class="tech-stack" aria-label="Project tags">
           <span class="tech-pill">Python</span>
           <span class="tech-pill">NLP</span>
           <span class="tech-pill">BERTopic</span>
-          <span class="tech-pill">scikit-learn</span>
-          <span class="tech-pill">spaCy / NLTK</span>
         </p>
         <div class="project-links">
-          <a href="https://github.com/umerkniazi/news-nlp-pipeline" target="_blank" rel="noreferrer">
+          <a href="https://github.com/umerkniazi/news-nlp-pipeline" target="_blank" rel="noopener noreferrer">
             <GithubLogo aria-hidden="true" weight="bold" /> GitHub
           </a>
-          <a href="https://news-nlp-pipeline.streamlit.app/" target="_blank" rel="noreferrer">
+          <a href="https://news-nlp-pipeline.streamlit.app/" target="_blank" rel="noopener noreferrer">
             <ArrowUpRight aria-hidden="true" weight="bold" /> Live Demo
           </a>
         </div>
       </article>
 
-      <article class="project-card featured">
-        <div class="project-kicker">Featured</div>
-        <h3>Shelter Outcome Predictor</h3>
+      <article class="project-item">
+        <div class="project-header">
+          <div class="project-kicker">// machine learning &mdash; predictive triage</div>
+          <h3>Shelter Outcome Predictor</h3>
+          <div class="project-metric"><strong>Metric:</strong> 80k+ intake records modeled</div>
+        </div>
         <p>
-          Predicts adoption and euthanasia risks for shelter animals using a Random Forest classifier trained on 62k+ real intake records. Deployed as a high-recall Streamlit application to assist in shelter triage operations.
+          Trained a Random Forest on data from Austin Animal Center to predict which animals are at risk. Built for recall over precision because a missed at-risk animal is worse than a false alarm. Deployed as a Streamlit app. This one matters to me personally.
         </p>
         <p class="tech-stack" aria-label="Project tags">
           <span class="tech-pill">Python</span>
           <span class="tech-pill">Machine Learning</span>
-          <span class="tech-pill">scikit-learn</span>
           <span class="tech-pill">Streamlit</span>
         </p>
         <div class="project-links">
-          <a href="https://github.com/umerkniazi/shelter-outcome-predictor" target="_blank" rel="noreferrer">
+          <a href="https://github.com/umerkniazi/shelter-outcome-predictor" target="_blank" rel="noopener noreferrer">
             <GithubLogo aria-hidden="true" weight="bold" /> GitHub
           </a>
-          <a href="https://shelter-outcome-predictor.streamlit.app/" target="_blank" rel="noreferrer">
+          <a href="https://shelter-outcome-predictor.streamlit.app/" target="_blank" rel="noopener noreferrer">
             <ArrowUpRight aria-hidden="true" weight="bold" /> Live Demo
           </a>
         </div>
       </article>
 
-      <article class="project-card featured">
-        <div class="project-kicker">Featured</div>
-        <span class="eyebrow">// terminal music player</span>
-        <h3>WMUS</h3>
+      <article class="project-item">
+        <div class="project-header">
+          <div class="project-kicker">// systems &mdash; terminal music player</div>
+          <h3>WMUS</h3>
+        </div>
         <p>
-          Powers seamless terminal-based audio playback through a lightweight, Cmus-inspired music player. Engineered with Python to feature fast metadata caching, fuzzy search, and vim-style navigation.
+          I didn't like any of the terminal music players I tried, so I wrote one. Cmus-inspired, Python-based. Fuzzy search, vim bindings, metadata caching. Does one thing and tries to do it well.
         </p>
         <p class="tech-stack" aria-label="Project tags">
           <span class="tech-pill">Python</span>
@@ -67,27 +72,29 @@ import { ArrowUpRight, GithubLogo, GameController } from '@phosphor-icons/react/
           <span class="tech-pill">Systems Programming</span>
         </p>
         <div class="project-links">
-          <a href="https://github.com/umerkniazi/wmus" target="_blank" rel="noreferrer">
+          <a href="https://github.com/umerkniazi/wmus" target="_blank" rel="noopener noreferrer">
             <GithubLogo aria-hidden="true" weight="bold" /> GitHub
           </a>
         </div>
       </article>
 
-      <article class="project-card">
-        <div class="project-kicker">Side Quest</div>
-        <h3>Waddle Away</h3>
+      <article class="project-item side-project">
+        <div class="project-header">
+          <div class="project-kicker">// side project</div>
+          <h3>Waddle Away</h3>
+        </div>
         <p>
-          Delivers a responsive 2D endless runner experience built in Godot, optimizing for tight gameplay feel and smooth collision mechanics.
+          An endless runner built in Godot. I made this because I wanted to understand how games actually feel: collision response, frame timing, the gap between technically correct and fun. It taught me more about feedback loops than any ML paper has.
         </p>
         <p class="tech-stack" aria-label="Project tags">
           <span class="tech-pill">Godot</span>
           <span class="tech-pill">Game Development</span>
         </p>
         <div class="project-links">
-          <a href="https://github.com/umerkniazi/waddle-away" target="_blank" rel="noreferrer">
+          <a href="https://github.com/umerkniazi/waddle-away" target="_blank" rel="noopener noreferrer">
             <GithubLogo aria-hidden="true" weight="bold" /> GitHub
           </a>
-          <a href="https://umerkniazi.itch.io/waddle-away" target="_blank" rel="noreferrer">
+          <a href="https://umerkniazi.itch.io/waddle-away" target="_blank" rel="noopener noreferrer">
             <GameController aria-hidden="true" weight="duotone" /> Play
           </a>
         </div>

@@ -3,9 +3,14 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
-  <div class="container footer-inner" style="text-align: center; padding: 1rem 0; font-size: 0.9rem;">
-    <p style="margin: 0; opacity: 0.8;">
-      © {currentYear} Umer Khan Niazi <span style="margin: 0 0.75rem; opacity: 0.5;">|</span> Built with <span style="color: var(--accent, #ff6b6b);">♥</span> and Astro
-    </p>
+  <div class="container narrow">
+    <div class="footer-inner">
+      <p style="margin: 0;">
+        © {currentYear} <span class="nav-name">Umer Khan Niazi</span>
+      </p>
+      <p style="margin: 0;">
+        Built with Astro
+      </p>
+    </div>
   </div>
 </footer>
