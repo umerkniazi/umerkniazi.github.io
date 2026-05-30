@@ -1,14 +1,11 @@
 ---
 import '../styles/global.css';
-
 interface Props {
   title: string;
   description?: string;
 }
-
-const { title, description = 'Umer Khan Niazi - second-year AI student focused on systems development and software engineering.' } = Astro.props;
+const { title, description = 'Umer Khan Niazi — ML and systems developer, second-year AI student at UET Lahore.' } = Astro.props;
 ---
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -17,8 +14,9 @@ const { title, description = 'Umer Khan Niazi - second-year AI student focused o
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{title}</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />

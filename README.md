@@ -1,7 +1,8 @@
-# Portfolio
+# umerkniazi.dev
+Personal portfolio — projects, writing, and contact.
 
-Personal website for projects, learnings, and work.
+Live at [umerkniazi.dev](https://umerkniazi.dev)
 
-**Stack**: Astro, HTML, CSS, JavaScript, Tailwind CSS  
-**Icons**: Phosphor Icons  
+**Stack**: Astro  
+**Icons**: Phosphor Icons (via React)  
 **Hosted on**: Cloudflare Pages
