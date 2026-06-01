@@ -38,6 +38,32 @@ import { ArrowUpRight, GithubLogo, GameController } from '@phosphor-icons/react/
 
       <article class="project-item">
         <div class="project-header">
+          <div class="project-kicker">// computer vision — edge case QA</div>
+          <h3>GB Wildlife Classifier</h3>
+          <div class="project-metric-badge">Metric: 98.16% val accuracy</div>
+        </div>
+        <p>
+          Trained a ResNet18 transfer learning pipeline to classify images of three endangered Himalayan species from Gilgit-Baltistan: brown bear, markhor, and snow leopard. Early layers frozen, custom 3-class head trained with augmentation to prevent overfitting on a limited dataset. The real work was stress-testing against out-of-distribution data, adding a confidence threshold at 80% to catch unknowns, and documenting failure modes where visual and taxonomic similarity trips the model up.
+        </p>
+        <p class="tech-stack" aria-label="Project tags">
+          <span class="tech-pill">Python</span>
+          <span class="tech-pill">PyTorch</span>
+          <span class="tech-pill">Computer Vision</span>
+          <span class="tech-pill">Streamlit</span>
+        </p>
+        <div class="project-links">
+          <a href="https://github.com/umerkniazi/gb-wildlife-classifier" target="_blank" rel="noopener noreferrer">
+            <GithubLogo aria-hidden="true" weight="bold" /> GitHub
+          </a>
+          <!-- Replace this URL once you deploy to Streamlit Community Cloud -->
+          <a href="https://gb-wildlife-classifier.streamlit.app/" target="_blank" rel="noopener noreferrer">
+            <ArrowUpRight aria-hidden="true" weight="bold" /> Streamlit App
+          </a>
+        </div>
+      </article>
+
+      <article class="project-item">
+        <div class="project-header">
           <div class="project-kicker">// machine learning — predictive triage</div>
           <h3>Shelter Outcome Predictor</h3>
           <div class="project-metric-badge">Metric: 80k+ intake records modeled</div>
@@ -110,7 +136,7 @@ import { ArrowUpRight, GithubLogo, GameController } from '@phosphor-icons/react/
   .section-heading {
     display: grid;
     gap: 0.55rem;
-    margin-bottom: 2.5rem; /* Tightened from 3.5rem to reduce dead space */
+    margin-bottom: 2.5rem;
   }
 
   .eyebrow {
@@ -125,7 +151,7 @@ import { ArrowUpRight, GithubLogo, GameController } from '@phosphor-icons/react/
     flex-direction: column;
     gap: 3.5rem;
     max-width: 680px;
-    border-top: 1px solid var(--border); /* Added to intentionally anchor the list */
+    border-top: 1px solid var(--border);
     padding-top: 3rem;
   }
 
