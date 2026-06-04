@@ -43,7 +43,7 @@ import { ArrowUpRight, GithubLogo, GameController } from '@phosphor-icons/react/
           <div class="project-metric-badge">Metric: 98.16% val accuracy</div>
         </div>
         <p>
-          Trained a ResNet18 transfer learning pipeline to classify images of three endangered Himalayan species from Gilgit-Baltistan: brown bear, markhor, and snow leopard. Early layers frozen, custom 3-class head trained with augmentation to prevent overfitting on a limited dataset. The real work was stress-testing against out-of-distribution data, adding a confidence threshold at 80% to catch unknowns, and documenting failure modes where visual and taxonomic similarity trips the model up.
+          Frozen early layers, custom 3-class head trained on three endangered Himalayan species from Gilgit-Baltistan. The real work was stress-testing out-of-distribution data, adding an 80% confidence threshold to catch unknowns, and documenting failure modes where visual and taxonomic similarity trips the model.
         </p>
         <p class="tech-stack" aria-label="Project tags">
           <span class="tech-pill">Python</span>
@@ -55,7 +55,6 @@ import { ArrowUpRight, GithubLogo, GameController } from '@phosphor-icons/react/
           <a href="https://github.com/umerkniazi/gb-wildlife-classifier" target="_blank" rel="noopener noreferrer">
             <GithubLogo aria-hidden="true" weight="bold" /> GitHub
           </a>
-          <!-- Replace this URL once you deploy to Streamlit Community Cloud -->
           <a href="https://gb-wildlife-classifier.streamlit.app/" target="_blank" rel="noopener noreferrer">
             <ArrowUpRight aria-hidden="true" weight="bold" /> Streamlit App
           </a>
@@ -85,6 +84,10 @@ import { ArrowUpRight, GithubLogo, GameController } from '@phosphor-icons/react/
           </a>
         </div>
       </article>
+
+      <div class="secondary-projects-heading">
+        <span class="eyebrow">// other work</span>
+      </div>
 
       <article class="project-item">
         <div class="project-header">
@@ -273,5 +276,11 @@ import { ArrowUpRight, GithubLogo, GameController } from '@phosphor-icons/react/
   .project-links a:hover {
     text-decoration: underline;
     text-underline-offset: 0.2em;
+  }
+
+  .secondary-projects-heading {
+    border-top: 1px dashed var(--border);
+    padding-top: 2.5rem;
+    margin-top: -0.5rem;
   }
 </style>

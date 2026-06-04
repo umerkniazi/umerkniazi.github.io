@@ -1,16 +1,16 @@
 :root {
   color-scheme: light;
-  --font-serif: 'Fraunces', Georgia, serif;
+  --font-serif: 'Syne', system-ui, sans-serif;
   --font-sans: 'Inter', system-ui, sans-serif;
-  --bg: #f7f4f0;
-  --bg-secondary: #eeeae4;
-  --surface: #eeeae4;
-  --surface-strong: #e5e0d8;
-  --surface-raised: #eeeae4;
+  --bg: #f4f4f2;
+  --bg-secondary: #eeeeeb;
+  --surface: #eeeeeb;
+  --surface-strong: #e6e6e2;
+  --surface-raised: #eeeeeb;
   --text: #1a1814;
   --text-muted: #6b6560;
-  --border: #ddd9d3;
-  --accent: #5e905e;
+  --border: #d8d8d4;
+  --accent: #5b8dd9;
   --accent-soft: color-mix(in srgb, var(--accent) 15%, transparent);
   --terminal-bg: var(--bg-secondary);
   --terminal-text: var(--text);
@@ -30,7 +30,7 @@
   --text: #f0f0ee;
   --text-muted: #888884;
   --border: #262626;
-  --accent: #6a9e6a;
+  --accent: #5b8dd9;
   --accent-soft: color-mix(in srgb, var(--accent) 15%, transparent);
   --terminal-glow: transparent;
 }
@@ -46,7 +46,7 @@
     --text: #f0f0ee;
     --text-muted: #888884;
     --border: #262626;
-    --accent: #6a9e6a;
+    --accent: #5b8dd9;
     --accent-soft: color-mix(in srgb, var(--accent) 15%, transparent);
     --terminal-glow: transparent;
   }
@@ -104,14 +104,14 @@ a:hover { color: var(--accent); }
 
 h1, h2, h3, p { margin: 0; }
 
-h1, h2 {
+h1, h2, h3 {
   font-family: var(--font-serif) !important;
-  font-weight: 300 !important;
-  letter-spacing: -0.02em !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.03em !important;
 }
 
 h1 {
-  font-size: clamp(3rem, 8vw, 4.5rem);
+  font-size: clamp(2.2rem, 5.5vw, 3.8rem);
   line-height: 1.05;
   max-width: 14ch;
   text-wrap: balance;
@@ -125,11 +125,8 @@ h2 {
 }
 
 h3 {
-  font-family: var(--font-serif) !important;
   font-size: clamp(1.2rem, 1.8vw, 1.5rem);
   line-height: 1.2;
-  font-weight: 400;
-  letter-spacing: -0.01em;
   text-wrap: balance;
 }
 
