@@ -172,9 +172,6 @@ export const siteConfig = {
       }
     ]
   },
-  footer: {
-    builtWith: "Built with Astro"
-  },
   error404: {
     eyebrow: "// ERROR 404",
     title: "Signal Lost",

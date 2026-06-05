@@ -2,7 +2,7 @@
 import { siteConfig } from '../config';
 
 const currentYear = new Date().getFullYear();
-const { navbar, footer } = siteConfig;
+const { navbar } = siteConfig;
 ---
 
 <footer class="site-footer">
@@ -10,9 +10,6 @@ const { navbar, footer } = siteConfig;
     <div class="footer-inner">
       <p class="footer-copyright">
         <span class="footer-prompt">$</span> © {currentYear} {navbar.brandName}
-      </p>
-      <p class="footer-built">
-        <span class="footer-built-prefix">//</span> {footer.builtWith}
       </p>
     </div>
   </div>
@@ -28,7 +25,7 @@ const { navbar, footer } = siteConfig;
 
   .footer-inner {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: baseline;
     gap: 1rem;
     flex-wrap: wrap;
@@ -37,8 +34,7 @@ const { navbar, footer } = siteConfig;
     font-size: 0.8rem;
   }
 
-  .footer-copyright,
-  .footer-built {
+  .footer-copyright {
     margin: 0;
     display: inline-flex;
     align-items: baseline;
@@ -50,25 +46,14 @@ const { navbar, footer } = siteConfig;
     font-weight: 500;
   }
 
-  .footer-built-prefix {
-    color: var(--accent);
-    opacity: 0.7;
-  }
-
   @media (max-width: 699px) {
     .site-footer {
       padding: 1.5rem 0;
       margin-top: 2rem;
     }
     .footer-inner {
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      text-align: center;
-    }
-    .footer-copyright,
-    .footer-built {
       justify-content: center;
+      text-align: center;
     }
   }
 </style>
