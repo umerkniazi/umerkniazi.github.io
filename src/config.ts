@@ -52,8 +52,7 @@ export const siteConfig = {
         links: [
           { label: "GitHub", url: "https://github.com/umerkniazi/news-nlp-pipeline", icon: "GithubLogo" },
           { label: "Streamlit App", url: "https://news-nlp-pipeline.streamlit.app/", icon: "ArrowUpRight" }
-        ],
-        isFlagship: true
+        ]
       },
       {
         kicker: "// computer vision — edge case QA",
@@ -76,12 +75,7 @@ export const siteConfig = {
           { label: "GitHub", url: "https://github.com/umerkniazi/shelter-outcome-predictor", icon: "GithubLogo" },
           { label: "Streamlit App", url: "https://shelter-outcome-predictor.streamlit.app/", icon: "ArrowUpRight" }
         ]
-      }
-    ],
-    secondaryHeading: {
-      eyebrow: "// other work"
-    },
-    other: [
+      },
       {
         kicker: "// systems — terminal music player",
         title: "WMUS",
@@ -90,17 +84,6 @@ export const siteConfig = {
         links: [
           { label: "GitHub", url: "https://github.com/umerkniazi/wmus", icon: "GithubLogo" }
         ]
-      },
-      {
-        kicker: "// game dev — endless runner",
-        title: "Waddle Away",
-        description: "An endless runner built in Godot. I made this because I wanted to understand how games actually feel: collision response, frame timing, the gap between technically correct and fun. It taught me more about feedback loops than any ML paper has.",
-        techStack: ["Godot", "Game Development"],
-        links: [
-          { label: "GitHub", url: "https://github.com/umerkniazi/waddle-away", icon: "GithubLogo" },
-          { label: "Itch.io", url: "https://umerkniazi.itch.io/waddle-away", icon: "GameController" }
-        ],
-        isSideProject: true
       }
     ]
   },

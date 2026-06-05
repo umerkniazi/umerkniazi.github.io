@@ -20,37 +20,7 @@ const iconMap = {
 
     <div class="projects-list">
       {projects.featured.map(project => (
-        <article class="project-item flagship">
-          <div class="project-meta">
-            <div class="project-kicker"><strong>{project.kicker}</strong></div>
-            {project.metricBadge && <span class="metric-badge">{project.metricBadge}</span>}
-          </div>
-          <h3>{project.title}</h3>
-          <p class="project-description">{project.description}</p>
-          <div class="tech-stack">
-            {project.techStack.map(tech => <span class="tech-pill">{tech}</span>)}
-          </div>
-          <div class="project-links">
-            {project.links.map(link => {
-              const Icon = iconMap[link.icon];
-              return (
-                <a href={link.url} target="_blank" rel="noopener noreferrer">
-                  {Icon && <Icon aria-hidden="true" weight="bold" />}
-                  {link.label}
-                </a>
-              );
-            })}
-          </div>
-        </article>
-      ))}
-
-      <div class="other-work-separator"></div>
-      <div class="other-work-heading">
-        <span class="eyebrow">{projects.secondaryHeading.eyebrow}</span>
-      </div>
-
-      {projects.other.map(project => (
-        <article class="project-item secondary">
+        <article class="project-item">
           <div class="project-meta">
             <div class="project-kicker"><strong>{project.kicker}</strong></div>
             {project.metricBadge && <span class="metric-badge">{project.metricBadge}</span>}
@@ -106,24 +76,13 @@ const iconMap = {
     margin-bottom: 0;
   }
 
-  /* Flagship cards – very subtle border, nearly transparent background */
-  .project-item.flagship {
+  /* All cards get the same subtle styling */
+  .project-item {
     border: 1px solid rgba(255, 255, 255, 0.08);
     background: rgba(255, 255, 255, 0.008);
     border-radius: 16px;
     padding: 1.5rem;
     transition: all 0.2s ease;
-  }
-
-  /* Secondary cards – even lighter, no background */
-  .project-item.secondary {
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    background: transparent;
-    border-radius: 16px;
-    padding: 1.5rem;
-  }
-  .project-item.secondary h3 {
-    opacity: 0.6;
   }
 
   .project-meta {
@@ -222,21 +181,9 @@ const iconMap = {
     color: var(--accent);
   }
 
-  .other-work-separator {
-    margin: 2rem 0 1rem;
-    border-top: 2px solid var(--border);
-    opacity: 0.4;
-  }
-  .other-work-heading {
-    margin: 0 0 1.5rem;
-  }
-
   @media (max-width: 699px) {
     .project-item {
       margin-bottom: 2rem;
-    }
-    .project-item.flagship,
-    .project-item.secondary {
       padding: 1rem;
     }
     .project-meta {
@@ -253,12 +200,6 @@ const iconMap = {
     }
     .project-description {
       font-size: 0.92rem;
-    }
-    .other-work-separator {
-      margin: 1.5rem 0 0.75rem;
-    }
-    .other-work-heading {
-      margin: 0 0 1rem;
     }
   }
 </style>
