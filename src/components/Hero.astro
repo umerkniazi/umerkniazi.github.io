@@ -10,19 +10,19 @@ const { hero } = siteConfig;
   <div class="hero-grid-bg" aria-hidden="true"></div>
 
   <div class="container hero-grid">
-    <div class="hero-status" style="--i:0">
+    <div class="hero-status">
       {hero.status}
     </div>
 
-    <h1 class="hero-title" style="--i:1">
+    <h1 class="hero-title">
       {hero.title}
     </h1>
 
-    <p class="hero-intro" style="--i:2">
+    <p class="hero-intro">
       {hero.intro}
     </p>
 
-    <div class="terminal-wrapper" style="--i:3">
+    <div class="terminal-wrapper">
       <Terminal
         meta={hero.terminal.meta}
         prompt={hero.terminal.prompt}
@@ -31,7 +31,7 @@ const { hero } = siteConfig;
       />
     </div>
 
-    <div class="hero-actions" style="--i:4">
+    <div class="hero-actions">
       <a class="hero-cta" href={hero.cta.href} download>
         {hero.cta.label}
       </a>
@@ -91,17 +91,6 @@ const { hero } = siteConfig;
       display: grid;
       gap: 1.75rem;
     }
-
-    .hero-grid > * {
-      opacity: 0;
-      animation: fade-in-up 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-    }
-
-    .hero-grid > *:nth-child(1) { animation-delay: 0ms; }
-    .hero-grid > *:nth-child(2) { animation-delay: 40ms; }
-    .hero-grid > *:nth-child(3) { animation-delay: 80ms; }
-    .hero-grid > *:nth-child(4) { animation-delay: 120ms; }
-    .hero-grid > *:nth-child(5) { animation-delay: 160ms; }
 
     .hero-status {
       font-family: 'JetBrains Mono', monospace;
@@ -196,10 +185,6 @@ const { hero } = siteConfig;
       .hero {
         padding-top: 4rem;
         padding-bottom: 2rem;
-      }
-
-      .hero-grid > * {
-        animation-delay: 0ms !important;
       }
 
       .hero-title {
