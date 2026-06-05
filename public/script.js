@@ -3,7 +3,6 @@ const header = document.querySelector('.site-header');
 const menuToggle = document.getElementById('menuToggle');
 const themeToggle = document.getElementById('themeToggle');
 const navLinks = document.querySelectorAll('#siteNav a');
-const revealItems = document.querySelectorAll('[data-reveal]');
 const storedTheme = localStorage.getItem('theme');
 const systemPreference = window.matchMedia('(prefers-color-scheme: dark)');
 
@@ -54,20 +53,6 @@ window.addEventListener('keydown', (e) => {
     menuToggle.setAttribute('aria-expanded', 'false');
   }
 });
-
-if ('IntersectionObserver' in window) {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
-  revealItems.forEach((item) => observer.observe(item));
-} else {
-  revealItems.forEach((item) => item.classList.add('is-visible'));
-}
 
 systemPreference.addEventListener('change', () => {
   if (!localStorage.getItem('theme')) applyTheme();

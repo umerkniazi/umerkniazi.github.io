@@ -8,11 +8,11 @@ const { navbar, footer } = siteConfig;
 <footer class="site-footer">
   <div class="container narrow">
     <div class="footer-inner">
-      <p style="margin: 0;">
-        © {currentYear} <span class="nav-name">{navbar.brandName}</span>
+      <p class="footer-copyright">
+        <span class="footer-prompt">$</span> © {currentYear} {navbar.brandName}
       </p>
-      <p style="margin: 0;">
-        {footer.builtWith}
+      <p class="footer-built">
+        <span class="footer-built-prefix">//</span> {footer.builtWith}
       </p>
     </div>
   </div>
@@ -21,34 +21,54 @@ const { navbar, footer } = siteConfig;
 <style>
   .site-footer {
     border-top: 1px solid var(--border);
-    padding: 3rem 0;
-    margin-top: 4rem;
+    padding: 2rem 0;
+    margin-top: 3rem;
     background: transparent;
   }
 
   .footer-inner {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    gap: 1.1rem;
+    align-items: baseline;
+    gap: 1rem;
     flex-wrap: wrap;
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
   }
 
-  .nav-name {
-    font-family: var(--font-serif) !important;
-    font-style: italic !important;
-    font-weight: 300 !important;
-    font-size: 1.1rem;
+  .footer-copyright,
+  .footer-built {
+    margin: 0;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4rem;
+  }
+
+  .footer-prompt {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .footer-built-prefix {
+    color: var(--accent);
+    opacity: 0.7;
   }
 
   @media (max-width: 699px) {
+    .site-footer {
+      padding: 1.5rem 0;
+      margin-top: 2rem;
+    }
     .footer-inner {
       flex-direction: column;
       align-items: center;
       gap: 0.5rem;
       text-align: center;
+    }
+    .footer-copyright,
+    .footer-built {
+      justify-content: center;
     }
   }
 </style>

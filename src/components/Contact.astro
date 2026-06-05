@@ -11,7 +11,7 @@ const iconMap = {
 };
 ---
 
-<section class="section" id="contact" data-reveal style="padding-bottom: 2rem;">
+<section class="section" id="contact">
   <div class="container narrow">
     <div class="section-heading">
       <span class="eyebrow">{contact.heading.eyebrow}</span>
@@ -19,16 +19,24 @@ const iconMap = {
       <p class="section-lead">{contact.heading.lead}</p>
     </div>
 
-    <div class="contact-list">
+    <div class="contact-stack">
       {contact.contacts.map(item => {
         const Icon = iconMap[item.icon];
         return (
-          <a href={item.href} target={item.external ? "_blank" : undefined} rel={item.external ? "noreferrer" : undefined}>
-            <strong class="contact-label">
+          <a 
+            href={item.href} 
+            class="contact-card"
+            target={item.external ? "_blank" : undefined} 
+            rel={item.external ? "noreferrer" : undefined}
+          >
+            <div class="contact-icon-wrapper">
               {Icon && <Icon className="contact-icon" aria-hidden="true" weight="duotone" />}
-              {item.label}
-            </strong>
-            <span class="contact-value">{item.value}</span>
+            </div>
+            <div class="contact-info">
+              <strong class="contact-label">{item.label}</strong>
+              <span class="contact-value">{item.value}</span>
+            </div>
+            <span class="contact-arrow" aria-hidden="true">→</span>
           </a>
         );
       })}
@@ -40,7 +48,7 @@ const iconMap = {
   .section-heading {
     display: grid;
     gap: 0.55rem;
-    margin-bottom: 3.5rem;
+    margin-bottom: 2rem;
   }
 
   .eyebrow {
@@ -53,65 +61,130 @@ const iconMap = {
   .section-lead {
     margin: 0;
     color: var(--text-muted);
-    font-size: 1.02rem;
-    line-height: 1.7;
-    max-width: 60ch;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 55ch;
   }
 
-  .contact-list {
-    display: grid;
-    gap: 1rem;
-    max-width: 600px;
+  .contact-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .contact-card {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.85rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all var(--transition-fast);
     width: 100%;
   }
 
-  .contact-list a {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 1rem 0;
-    border: none;
-    border-bottom: 1px solid var(--border);
-    background: transparent;
+  .contact-card:hover {
+    transform: translateY(-1px);
+    border-color: var(--accent);
+    background: var(--bg-secondary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
   }
 
-  .contact-list a:hover {
-    border-color: var(--text-muted);
-  }
-
-  .contact-label {
+  .contact-icon-wrapper {
     display: inline-flex;
     align-items: center;
-    gap: 0.55rem;
-    min-width: 0;
-    font-weight: 500;
-    color: var(--text);
+    justify-content: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    background: color-mix(in srgb, var(--accent) 8%, transparent);
+    border-radius: 8px;
+    transition: all var(--transition-fast);
   }
 
-  .contact-value {
-    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    font-weight: 400;
-  }
-
-  .contact-list a:hover .contact-value {
-    color: var(--text);
+  .contact-card:hover .contact-icon-wrapper {
+    background: color-mix(in srgb, var(--accent) 18%, transparent);
   }
 
   .contact-icon {
-    flex: 0 0 auto;
     width: 1.1rem;
     height: 1.1rem;
+    color: var(--accent);
+  }
+
+  .contact-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .contact-label {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+
+  .contact-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
     color: var(--text-muted);
+    word-break: break-all;
+  }
+
+  .contact-card:hover .contact-value {
+    color: var(--text);
+  }
+
+  .contact-arrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    color: var(--text-muted);
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: all var(--transition-fast);
+  }
+
+  .contact-card:hover .contact-arrow {
+    opacity: 1;
+    transform: translateX(0);
+    color: var(--accent);
   }
 
   @media (max-width: 699px) {
-    .contact-list a {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.5rem;
+    .contact-card {
+      padding: 0.75rem;
+      gap: 0.75rem;
+    }
+    .contact-icon-wrapper {
+      width: 2rem;
+      height: 2rem;
+    }
+    .contact-icon {
+      width: 1rem;
+      height: 1rem;
+    }
+    .contact-label {
+      font-size: 0.8rem;
+    }
+    .contact-value {
+      font-size: 0.65rem;
+    }
+    .contact-stack {
+      gap: 0.6rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .contact-card:hover {
+      transform: none;
+    }
+    .contact-arrow {
+      transition: none;
     }
   }
 </style>

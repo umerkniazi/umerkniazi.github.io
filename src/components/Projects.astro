@@ -23,10 +23,12 @@ const iconMap = {
         <article class={`project-item ${project.isFlagship ? 'flagship' : ''}`}>
           <div class="project-header">
             <div class="project-kicker"><strong>{project.kicker}</strong></div>
-            <h3>{project.title}</h3>
-            {project.metricBadge && <div class="project-metric-badge">{project.metricBadge}</div>}
+            <div class="title-row">
+              <h3>{project.title}</h3>
+              {project.metricBadge && <span class="metric-pill">{project.metricBadge}</span>}
+            </div>
           </div>
-          <p>{project.description}</p>
+          <p class="project-description">{project.description}</p>
           <p class="tech-stack" aria-label="Project tags">
             {project.techStack.map(tech => <span class="tech-pill">{tech}</span>)}
           </p>
@@ -49,12 +51,12 @@ const iconMap = {
       </div>
 
       {projects.other.map(project => (
-        <article class={`project-item ${project.isSideProject ? 'side-project' : ''}`}>
+        <article class="project-item compact">
           <div class="project-header">
             <div class="project-kicker"><strong>{project.kicker}</strong></div>
             <h3>{project.title}</h3>
           </div>
-          <p>{project.description}</p>
+          <p class="project-description">{project.description}</p>
           <p class="tech-stack" aria-label="Project tags">
             {project.techStack.map(tech => <span class="tech-pill">{tech}</span>)}
           </p>
@@ -105,19 +107,22 @@ const iconMap = {
     box-shadow: none;
     display: flex;
     flex-direction: column;
-    gap: 1.15rem;
+    gap: 1rem;
     transition: none;
-  }
-
-  .project-item:hover {
-    transform: none;
-    background: transparent;
-    box-shadow: none;
   }
 
   .project-header {
     display: flex;
     flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .title-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
   }
 
   .project-kicker,
@@ -125,7 +130,7 @@ const iconMap = {
     font-family: var(--font-serif) !important;
     font-style: italic !important;
     font-weight: 300 !important;
-    font-size: 1.1rem !important;
+    font-size: 1rem !important;
     color: var(--accent) !important;
     opacity: 0.85;
     border: none;
@@ -136,38 +141,39 @@ const iconMap = {
     align-items: center;
     gap: 0.35rem;
     width: auto;
-    justify-self: start;
     align-self: start;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
     white-space: normal;
   }
 
-  .project-metric-badge {
-    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  .metric-pill {
     display: inline-flex;
     align-items: center;
-    width: fit-content;
-    background: var(--surface-strong);
-    color: var(--text);
-    font-size: 0.75rem;
-    padding: 0.25rem 0.6rem;
-    border-radius: 2px;
-    margin-top: 0.75rem;
-    letter-spacing: 0.02em;
-    border: 1px solid var(--border);
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    color: var(--accent);
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+    white-space: nowrap;
+    letter-spacing: 0.01em;
   }
 
   .project-item h3 {
-    font-size: 1.75rem;
+    font-size: 1.6rem;
     font-weight: 500;
     color: var(--text);
     margin: 0;
+    flex: 1;
   }
 
-  .project-item > p {
+  .project-description {
     color: var(--text-muted);
-    font-size: 1rem;
-    line-height: 1.75;
+    font-size: 0.98rem;
+    line-height: 1.7;
     margin: 0;
   }
 
@@ -175,7 +181,7 @@ const iconMap = {
     display: flex;
     flex-wrap: wrap;
     gap: 0.6rem;
-    margin: 0;
+    margin: 0.25rem 0 0;
   }
 
   .tech-pill {
@@ -183,7 +189,7 @@ const iconMap = {
     background: transparent;
     border: 1px solid var(--border);
     color: var(--text-muted);
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     padding: 0.2rem 0.6rem;
     border-radius: 2px;
     letter-spacing: 0.03em;
@@ -203,24 +209,87 @@ const iconMap = {
   .project-links a {
     color: var(--text-muted);
     font-weight: 400;
-    font-size: 0.94rem;
+    font-size: 0.88rem;
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-  }
-
-  .project-item:hover .project-links a {
-    color: var(--accent);
+    transition: all var(--transition-fast);
   }
 
   .project-links a:hover {
-    text-decoration: underline;
-    text-underline-offset: 0.2em;
+    color: var(--accent);
   }
 
   .secondary-projects-heading {
     border-top: 1px dashed var(--border);
-    padding-top: 2.5rem;
+    padding-top: 2rem;
     margin-top: -0.5rem;
+  }
+
+  .secondary-projects-heading .eyebrow {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  /* Compact projects (other work) */
+  .project-item.compact {
+    gap: 0.5rem;
+  }
+
+  .project-item.compact h3 {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  .project-item.compact .project-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .project-item.compact .tech-stack {
+    gap: 0.4rem;
+    margin-top: 0;
+  }
+
+  .project-item.compact .tech-pill {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.5rem;
+  }
+
+  .project-item.compact .project-links {
+    margin-top: 0;
+    gap: 1rem;
+  }
+
+  .project-item.compact .project-links a {
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 699px) {
+    .projects-list {
+      gap: 2.5rem;
+      padding-top: 2rem;
+    }
+    .title-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    .metric-pill {
+      white-space: normal;
+      font-size: 0.65rem;
+    }
+    .project-item h3 {
+      font-size: 1.4rem;
+    }
+    .project-description {
+      font-size: 0.92rem;
+    }
+    .project-item.compact h3 {
+      font-size: 1.1rem;
+    }
+    .project-item.compact .project-description {
+      font-size: 0.85rem;
+    }
   }
 </style>

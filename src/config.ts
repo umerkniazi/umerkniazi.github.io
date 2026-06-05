@@ -46,7 +46,7 @@ export const siteConfig = {
       {
         kicker: "// flagship — unguided analysis",
         title: "News NLP Pipeline",
-        metricBadge: "Metric: 350k+ articles processed",
+        metricBadge: "350k+ articles processed",
         description: "I wanted to know what Dawn actually writes about, so I built a pipeline for unguided analysis. Runs the raw data through BERTopic for topic modeling, spaCy for NER, and a classifier for sentiment. No labels, no supervision. The structure emerges from the text itself.",
         techStack: ["Python", "NLP", "spaCy", "BERTopic"],
         links: [
@@ -58,7 +58,7 @@ export const siteConfig = {
       {
         kicker: "// computer vision — edge case QA",
         title: "GB Wildlife Classifier",
-        metricBadge: "Metric: 98.16% val accuracy",
+        metricBadge: "98.16% val accuracy",
         description: "Frozen early layers, custom 3-class head trained on three endangered Himalayan species from Gilgit-Baltistan. The real work was stress-testing out-of-distribution data, adding an 80% confidence threshold to catch unknowns, and documenting failure modes where visual and taxonomic similarity trips the model.",
         techStack: ["Python", "PyTorch", "Computer Vision", "Streamlit"],
         links: [
@@ -69,7 +69,7 @@ export const siteConfig = {
       {
         kicker: "// machine learning — predictive triage",
         title: "Shelter Outcome Predictor",
-        metricBadge: "Metric: 80k+ intake records modeled",
+        metricBadge: "80k+ intake records modeled",
         description: "Trained a Random Forest on data from Austin Animal Center to predict which animals are at risk. Built for recall over precision because a missed at-risk animal is worse than a false alarm. Deployed as a Streamlit app. This one matters to me personally.",
         techStack: ["Python", "Machine Learning", "Streamlit"],
         links: [
