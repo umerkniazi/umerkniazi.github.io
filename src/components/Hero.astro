@@ -1,219 +1,151 @@
 ---
 import { GithubLogo, LinkedinLogo } from '@phosphor-icons/react/dist/ssr';
+import { siteConfig } from '../config';
+import Terminal from './Terminal.astro';
+
+const { hero } = siteConfig;
 ---
 
-<section class="section hero" id="hero">
-  <div class="hero-ambient-glow" aria-hidden="true"></div>
+<section class="hero" id="hero">
+  <div class="hero-glow" aria-hidden="true"></div>
+
   <div class="container hero-grid">
-    <div class="hero-status">Machine Learning & Systems</div>
-    <h1>Umer Khan Niazi</h1>
-    <p class="intro">
-      I build things that actually run: pipelines, classifiers, and terminal tools. Python mostly, C<span style="white-space: nowrap">++</span> when it matters. I believe in free software and I care about animals.
-    </p>
-    <div class="hero-terminal" aria-label="Terminal introduction">
-      <div class="terminal-chrome" aria-hidden="true">
-        <span class="dot red"></span>
-        <span class="dot yellow"></span>
-        <span class="dot green"></span>
-      </div>
-      <pre class="hero-terminal-body">
-        <code class="terminal-line terminal-meta">umer@portfolio:~</code>
-        <code class="terminal-line"><span class="terminal-prompt">$</span> ls projects/</code>
-        <code class="terminal-line terminal-output">news-nlp-pipeline/  gb-wildlife-classifier/  shelter-outcome-predictor/</code>
-      </pre>
+    <div class="hero-status" style="--i:0">
+      {hero.status}
     </div>
-    <div class="hero-actions">
-      <a class="hero-cta" href="/resume.pdf" download>Download CV</a>
-      <a class="hero-icon-link" href="https://github.com/umerkniazi" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
-        <GithubLogo className="hero-icon" aria-hidden="true" weight="duotone" />
+
+    <h1 style="--i:1">
+      {hero.title}
+    </h1>
+
+    <p class="hero-intro" style="--i:2">
+      {hero.intro}
+    </p>
+
+    <div style="--i:3">
+      <Terminal
+        meta={hero.terminal.meta}
+        prompt={hero.terminal.prompt}
+        command={hero.terminal.command}
+        output={hero.terminal.output}
+      />
+    </div>
+
+    <div class="hero-actions" style="--i:4">
+      <a class="hero-cta" href={hero.cta.href} download>
+        {hero.cta.label}
       </a>
-      <a class="hero-icon-link" href="https://linkedin.com/in/umerkniazi" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-        <LinkedinLogo className="hero-icon" aria-hidden="true" weight="duotone" />
+
+      <a
+        class="hero-icon"
+        href={hero.socials.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub"
+      >
+        <GithubLogo weight="duotone" />
+      </a>
+
+      <a
+        class="hero-icon"
+        href={hero.socials.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn"
+      >
+        <LinkedinLogo weight="duotone" />
       </a>
     </div>
   </div>
-</section>
 
-<style>
-  .hero {
-    position: relative;
-    padding-top: 6rem;
-    padding-bottom: 2rem;
-  }
-
-  .hero-grid {
-    display: grid;
-    gap: 1.5rem;
-  }
-
-  .hero-grid > * {
-    opacity: 0;
-    animation: fade-in-up 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-    will-change: opacity, transform;
-  }
-
-  .hero-grid > *:nth-child(1) { animation-delay: 0ms; }
-  .hero-grid > *:nth-child(2) { animation-delay: 40ms; }
-  .hero-grid > *:nth-child(3) { animation-delay: 80ms; }
-  .hero-grid > *:nth-child(4) { animation-delay: 120ms; }
-  .hero-grid > *:nth-child(5) { animation-delay: 160ms; }
-
-  .hero-status {
-    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    color: var(--accent);
-    font-size: 0.85rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    margin-bottom: -0.75rem; 
-    display: block;
-  }
-
-  .intro {
-    max-width: 55ch;
-    font-size: 1.08rem;
-    color: var(--text-muted);
-    line-height: 1.75;
-  }
-
-  .hero-terminal {
-    position: relative;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    font-size: 0.875rem;
-    max-width: 640px; /* Widened to fit all three project directories */
-    overflow: hidden;
-    margin-bottom: -0.5rem; 
-  }
-
-  .hero-terminal-body {
-    margin: 0;
-    padding: 1.25rem;
-    overflow-x: auto;
-    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.85rem;
-    line-height: 1.7;
-    white-space: pre-wrap;
-    display: grid;
-    gap: 0.28rem;
-    position: relative;
-    z-index: 1;
-  }
-
-  .terminal-line {
-    display: block;
-    white-space: pre-wrap;
-    color: var(--terminal-text);
-  }
-
-  .terminal-meta {
-    color: var(--text-muted);
-    font-size: 0.8rem;
-    margin-bottom: 0.1rem;
-  }
-
-  .terminal-prompt {
-    color: var(--terminal-accent);
-    margin-right: 0.45ch;
-  }
-
-  .terminal-output {
-    color: var(--terminal-text);
-  }
-
-  .terminal-output::after {
-    content: '';
-    display: inline-block;
-    width: 0.7ch;
-    height: 1.05em;
-    margin-left: 0.2ch;
-    border-right: 2px solid var(--terminal-accent);
-    vertical-align: -0.2em;
-    animation: caret-blink 1.1s steps(1, end) infinite;
-  }
-
-  .terminal-chrome {
-    position: absolute;
-    top: 0.75rem;
-    left: 1rem;
-    display: flex;
-    gap: 0.45rem;
-    z-index: 2;
-  }
-
-  .terminal-chrome .dot {
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 999px;
-    display: inline-block;
-    background: var(--border);
-  }
-
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    align-items: center;
-  }
-
-  .hero-cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: fit-content;
-    min-height: 2.5rem;
-    padding: 0.6rem 1.4rem;
-    border: 1px solid var(--accent);
-    border-radius: 2px;
-    color: var(--bg) !important;
-    font-weight: 400;
-    font-size: 0.92rem;
-    background: var(--accent);
-    transition: all var(--transition-fast);
-  }
-
-  .hero-cta:hover {
-    background: transparent;
-    color: var(--accent) !important;
-  }
-
-  .hero-icon-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    color: var(--text-muted);
-    transition: all var(--transition-fast);
-  }
-
-  .hero-icon-link:hover {
-    color: var(--text);
-    border-color: var(--text-muted);
-    background: var(--surface);
-  }
-
-  .hero-icon {
-    flex: 0 0 auto;
-    width: 1.15rem;
-    height: 1.15rem;
-    color: inherit;
-  }
-
-  @media (max-width: 699px) {
+  <style>
     .hero {
-      padding-top: 4rem;
-      padding-bottom: 3rem;
+      position: relative;
+      padding-top: 6rem;
+      padding-bottom: 2rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 1.5rem;
     }
 
     .hero-grid > * {
-      animation-delay: 0ms !important;
+      opacity: 0;
+      animation: fade-in-up 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
     }
 
-    .hero-terminal {
-      max-width: 100%;
+    .hero-grid > *:nth-child(1) { animation-delay: 0ms; }
+    .hero-grid > *:nth-child(2) { animation-delay: 40ms; }
+    .hero-grid > *:nth-child(3) { animation-delay: 80ms; }
+    .hero-grid > *:nth-child(4) { animation-delay: 120ms; }
+    .hero-grid > *:nth-child(5) { animation-delay: 160ms; }
+
+    .hero-status {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
-  }
-</style>
+
+    .hero-intro {
+      max-width: 55ch;
+      font-size: 1.08rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.6rem 1.4rem;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: var(--bg);
+      border-radius: 2px;
+      text-decoration: none;
+      transition: all 150ms ease;
+    }
+
+    .hero-cta:hover {
+      background: transparent;
+      color: var(--accent);
+    }
+
+    .hero-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      color: var(--text-muted);
+      transition: all 150ms ease;
+    }
+
+    .hero-icon:hover {
+      color: var(--text);
+      border-color: var(--text-muted);
+    }
+
+    @media (max-width: 699px) {
+      .hero {
+        padding-top: 4rem;
+      }
+
+      .hero-grid > * {
+        animation-delay: 0ms !important;
+      }
+    }
+  </style>
+</section>

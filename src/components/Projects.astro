@@ -1,136 +1,76 @@
 ---
 import { ArrowUpRight, GithubLogo, GameController } from '@phosphor-icons/react/dist/ssr';
+import { siteConfig } from '../config';
+
+const { projects } = siteConfig;
+
+const iconMap = {
+  GithubLogo: GithubLogo,
+  ArrowUpRight: ArrowUpRight,
+  GameController: GameController
+};
 ---
 
 <section class="section" id="projects">
   <div class="container narrow">
     <div class="section-heading">
-      <span class="eyebrow">// projects</span>
-      <h2>Things I've Built</h2>
+      <span class="eyebrow">{projects.heading.eyebrow}</span>
+      <h2>{projects.heading.title}</h2>
     </div>
 
     <div class="projects-list">
-
-      <article class="project-item flagship">
-        <div class="project-header">
-          <div class="project-kicker"><strong>// flagship — unguided analysis</strong></div>
-          <h3>News NLP Pipeline</h3>
-          <div class="project-metric-badge">Metric: 350k+ articles processed</div>
-        </div>
-        <p>
-          I wanted to know what Dawn actually writes about, so I built a pipeline for unguided analysis. Runs the raw data through BERTopic for topic modeling, spaCy for NER, and a classifier for sentiment. No labels, no supervision. The structure emerges from the text itself.
-        </p>
-        <p class="tech-stack" aria-label="Project tags">
-          <span class="tech-pill">Python</span>
-          <span class="tech-pill">NLP</span>
-          <span class="tech-pill">spaCy</span>
-          <span class="tech-pill">BERTopic</span>
-        </p>
-        <div class="project-links">
-          <a href="https://github.com/umerkniazi/news-nlp-pipeline" target="_blank" rel="noopener noreferrer">
-            <GithubLogo aria-hidden="true" weight="bold" /> GitHub
-          </a>
-          <a href="https://news-nlp-pipeline.streamlit.app/" target="_blank" rel="noopener noreferrer">
-            <ArrowUpRight aria-hidden="true" weight="bold" /> Streamlit App
-          </a>
-        </div>
-      </article>
-
-      <article class="project-item">
-        <div class="project-header">
-          <div class="project-kicker">// computer vision — edge case QA</div>
-          <h3>GB Wildlife Classifier</h3>
-          <div class="project-metric-badge">Metric: 98.16% val accuracy</div>
-        </div>
-        <p>
-          Frozen early layers, custom 3-class head trained on three endangered Himalayan species from Gilgit-Baltistan. The real work was stress-testing out-of-distribution data, adding an 80% confidence threshold to catch unknowns, and documenting failure modes where visual and taxonomic similarity trips the model.
-        </p>
-        <p class="tech-stack" aria-label="Project tags">
-          <span class="tech-pill">Python</span>
-          <span class="tech-pill">PyTorch</span>
-          <span class="tech-pill">Computer Vision</span>
-          <span class="tech-pill">Streamlit</span>
-        </p>
-        <div class="project-links">
-          <a href="https://github.com/umerkniazi/gb-wildlife-classifier" target="_blank" rel="noopener noreferrer">
-            <GithubLogo aria-hidden="true" weight="bold" /> GitHub
-          </a>
-          <a href="https://gb-wildlife-classifier.streamlit.app/" target="_blank" rel="noopener noreferrer">
-            <ArrowUpRight aria-hidden="true" weight="bold" /> Streamlit App
-          </a>
-        </div>
-      </article>
-
-      <article class="project-item">
-        <div class="project-header">
-          <div class="project-kicker">// machine learning — predictive triage</div>
-          <h3>Shelter Outcome Predictor</h3>
-          <div class="project-metric-badge">Metric: 80k+ intake records modeled</div>
-        </div>
-        <p>
-          Trained a Random Forest on data from Austin Animal Center to predict which animals are at risk. Built for recall over precision because a missed at-risk animal is worse than a false alarm. Deployed as a Streamlit app. This one matters to me personally.
-        </p>
-        <p class="tech-stack" aria-label="Project tags">
-          <span class="tech-pill">Python</span>
-          <span class="tech-pill">Machine Learning</span>
-          <span class="tech-pill">Streamlit</span>
-        </p>
-        <div class="project-links">
-          <a href="https://github.com/umerkniazi/shelter-outcome-predictor" target="_blank" rel="noopener noreferrer">
-            <GithubLogo aria-hidden="true" weight="bold" /> GitHub
-          </a>
-          <a href="https://shelter-outcome-predictor.streamlit.app/" target="_blank" rel="noopener noreferrer">
-            <ArrowUpRight aria-hidden="true" weight="bold" /> Streamlit App
-          </a>
-        </div>
-      </article>
+      {projects.featured.map(project => (
+        <article class={`project-item ${project.isFlagship ? 'flagship' : ''}`}>
+          <div class="project-header">
+            <div class="project-kicker"><strong>{project.kicker}</strong></div>
+            <h3>{project.title}</h3>
+            {project.metricBadge && <div class="project-metric-badge">{project.metricBadge}</div>}
+          </div>
+          <p>{project.description}</p>
+          <p class="tech-stack" aria-label="Project tags">
+            {project.techStack.map(tech => <span class="tech-pill">{tech}</span>)}
+          </p>
+          <div class="project-links">
+            {project.links.map(link => {
+              const Icon = iconMap[link.icon];
+              return (
+                <a href={link.url} target="_blank" rel="noopener noreferrer">
+                  {Icon && <Icon aria-hidden="true" weight="bold" />}
+                  {link.label}
+                </a>
+              );
+            })}
+          </div>
+        </article>
+      ))}
 
       <div class="secondary-projects-heading">
-        <span class="eyebrow">// other work</span>
+        <span class="eyebrow">{projects.secondaryHeading.eyebrow}</span>
       </div>
 
-      <article class="project-item">
-        <div class="project-header">
-          <div class="project-kicker">// systems — terminal music player</div>
-          <h3>WMUS</h3>
-        </div>
-        <p>
-          I use cmus on Linux and needed something similar on Windows. Nothing I tried felt quite right, so I wrote my own. Cmus-inspired, Python-based terminal music player with fuzzy search, vim-style bindings, and metadata caching. It focuses on doing one thing well without getting in the way.
-        </p>
-        <p class="tech-stack" aria-label="Project tags">
-          <span class="tech-pill">Python</span>
-          <span class="tech-pill">CLI Tool</span>
-          <span class="tech-pill">Systems Programming</span>
-        </p>
-        <div class="project-links">
-          <a href="https://github.com/umerkniazi/wmus" target="_blank" rel="noopener noreferrer">
-            <GithubLogo aria-hidden="true" weight="bold" /> GitHub
-          </a>
-        </div>
-      </article>
-
-      <article class="project-item side-project">
-        <div class="project-header">
-          <div class="project-kicker">// game dev — endless runner</div>
-          <h3>Waddle Away</h3>
-        </div>
-        <p>
-          An endless runner built in Godot. I made this because I wanted to understand how games actually feel: collision response, frame timing, the gap between technically correct and fun. It taught me more about feedback loops than any ML paper has.
-        </p>
-        <p class="tech-stack" aria-label="Project tags">
-          <span class="tech-pill">Godot</span>
-          <span class="tech-pill">Game Development</span>
-        </p>
-        <div class="project-links">
-          <a href="https://github.com/umerkniazi/waddle-away" target="_blank" rel="noopener noreferrer">
-            <GithubLogo aria-hidden="true" weight="bold" /> GitHub
-          </a>
-          <a href="https://umerkniazi.itch.io/waddle-away" target="_blank" rel="noopener noreferrer">
-            <GameController aria-hidden="true" weight="duotone" /> Itch.io
-          </a>
-        </div>
-      </article>
-
+      {projects.other.map(project => (
+        <article class={`project-item ${project.isSideProject ? 'side-project' : ''}`}>
+          <div class="project-header">
+            <div class="project-kicker"><strong>{project.kicker}</strong></div>
+            <h3>{project.title}</h3>
+          </div>
+          <p>{project.description}</p>
+          <p class="tech-stack" aria-label="Project tags">
+            {project.techStack.map(tech => <span class="tech-pill">{tech}</span>)}
+          </p>
+          <div class="project-links">
+            {project.links.map(link => {
+              const Icon = iconMap[link.icon];
+              return (
+                <a href={link.url} target="_blank" rel="noopener noreferrer">
+                  {Icon && <Icon aria-hidden="true" weight="bold" />}
+                  {link.label}
+                </a>
+              );
+            })}
+          </div>
+        </article>
+      ))}
     </div>
   </div>
 </section>

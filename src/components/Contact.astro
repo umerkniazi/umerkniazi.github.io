@@ -1,41 +1,37 @@
 ---
 import { EnvelopeSimple, GithubLogo, LinkedinLogo } from '@phosphor-icons/react/dist/ssr';
+import { siteConfig } from '../config';
+
+const { contact } = siteConfig;
+
+const iconMap = {
+  EnvelopeSimple: EnvelopeSimple,
+  GithubLogo: GithubLogo,
+  LinkedinLogo: LinkedinLogo
+};
 ---
 
 <section class="section" id="contact" data-reveal style="padding-bottom: 2rem;">
   <div class="container narrow">
     <div class="section-heading">
-      <span class="eyebrow">// reach out</span>
-      <h2>Say Hello</h2>
-      <p class="section-lead">
-        If you're working on something interesting, want to talk Linux, NLP, or animal rescue tech, or just found a bug in one of my projects, my inbox is open.
-      </p>
+      <span class="eyebrow">{contact.heading.eyebrow}</span>
+      <h2>{contact.heading.title}</h2>
+      <p class="section-lead">{contact.heading.lead}</p>
     </div>
 
     <div class="contact-list">
-      <a href="mailto:umerkniazi@proton.me">
-        <strong class="contact-label">
-          <EnvelopeSimple className="contact-icon" aria-hidden="true" weight="duotone" />
-          Email
-        </strong>
-        <span class="contact-value">umerkniazi@proton.me</span>
-      </a>
-
-      <a href="https://github.com/umerkniazi" target="_blank" rel="noreferrer">
-        <strong class="contact-label">
-          <GithubLogo className="contact-icon" aria-hidden="true" weight="duotone" />
-          GitHub
-        </strong>
-        <span class="contact-value">github.com/umerkniazi</span>
-      </a>
-
-      <a href="https://linkedin.com/in/umerkniazi" target="_blank" rel="noreferrer">
-        <strong class="contact-label">
-          <LinkedinLogo className="contact-icon" aria-hidden="true" weight="duotone" />
-          LinkedIn
-        </strong>
-        <span class="contact-value">linkedin.com/in/umerkniazi</span>
-      </a>
+      {contact.contacts.map(item => {
+        const Icon = iconMap[item.icon];
+        return (
+          <a href={item.href} target={item.external ? "_blank" : undefined} rel={item.external ? "noreferrer" : undefined}>
+            <strong class="contact-label">
+              {Icon && <Icon className="contact-icon" aria-hidden="true" weight="duotone" />}
+              {item.label}
+            </strong>
+            <span class="contact-value">{item.value}</span>
+          </a>
+        );
+      })}
     </div>
   </div>
 </section>
@@ -115,7 +111,6 @@ import { EnvelopeSimple, GithubLogo, LinkedinLogo } from '@phosphor-icons/react/
     .contact-list a {
       flex-direction: column;
       align-items: flex-start;
-      grid-template-columns: 1fr;
       gap: 0.5rem;
     }
   }

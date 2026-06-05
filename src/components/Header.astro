@@ -1,22 +1,24 @@
 ---
 import { Sun, Moon, List, X } from '@phosphor-icons/react/dist/ssr';
+import { siteConfig } from '../config';
+const { navbar } = siteConfig;
 ---
 
 <header class="site-header" data-reveal>
   <div class="container nav-shell">
-    <a class="brand" href="/#hero" aria-label="Umer Khan Niazi home">
-      <span class="brand-mark">UK</span>
-      <span class="nav-name">Umer Khan Niazi</span>
+    <a class="brand" href="/#hero" aria-label={`${navbar.brandName} home`}>
+      <span class="brand-mark">{navbar.brandMark}</span>
+      <span class="nav-name">{navbar.brandName}</span>
     </a>
     
     <nav class="site-nav" id="siteNav">
-      <a href="/#projects">Projects</a>
-      <a href="/#about">About</a>
-      <a href="/#contact">Contact</a>
+      {navbar.links.map(link => (
+        <a href={link.href}>{link.label}</a>
+      ))}
     </nav>
 
     <div class="nav-controls">
-      <a href="/resume.pdf" download class="nav-cta">Resume</a>
+      <a href={navbar.resume.href} download class="nav-cta">{navbar.resume.label}</a>
       <button class="theme-icon-btn" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false" title="Toggle color theme">
         <Sun className="theme-btn-icon theme-btn-icon--light" aria-hidden="true" weight="bold" />
         <Moon className="theme-btn-icon theme-btn-icon--dark" aria-hidden="true" weight="bold" />

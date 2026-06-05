@@ -2,7 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Terminal from '../components/Terminal.astro';
+import { siteConfig } from '../config';
 
+const { error404 } = siteConfig;
 const title = '404 | Page Not Found';
 ---
 
@@ -11,24 +14,22 @@ const title = '404 | Page Not Found';
   <main id="main">
     <section class="section error-page" data-reveal>
       <div class="container narrow">
-        <p class="eyebrow">// ERROR 404</p>
-        <h1>Signal Lost</h1>
+        <p class="eyebrow">{error404.eyebrow}</p>
+        <h1>{error404.title}</h1>
         
-        <div class="terminal-error" aria-label="Terminal error output">
-          <div class="terminal-line">
-            <span class="terminal-prompt">$</span> cat /requested-route
-          </div>
-          <div class="terminal-line terminal-output">
-            cat: /requested-route: No such file or directory
-          </div>
-        </div>
+        <Terminal 
+          meta={error404.terminal.meta}
+          prompt={error404.terminal.prompt}
+          command={error404.terminal.command}
+          output={error404.terminal.output}
+        />
 
         <p class="error-copy">
-          The route you requested doesn't exist on this machine.
+          {error404.message}
         </p>
         
         <div class="error-actions">
-          <a class="hero-cta" href="/">Return Home</a>
+          <a class="hero-cta" href={error404.cta.href}>{error404.cta.label}</a>
         </div>
       </div>
     </section>
@@ -38,6 +39,7 @@ const title = '404 | Page Not Found';
 </Layout>
 
 <style>
+  /* same as before */
   .section {
     padding: 6rem 0;
   }
@@ -63,35 +65,8 @@ const title = '404 | Page Not Found';
     margin-bottom: 2rem;
   }
 
-  .terminal-error {
-    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.85rem;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 1.25rem;
-    margin-bottom: 2rem;
-    line-height: 1.7;
-    max-width: 520px;
-  }
-
-  .terminal-line {
-    display: block;
-    white-space: pre-wrap;
-    color: var(--text-muted);
-  }
-
-  .terminal-prompt {
-    color: var(--accent);
-    margin-right: 0.45ch;
-  }
-
-  .terminal-output {
-    color: var(--text);
-  }
-
   .error-copy {
-    margin: 0 0 2rem;
+    margin: 2rem 0 2rem;
     max-width: 55ch;
     color: var(--text-muted);
     line-height: 1.75;

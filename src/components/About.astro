@@ -1,81 +1,49 @@
 ---
+import { siteConfig } from '../config';
+
+const { about } = siteConfig;
 ---
 
 <section class="section" id="about" data-reveal>
   <div class="container narrow">
     <div class="section-heading">
-      <span class="eyebrow">// about</span>
-      <h2>Builder. Second year.</h2>
+      <span class="eyebrow">{about.heading.eyebrow}</span>
+      <h2>{about.heading.title}</h2>
     </div>
 
     <div class="about-grid" style="display: grid; gap: 4rem; grid-template-columns: 1fr;">
-
       <div class="about-copy">
-        <p>
-          I'm a second-year AI student at UET Lahore. I write a lot of Python, some <span style="white-space: nowrap;">C++</span>, and more time in the terminal than I'd like to admit. I got into this because I wanted to understand how things actually work.
-        </p>
-
-        <p>
-          Not the theory in isolation, but what happens when you run it on real data, with real constraints, on a machine that has better things to do. That's still what pulls me toward NLP pipelines and low-level tooling.
-        </p>
-
-        <p>
-          Outside that I'm into Linux, FOSS, animal welfare, and cats. I think the most interesting software is written by people who care about something other than software.
-        </p>
+        {about.introParagraphs.map(paragraph => (
+          <p>{paragraph}</p>
+        ))}
 
         <div class="skills-grid" aria-label="Skills">
-          <div class="skill-group">
-            <span class="skill-label">Core</span>
-            <div class="skill-pills">
-              <span class="skill-pill">Python</span>
-              <span class="skill-pill">C++</span>
-              <span class="skill-pill">Linux</span>
+          {about.skillGroups.map(group => (
+            <div class="skill-group">
+              <span class="skill-label">{group.label}</span>
+              <div class="skill-pills">
+                {group.skills.map(skill => (
+                  <span class="skill-pill">{skill}</span>
+                ))}
+              </div>
             </div>
-          </div>
-
-          <div class="skill-group">
-            <span class="skill-label">ML & Data</span>
-            <div class="skill-pills">
-              <span class="skill-pill">PyTorch</span>
-              <span class="skill-pill">scikit-learn</span>
-              <span class="skill-pill">spaCy</span>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
 
       <div class="timeline-list">
-        <article class="timeline-item primary">
-          <div>
-            <div class="timeline-year">2024 — Present</div>
-          </div>
-          <div>
-            <h3>BS Artificial Intelligence, UET</h3>
-            <p>Focused on machine learning architecture, systems programming, and applied mathematics.</p>
-          </div>
-        </article>
-
-        <article class="timeline-item">
-          <div>
-            <div class="timeline-year">Current Focus</div>
-          </div>
-          <div>
-            <h3>Systems & Infrastructure</h3>
-            <p>Building the infrastructure layer beneath the models. Moving past standard model training to focus on data structures, Linux concepts, and low-latency implementation.</p>
-          </div>
-        </article>
-
-        <article class="timeline-item">
-          <div>
-            <div class="timeline-year">Current Rabbithole</div>
-          </div>
-          <div>
-            <h3>Hands-On Machine Learning</h3>
-            <p>Reading Aurélien Géron.</p>
-          </div>
-        </article>
+        {about.timeline.map(item => (
+          <article class={`timeline-item ${item.primary ? 'primary' : ''}`}>
+            <div>
+              <div class="timeline-year">{item.year}</div>
+            </div>
+            <div>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </div>
+          </article>
+        ))}
       </div>
-
     </div>
   </div>
 </section>
@@ -152,8 +120,7 @@
     display: grid;
     gap: 0.8rem;
     grid-template-columns: minmax(9rem, 12rem) 1fr;
-    padding: 1.5rem 0; /* Tightened from 2rem to create a denser log feel */
-    border: none;
+    padding: 1.5rem 0;
     border-top: 1px solid var(--border);
     background: transparent;
   }
@@ -165,7 +132,6 @@
   }
 
   .timeline-item.primary {
-    border: none;
     border-top: 1px solid var(--border);
     background: transparent;
     box-shadow: none;
