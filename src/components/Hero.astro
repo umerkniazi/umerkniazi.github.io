@@ -36,25 +36,27 @@ const { hero } = siteConfig;
         {hero.cta.label}
       </a>
 
-      <a
-        class="hero-icon"
-        href={hero.socials.github}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="GitHub"
-      >
-        <GithubLogo weight="duotone" />
-      </a>
+      <div class="social-icons">
+        <a
+          class="social-icon"
+          href={hero.socials.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+        >
+          <GithubLogo weight="fill" />
+        </a>
 
-      <a
-        class="hero-icon"
-        href={hero.socials.linkedin}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="LinkedIn"
-      >
-        <LinkedinLogo weight="duotone" />
-      </a>
+        <a
+          class="social-icon"
+          href={hero.socials.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+        >
+          <LinkedinLogo weight="fill" />
+        </a>
+      </div>
     </div>
   </div>
 
@@ -66,7 +68,6 @@ const { hero } = siteConfig;
       overflow: hidden;
     }
 
-    /* Minimal grid background */
     .hero-grid-bg {
       position: absolute;
       top: 0;
@@ -104,6 +105,7 @@ const { hero } = siteConfig;
 
     .hero-status {
       font-family: 'JetBrains Mono', monospace;
+      font-weight: 400;
       color: var(--accent);
       font-size: 0.9rem;
       letter-spacing: 0.02em;
@@ -133,9 +135,9 @@ const { hero } = siteConfig;
 
     .hero-actions {
       display: flex;
-      gap: 0.85rem;
-      align-items: center;
       flex-wrap: wrap;
+      align-items: center;
+      gap: 1.5rem;
       margin-top: 0.5rem;
     }
 
@@ -147,7 +149,7 @@ const { hero } = siteConfig;
       border: 1px solid var(--accent);
       background: var(--accent);
       color: var(--bg);
-      border-radius: 2px;
+      border-radius: 6px;
       font-weight: 500;
       font-size: 0.9rem;
       text-decoration: none;
@@ -157,25 +159,37 @@ const { hero } = siteConfig;
     .hero-cta:hover {
       background: transparent;
       color: var(--accent);
-      transform: translateY(-1px);
+      transform: translateY(-2px);
     }
 
-    .hero-icon {
+    .social-icons {
+      display: flex;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    .social-icon {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 2.6rem;
-      height: 2.6rem;
-      border: 1px solid var(--border);
-      border-radius: 2px;
+      width: 2.4rem;
+      height: 2.4rem;
       color: var(--text-muted);
+      background: transparent;
       transition: all 200ms ease;
     }
 
-    .hero-icon:hover {
+    .social-icon svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      fill: currentColor;
+      background: transparent;
+    }
+
+    .social-icon:hover {
       color: var(--accent);
-      border-color: var(--accent);
-      transform: translateY(-1px);
+      transform: translateY(-2px);
+      background: transparent;
     }
 
     @media (max-width: 699px) {
@@ -204,12 +218,27 @@ const { hero } = siteConfig;
         mask-image: radial-gradient(circle at 50% 20%, black 20%, transparent 70%);
         -webkit-mask-image: radial-gradient(circle at 50% 20%, black 20%, transparent 70%);
       }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+      }
+
+      .hero-cta, .social-icon {
+        justify-content: center;
+      }
+
+      .social-icons {
+        justify-content: center;
+        gap: 1rem;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
       .terminal-wrapper:hover,
       .hero-cta:hover,
-      .hero-icon:hover {
+      .social-icon:hover {
         transform: none;
       }
     }

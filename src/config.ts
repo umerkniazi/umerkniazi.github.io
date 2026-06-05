@@ -17,7 +17,7 @@ export const siteConfig = {
   hero: {
     status: "Machine Learning & Systems",
     title: "Umer Khan Niazi",
-    intro: "I build things that actually run: pipelines, classifiers, and terminal tools. Python mostly, C++ when it matters. I believe in free software and I care about animals.",
+    intro: "I build things that actually run: pipelines, classifiers, and terminal tools. Python mostly, C++ when it matters.",
     terminal: {
       meta: "umer@portfolio:~",
       prompt: "$",
