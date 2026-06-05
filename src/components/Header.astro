@@ -215,6 +215,7 @@ const { navbar } = siteConfig;
   .site-header.nav-open .menu-icon-open { display: none; }
   .site-header.nav-open .menu-icon-close { display: inline-block; }
 
+  /* Desktop */
   @media (min-width: 700px) {
     .menu-toggle { display: none; }
 
@@ -234,11 +235,17 @@ const { navbar } = siteConfig;
     }
   }
 
+  /* Mobile adjustments */
   @media (max-width: 699px) {
+    .nav-shell {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      gap: 0.75rem;
+    }
     .nav-name {
       white-space: normal;
       font-size: 0.9rem;
-      max-width: 150px;
+      max-width: 130px;
     }
     .brand {
       gap: 0.5rem;
