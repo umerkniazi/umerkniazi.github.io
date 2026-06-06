@@ -2,9 +2,7 @@
 import { siteConfig } from '../config';
 
 const { about } = siteConfig;
-
-// Filter out the "Current Rabbithole" timeline entry
-const filteredTimeline = about.timeline.filter(item => item.year !== "Current Rabbithole");
+const { timeline } = about;
 ---
 
 <section class="section" id="about">
@@ -35,7 +33,7 @@ const filteredTimeline = about.timeline.filter(item => item.year !== "Current Ra
       </div>
 
       <div class="timeline-list">
-        {filteredTimeline.map(item => (
+        {timeline.map(item => (
           <article class={`timeline-item ${item.primary ? 'primary' : ''}`}>
             <div class="timeline-year">{item.year}</div>
             <div>
