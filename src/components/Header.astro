@@ -1,5 +1,5 @@
 ---
-import { Sun, Moon, List, X } from '@phosphor-icons/react/dist/ssr';
+import { IconSun, IconMoon, IconMenu2, IconX } from '@tabler/icons-react';
 import { siteConfig } from '../config';
 const { navbar } = siteConfig;
 ---
@@ -20,12 +20,12 @@ const { navbar } = siteConfig;
     <div class="nav-controls">
       <a href={navbar.resume.href} download class="nav-cta">{navbar.resume.label}</a>
       <button class="theme-icon-btn" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false" title="Toggle color theme">
-        <Sun className="theme-btn-icon theme-btn-icon--light" aria-hidden="true" weight="bold" />
-        <Moon className="theme-btn-icon theme-btn-icon--dark" aria-hidden="true" weight="bold" />
+        <IconSun className="theme-btn-icon theme-btn-icon--light" stroke={2} />
+        <IconMoon className="theme-btn-icon theme-btn-icon--dark" stroke={2} />
       </button>
       <button class="icon-button menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="siteNav">
-        <List className="menu-icon menu-icon-open" aria-hidden="true" weight="bold" />
-        <X className="menu-icon menu-icon-close" aria-hidden="true" weight="bold" />
+        <IconMenu2 className="menu-icon menu-icon-open" stroke={2} />
+        <IconX className="menu-icon menu-icon-close" stroke={2} />
         <span class="button-text">Menu</span>
       </button>
     </div>

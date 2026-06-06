@@ -1,12 +1,12 @@
 ---
-import { ArrowUpRight, GithubLogo } from '@phosphor-icons/react/dist/ssr';
+import { IconBrandGithub, IconArrowUpRight } from '@tabler/icons-react';
 import { siteConfig } from '../config';
 
 const { projects } = siteConfig;
 
 const iconMap = {
-  GithubLogo: GithubLogo,
-  ArrowUpRight: ArrowUpRight
+  GithubLogo: IconBrandGithub,
+  ArrowUpRight: IconArrowUpRight
 };
 ---
 
@@ -34,7 +34,7 @@ const iconMap = {
               const Icon = iconMap[link.icon];
               return (
                 <a href={link.url} target="_blank" rel="noopener noreferrer">
-                  {Icon && <Icon aria-hidden="true" weight="fill" />}
+                  {Icon && <Icon size={16} stroke={1.5} />}
                   {link.label}
                 </a>
               );
@@ -47,6 +47,7 @@ const iconMap = {
 </section>
 
 <style>
+  /* CSS unchanged – keep exactly as before */
   .section-heading {
     display: grid;
     gap: 0.55rem;

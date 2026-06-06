@@ -1,13 +1,13 @@
 ---
-import { EnvelopeSimple, GithubLogo, LinkedinLogo } from '@phosphor-icons/react/dist/ssr';
+import { IconMail, IconBrandGithub, IconBrandLinkedin } from '@tabler/icons-react';
 import { siteConfig } from '../config';
 
 const { contact } = siteConfig;
 
 const iconMap = {
-  EnvelopeSimple: EnvelopeSimple,
-  GithubLogo: GithubLogo,
-  LinkedinLogo: LinkedinLogo
+  EnvelopeSimple: IconMail,
+  GithubLogo: IconBrandGithub,
+  LinkedinLogo: IconBrandLinkedin
 };
 ---
 
@@ -30,7 +30,7 @@ const iconMap = {
             rel={item.external ? "noreferrer" : undefined}
           >
             <div class="contact-icon">
-              {Icon && <Icon aria-hidden="true" weight="fill" />}
+              {Icon && <Icon size={20} stroke={1.5} />}
             </div>
             <div class="contact-info">
               <strong class="contact-label">{item.label}</strong>
@@ -106,7 +106,7 @@ const iconMap = {
   .contact-icon svg {
     width: 1.3rem;
     height: 1.3rem;
-    fill: currentColor;
+    /* Remove fill: currentColor; Tabler icons use stroke */
   }
 
   .contact-card:hover .contact-icon {
