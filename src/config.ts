@@ -44,7 +44,7 @@ export const siteConfig = {
     },
     featured: [
       {
-        kicker: "// flagship — unguided analysis",
+        kicker: "// flagship - unguided analysis",
         title: "News NLP Pipeline",
         metricBadge: "350k+ articles processed",
         description: "I wanted to know what Dawn actually writes about, so I built a pipeline for unguided analysis. Runs the raw data through BERTopic for topic modeling, spaCy for NER, and a classifier for sentiment. No labels, no supervision. The structure emerges from the text itself.",
@@ -55,7 +55,7 @@ export const siteConfig = {
         ]
       },
       {
-        kicker: "// computer vision — edge case QA",
+        kicker: "// computer vision - edge case QA",
         title: "GB Wildlife Classifier",
         metricBadge: "98.16% val accuracy",
         description: "Frozen early layers, custom 3-class head trained on three endangered Himalayan species from Gilgit-Baltistan. The real work was stress-testing out-of-distribution data, adding an 80% confidence threshold to catch unknowns, and documenting failure modes where visual and taxonomic similarity trips the model.",
@@ -66,7 +66,7 @@ export const siteConfig = {
         ]
       },
       {
-        kicker: "// machine learning — predictive triage",
+        kicker: "// machine learning - predictive triage",
         title: "Shelter Outcome Predictor",
         metricBadge: "80k+ intake records modeled",
         description: "Trained a Random Forest on data from Austin Animal Center to predict which animals are at risk. Built for recall over precision because a missed at-risk animal is worse than a false alarm. Deployed as a Streamlit app. This one matters to me personally.",
@@ -77,7 +77,7 @@ export const siteConfig = {
         ]
       },
       {
-        kicker: "// systems — terminal music player",
+        kicker: "// systems - terminal music player",
         title: "WMUS",
         description: "I use cmus on Linux and needed something similar on Windows. Nothing I tried felt quite right, so I wrote my own. Cmus-inspired, Python-based terminal music player with fuzzy search, vim-style bindings, and metadata caching. It focuses on doing one thing well without getting in the way.",
         techStack: ["Python", "CLI Tool", "Systems Programming"],
@@ -109,20 +109,22 @@ export const siteConfig = {
     ],
     timeline: [
       {
-        year: "2024 — Present",
+        year: "The Early Days",
+        title: "Tinkering & Distro Hopping",
+        description: "Started out fixing family routers and tearing apart electronics. That hardware curiosity naturally led to software, making games in Unity and constantly breaking my OS while trying different Linux distributions.",
+        primary: false
+      },
+      {
+        year: "2024 - Present",
         title: "BS Artificial Intelligence, UET",
-        description: "Focused on machine learning architecture, systems programming, and applied mathematics.",
+        description: "Building the core mathematical and theoretical foundation for machine learning architecture and applied mathematics.",
         primary: true
       },
       {
-        year: "Current Focus",
+        year: "Looking Ahead",
         title: "Systems & Infrastructure",
-        description: "Building the infrastructure layer beneath the models. Moving past standard model training to focus on data structures, Linux concepts, and low-latency implementation."
-      },
-      {
-        year: "Current Rabbithole",
-        title: "Hands-On Machine Learning",
-        description: "Reading Aurélien Géron."
+        description: "Moving past standard model training to focus on the layers beneath. Diving deep into data structures, Linux concepts, and open-source contributions.",
+        primary: false
       }
     ]
   },
