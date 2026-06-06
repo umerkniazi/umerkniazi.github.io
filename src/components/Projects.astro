@@ -1,13 +1,12 @@
 ---
-import { ArrowUpRight, GithubLogo, GameController } from '@phosphor-icons/react/dist/ssr';
+import { ArrowUpRight, GithubLogo } from '@phosphor-icons/react/dist/ssr';
 import { siteConfig } from '../config';
 
 const { projects } = siteConfig;
 
 const iconMap = {
   GithubLogo: GithubLogo,
-  ArrowUpRight: ArrowUpRight,
-  GameController: GameController
+  ArrowUpRight: ArrowUpRight
 };
 ---
 
@@ -35,7 +34,7 @@ const iconMap = {
               const Icon = iconMap[link.icon];
               return (
                 <a href={link.url} target="_blank" rel="noopener noreferrer">
-                  {Icon && <Icon aria-hidden="true" weight="bold" />}
+                  {Icon && <Icon aria-hidden="true" weight="fill" />}
                   {link.label}
                 </a>
               );
@@ -76,7 +75,6 @@ const iconMap = {
     margin-bottom: 0;
   }
 
-  /* All cards get the same subtle styling */
   .project-item {
     border: 1px solid rgba(255, 255, 255, 0.08);
     background: rgba(255, 255, 255, 0.008);
