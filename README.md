@@ -1,8 +1,7 @@
-# umerkniazi.dev
-Personal portfolio — projects, writing, and contact.
-
-Live at [umerkniazi.dev](https://umerkniazi.dev)
+# umerkniazi.github.io
+Personal portfolio, projects and contact.
+Live at [umerkniazi.github.io](https://umerkniazi.github.io)
 
 **Stack**: Astro  
-**Icons**: Phosphor Icons (via React)  
-**Hosted on**: Cloudflare Pages
+**Icons**: Tabler Icons (via React)  
+**Hosted on**: GitHub Pages
