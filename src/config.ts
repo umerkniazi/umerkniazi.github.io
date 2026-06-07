@@ -4,7 +4,7 @@ export const siteConfig = {
 
   navbar: {
     links: [
-      { label: "home", href: "/#hero" },
+      { label: "home", href: "/" },
       { label: "projects", href: "/#projects" }
     ],
     resume: {

@@ -62,14 +62,12 @@ const { projects } = siteConfig;
   .arrow {
     display: inline-flex;
     align-items: center;
-    opacity: 0;
-    transform: translate(-4px, 4px);
-    transition: all 0.2s ease;
+    opacity: 0.3;
+    transition: opacity 0.2s ease;
   }
 
   .project-title-link:hover .arrow {
     opacity: 1;
-    transform: translate(0, 0);
   }
   
   .project-item p {
