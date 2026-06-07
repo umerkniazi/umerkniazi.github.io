@@ -2,212 +2,115 @@
 import { siteConfig } from '../config';
 
 const { about } = siteConfig;
-const { timeline } = about;
+const education = about.timeline.find(item => item.primary);
 ---
 
-<section class="section" id="about">
-  <div class="container narrow">
-    <div class="section-heading">
-      <span class="eyebrow">{about.heading.eyebrow}</span>
-      <h2>{about.heading.title}</h2>
+<section class="section container" id="about">
+  <div class="about-intro-block">
+    <h2 class="section-heading">{about.heading.title}</h2>
+    <div class="about-intro">
+      {about.introParagraphs.map(paragraph => (
+        <p>{paragraph}</p>
+      ))}
     </div>
+  </div>
 
-    <div class="about-grid">
-      <div class="about-copy">
-        {about.introParagraphs.map(paragraph => (
-          <p>{paragraph}</p>
-        ))}
-
-        <div class="skills-grid" aria-label="Skills">
-          {about.skillGroups.map(group => (
-            <div class="skill-group">
-              <span class="skill-label">{group.label}</span>
-              <div class="skill-pills">
-                {group.skills.map(skill => (
-                  <span class="skill-pill">{skill}</span>
-                ))}
-              </div>
-            </div>
-          ))}
+  <div class="education-block">
+    <h2 class="section-heading">{about.heading.education}</h2>
+    {education && (
+      <div class="edu-layout">
+        <div class="edu-year">{education.year}</div>
+        <div class="edu-content">
+          <h3><strong>{education.title}</strong></h3>
+          <p>{education.description}</p>
         </div>
       </div>
+    )}
+  </div>
 
-      <div class="timeline-list">
-        {timeline.map(item => (
-          <article class={`timeline-item ${item.primary ? 'primary' : ''}`}>
-            <div class="timeline-year">{item.year}</div>
-            <div>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-            </div>
-          </article>
-        ))}
-      </div>
+  <div class="skills-block">
+    <h2 class="section-heading">{about.heading.skills}</h2>
+    <div class="skills-list">
+      {about.skillGroups.map(group => (
+        <div class="skill-line">
+          <span class="skill-label">&gt; {group.label}</span>
+          <span class="skill-items">{group.skills.join(', ')}</span>
+        </div>
+      ))}
     </div>
   </div>
 </section>
 
 <style>
-  .section-heading {
-    display: grid;
-    gap: 0.55rem;
-    margin-bottom: 3rem;
+  #about {
+    padding-top: 2rem;
   }
 
-  .eyebrow {
-    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    color: var(--accent);
-    font-size: 0.84rem;
-    letter-spacing: 0.02em;
+  .about-intro-block {
+    margin-bottom: 2rem;
   }
 
-  .about-grid {
-    display: grid;
-    gap: 3rem;
-  }
-
-  .about-copy {
-    display: grid;
-    gap: 1.25rem;
-  }
-
-  .about-copy p {
-    color: var(--text-muted);
-    font-size: 1.05rem;
-    line-height: 1.7;
-  }
-
-  .skills-grid {
-    display: grid;
-    gap: 1.5rem;
-    margin-top: 0.5rem;
-  }
-
-  .skill-group {
-    display: grid;
-    gap: 0.8rem;
-  }
-
-  .skill-label {
-    color: var(--text);
-    font-size: 0.9rem;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-  }
-
-  .skill-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-  }
-
-  .skill-pill {
-    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--text-muted);
-    font-size: 0.7rem;
-    padding: 0.2rem 0.7rem;
-    border-radius: 20px;
-    letter-spacing: 0.02em;
-    transition: all var(--transition-fast);
-  }
-
-  .skill-pill:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-
-  .timeline-list {
+  .about-intro {
     display: flex;
     flex-direction: column;
-    gap: 0;
-    border-left: 2px solid var(--border);
-    margin-left: 1rem;
-    padding-left: 2rem;
+    gap: 1.25rem;
+    color: var(--text-muted);
+    max-width: 65ch;
   }
 
-  .timeline-item {
+  .education-block {
+    margin-bottom: 2rem;
+  }
+  
+  .edu-layout {
     display: grid;
-    grid-template-columns: minmax(8rem, 10rem) 1fr;
-    gap: 1.5rem;
-    padding: 1.5rem 0;
-    position: relative;
+    grid-template-columns: 120px 1fr;
+    gap: 2rem;
   }
-
-  .timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -2.1rem;
-    top: 1.9rem;
-    width: 0.75rem;
-    height: 0.75rem;
-    background: var(--border);
-    border-radius: 50%;
-    transition: all var(--transition-fast);
-  }
-
-  .timeline-item.primary::before {
-    background: var(--accent);
-    box-shadow: 0 0 0 3px var(--accent-soft);
-  }
-
-  .timeline-item:hover::before {
-    transform: scale(1.2);
-  }
-
-  .timeline-year {
-    font-family: 'JetBrains Mono', monospace;
+  
+  .edu-year {
     color: var(--text-muted);
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: -0.01em;
   }
-
-  .timeline-item.primary .timeline-year {
-    color: var(--accent);
-    font-weight: 600;
-  }
-
-  .timeline-item h3 {
-    margin: 0 0 0.35rem;
-    font-size: 1.2rem;
-    font-weight: 500;
+  
+  .edu-content h3 {
     color: var(--text);
+    margin-bottom: 0.3rem;
   }
-
-  .timeline-item p {
-    margin: 0;
+  
+  .edu-content p {
     color: var(--text-muted);
-    line-height: 1.6;
-    font-size: 0.92rem;
+  }
+  
+  .skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .skill-line {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .skill-label {
+    color: var(--accent);
+    min-width: 100px;
+    font-weight: bold;
+  }
+  
+  .skill-items {
+    color: var(--text-muted);
   }
 
-  @media (max-width: 699px) {
-    .about-grid {
-      gap: 2rem;
-    }
-    .timeline-list {
-      margin-left: 0.5rem;
-      padding-left: 1.5rem;
-    }
-    .timeline-item {
+  @media (max-width: 600px) {
+    .edu-layout {
       grid-template-columns: 1fr;
       gap: 0.5rem;
-      padding: 1.2rem 0;
     }
-    .timeline-item::before {
-      left: -1.6rem;
-      top: 1.2rem;
-    }
-    .timeline-year {
-      margin-bottom: 0.2rem;
-    }
-    .about-copy p {
-      font-size: 0.98rem;
-    }
-    .skill-pill {
-      font-size: 0.65rem;
+    
+    .skill-line {
+      flex-direction: column;
+      gap: 0.2rem;
     }
   }
 </style>

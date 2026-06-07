@@ -1,59 +1,73 @@
 ---
 import { siteConfig } from '../config';
 
-const currentYear = new Date().getFullYear();
-const { navbar } = siteConfig;
+const { footer } = siteConfig;
 ---
 
-<footer class="site-footer">
-  <div class="container narrow">
-    <div class="footer-inner">
-      <p class="footer-copyright">
-        <span class="footer-prompt">$</span> © {currentYear} {navbar.brandName}
-      </p>
-    </div>
+<footer class="site-footer container section" id="footer">
+  <div class="status-indicator">
+    <span class="dot"></span>
+    <span>{footer.status}</span>
+    <span class="dot"></span>
+  </div>
+  
+  <div class="footer-links">
+    {footer.contacts.map(c => (
+      <a 
+        href={c.href} 
+        target={c.external ? "_blank" : undefined}
+        rel={c.external ? "noopener noreferrer" : undefined}
+      >
+        {c.label}
+      </a>
+    ))}
   </div>
 </footer>
 
 <style>
   .site-footer {
-    border-top: 1px solid var(--border);
-    padding: 2rem 0;
-    margin-top: 3rem;
-    background: transparent;
-  }
-
-  .footer-inner {
+    padding-bottom: 4rem;
     display: flex;
-    justify-content: center;
-    align-items: baseline;
-    gap: 1rem;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
     color: var(--text-muted);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
-
-  .footer-copyright {
-    margin: 0;
-    display: inline-flex;
-    align-items: baseline;
-    gap: 0.4rem;
+  
+  .dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite ease-in-out;
   }
-
-  .footer-prompt {
-    color: var(--accent);
-    font-weight: 500;
+  
+  @keyframes pulse {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; box-shadow: 0 0 8px var(--accent); }
+    100% { opacity: 0.3; }
   }
-
-  @media (max-width: 699px) {
-    .site-footer {
-      padding: 1.5rem 0;
-      margin-top: 2rem;
-    }
-    .footer-inner {
-      justify-content: center;
-      text-align: center;
-    }
+  
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .footer-links a {
+    color: var(--text-muted);
+  }
+  
+  .footer-links a:hover {
+    color: var(--text);
+    text-decoration: underline;
   }
 </style>
