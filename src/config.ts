@@ -26,52 +26,41 @@ export const siteConfig = {
     featured: [
       {
         title: "news-nlp-pipeline",
-        metricBadge: "350k+ articles processed",
-        description:
-          "I wanted to understand what Dawn actually writes about so I built a pipeline for unguided analysis. It runs raw text through BERTopic for topic modeling, spaCy for NER and a classifier for sentiment. No labels or supervision. The structure emerges from the data itself.",
+        description: "I wanted to understand what Dawn actually writes about so I built a pipeline for unguided analysis. It runs raw text through BERTopic for topic modeling, spaCy for NER and a classifier for sentiment. No labels or supervision. The structure emerges from the data itself.",
         links: [
           {
             label: "GitHub",
-            url: "https://github.com/umerkniazi/news-nlp-pipeline",
-            icon: "GithubLogo"
+            url: "https://github.com/umerkniazi/news-nlp-pipeline"
           }
         ]
       },
       {
         title: "gb-wildlife-classifier",
-        metricBadge: "98.16% val accuracy",
-        description:
-          "Used a frozen backbone with a custom 3-class head trained on endangered Himalayan species from Gilgit-Baltistan. Focused on stress testing out-of-distribution inputs and added an 80% confidence threshold to flag uncertain predictions. Documented failure cases where visual similarity causes confusion between species.",
+        description: "Used a frozen backbone with a custom 3-class head trained on endangered Himalayan species from Gilgit-Baltistan. Focused on stress testing out-of-distribution inputs and added an 80% confidence threshold to flag uncertain predictions. Documented failure cases where visual similarity causes confusion between species.",
         links: [
           {
             label: "GitHub",
-            url: "https://github.com/umerkniazi/gb-wildlife-classifier",
-            icon: "GithubLogo"
+            url: "https://github.com/umerkniazi/gb-wildlife-classifier"
           }
         ]
       },
       {
         title: "shelter-outcome-predictor",
-        metricBadge: "80k+ intake records modeled",
-        description:
-          "Trained a Random Forest on data from Austin Animal Center to predict which animals are at risk. Built for recall over precision since missing an at-risk animal is worse than a false alarm.",
+        description: "Trained a Random Forest on data from Austin Animal Center to predict which animals are at risk. Built for recall over precision since missing an at-risk animal is worse than a false alarm.",
         links: [
           {
             label: "GitHub",
-            url: "https://github.com/umerkniazi/shelter-outcome-predictor",
-            icon: "GithubLogo"
+            url: "https://github.com/umerkniazi/shelter-outcome-predictor"
           }
         ]
       },
       {
         title: "wmus",
-        description:
-          "I use cmus on Linux and wanted something similar on Windows. Nothing felt right so I wrote my own. A cmus-inspired Python terminal music player with fuzzy search, vim-style bindings and metadata caching. It focuses on doing one thing well without getting in the way.",
+        description: "I use cmus on Linux and wanted something similar on Windows. Nothing felt right so I wrote my own. A cmus-inspired Python terminal music player with fuzzy search, vim-style bindings and metadata caching. It focuses on doing one thing well without getting in the way.",
         links: [
           {
             label: "GitHub",
-            url: "https://github.com/umerkniazi/wmus",
-            icon: "GithubLogo"
+            url: "https://github.com/umerkniazi/wmus"
           }
         ]
       }
@@ -100,7 +89,7 @@ export const siteConfig = {
     ],
     timeline: [
       {
-        year: "2024 — Present",
+        year: "2025 — Present",
         title: "BS Artificial Intelligence, UET",
         description: "",
         primary: true
@@ -114,21 +103,18 @@ export const siteConfig = {
       {
         label: "Email",
         href: "mailto:umerkniazi@proton.me",
-        value: "umerkniazi@proton.me",
-        icon: "EnvelopeSimple"
+        value: "umerkniazi@proton.me"
       },
       {
         label: "GitHub",
         href: "https://github.com/umerkniazi",
         value: "github.com/umerkniazi",
-        icon: "GithubLogo",
         external: true
       },
       {
         label: "LinkedIn",
         href: "https://linkedin.com/in/umerkniazi",
         value: "linkedin.com/in/umerkniazi",
-        icon: "LinkedinLogo",
         external: true
       }
     ]
