@@ -17,7 +17,7 @@ const { projects } = siteConfig;
           <article class="project-item">
             <h3>
               {githubLink ? (
-                <a href={githubLink.url} target="_blank" rel="noopener noreferrer" class="project-title-link">
+                <a href={githubLink.url} target="_blank" rel="noopener noreferrer" class="project-title-link project-name">
                   {project.title} 
                   <span class="arrow">
                     <IconArrowUpRight size={18} stroke={2} />
@@ -64,15 +64,26 @@ const { projects } = siteConfig;
   .arrow {
     display: inline-flex;
     align-items: center;
-    opacity: 0.3;
+    opacity: 0;
     transition: opacity 0.2s ease;
   }
 
-  .project-title-link:hover .arrow {
+  .project-name:hover .arrow {
     opacity: 1;
   }
   
   .project-item p {
     color: var(--text-muted);
+  }
+
+  @media (max-width: 768px) {
+    .project-name {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .project-name .arrow {
+      opacity: 0;
+    }
   }
 </style>
