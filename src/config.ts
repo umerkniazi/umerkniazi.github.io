@@ -5,7 +5,8 @@ export const siteConfig = {
   navbar: {
     links: [
       { label: "home", href: "/" },
-      { label: "projects", href: "/#projects" }
+      { label: "projects", href: "/#projects" },
+      { label: "about", href: "/#about" }
     ],
     resume: {
       label: "resume",
