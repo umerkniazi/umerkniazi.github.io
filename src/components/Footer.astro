@@ -4,29 +4,38 @@ import { siteConfig } from '../config';
 const { footer } = siteConfig;
 ---
 
-<footer class="site-footer container section" id="footer">
-  <div class="status-indicator">
-    <span class="dot"></span>
-    <span>{footer.status}</span>
-    <span class="dot"></span>
-  </div>
-  
-  <div class="footer-links">
-    {footer.contacts.map(c => (
-      <a 
-        href={c.href} 
-        target={c.external ? "_blank" : undefined}
-        rel={c.external ? "noopener noreferrer" : undefined}
-      >
-        {c.label}
-      </a>
-    ))}
+<footer class="site-footer section" id="footer">
+  <div class="container">
+    <div class="status-indicator">
+      <span class="dot"></span>
+      <span>{footer.status}</span>
+      <span class="dot"></span>
+    </div>
+    
+    <div class="footer-links">
+      {footer.contacts.map(c => (
+        <a 
+          href={c.href} 
+          target={c.external ? "_blank" : undefined}
+          rel={c.external ? "noopener noreferrer" : undefined}
+        >
+          {c.label}
+        </a>
+      ))}
+    </div>
   </div>
 </footer>
 
 <style>
   .site-footer {
     padding-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .container {
     display: flex;
     flex-direction: column;
     align-items: center;

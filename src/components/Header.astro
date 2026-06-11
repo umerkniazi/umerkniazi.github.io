@@ -4,34 +4,35 @@ import { siteConfig } from '../config';
 const { navbar } = siteConfig;
 ---
 
-<header class="site-header container">
-  <div class="header-inner">
-    <nav class="site-nav" id="siteNav">
-      <div class="nav-links">
-        {navbar.links.map(link => (
-          <a href={link.href}>{link.label}</a>
-        ))}
-        <a href={navbar.resume.href} download>{navbar.resume.label}</a>
-      </div>
-    </nav>
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <nav class="site-nav" id="siteNav">
+        <div class="nav-links">
+          {navbar.links.map(link => (
+            <a href={link.href}>{link.label}</a>
+          ))}
+          <a href={navbar.resume.href} download>{navbar.resume.label}</a>
+        </div>
+      </nav>
 
-    <div class="controls">
-      <button class="theme-icon-btn" id="themeToggle" type="button" aria-label="Toggle color theme">
-        <IconSun className="theme-btn-icon theme-btn-icon--light" stroke={2} />
-        <IconMoon className="theme-btn-icon theme-btn-icon--dark" stroke={2} />
-      </button>
-      
-      <button id="menuToggle" class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
-        <IconMenu2 className="menu-icon-open" stroke={2} />
-        <IconX className="menu-icon-close" stroke={2} />
-      </button>
+      <div class="controls">
+        <button class="theme-icon-btn" id="themeToggle" type="button" aria-label="Toggle color theme">
+          <IconSun className="theme-btn-icon theme-btn-icon--light" stroke={2} />
+          <IconMoon className="theme-btn-icon theme-btn-icon--dark" stroke={2} />
+        </button>
+        
+        <button id="menuToggle" class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
+          <IconMenu2 className="menu-icon-open" stroke={2} />
+          <IconX className="menu-icon-close" stroke={2} />
+        </button>
+      </div>
     </div>
   </div>
 </header>
 
 <style>
   .site-header {
-    padding: 1.5rem;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -46,6 +47,7 @@ const { navbar } = siteConfig;
     justify-content: center;
     align-items: center;
     gap: 1.5rem;
+    padding: 1.5rem 0;
   }
 
   .controls {

@@ -4,10 +4,12 @@ import { siteConfig } from '../config';
 const { hero } = siteConfig;
 ---
 
-<section class="hero container section" id="hero">
-  <h1 class="hero-title">{hero.title}</h1>
-  <div class="hero-status">{hero.status}</div>
-  <p class="hero-intro">{hero.intro}</p>
+<section class="section" id="hero">
+  <div class="container">
+    <h1 class="hero-title">{hero.title}</h1>
+    <div class="hero-status">{hero.status}</div>
+    <p class="hero-intro">{hero.intro}</p>
+  </div>
 </section>
 
 <style>

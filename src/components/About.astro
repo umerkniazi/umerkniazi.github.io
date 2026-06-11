@@ -5,38 +5,40 @@ const { about } = siteConfig;
 const education = about.timeline.find(item => item.primary);
 ---
 
-<section class="section container" id="about">
-  <div class="about-intro-block">
-    <h2 class="section-heading">{about.heading.title}</h2>
-    <div class="about-intro">
-      {about.introParagraphs.map(paragraph => (
-        <p>{paragraph}</p>
-      ))}
-    </div>
-  </div>
-
-  <div class="education-block">
-    <h2 class="section-heading">{about.heading.education}</h2>
-    {education && (
-      <div class="edu-layout">
-        <div class="edu-year">{education.year}</div>
-        <div class="edu-content">
-          <h3><strong>{education.title}</strong></h3>
-          <p>{education.description}</p>
-        </div>
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-intro-block">
+      <h2 class="section-heading">{about.heading.title}</h2>
+      <div class="about-intro">
+        {about.introParagraphs.map(paragraph => (
+          <p>{paragraph}</p>
+        ))}
       </div>
-    )}
-  </div>
+    </div>
 
-  <div class="skills-block">
-    <h2 class="section-heading">{about.heading.skills}</h2>
-    <div class="skills-list">
-      {about.skillGroups.map(group => (
-        <div class="skill-line">
-          <span class="skill-label">&gt; {group.label}</span>
-          <span class="skill-items">{group.skills.join(', ')}</span>
+    <div class="education-block">
+      <h2 class="section-heading">{about.heading.education}</h2>
+      {education && (
+        <div class="edu-layout">
+          <div class="edu-year">{education.year}</div>
+          <div class="edu-content">
+            <h3><strong>{education.title}</strong></h3>
+            <p>{education.description}</p>
+          </div>
         </div>
-      ))}
+      )}
+    </div>
+
+    <div class="skills-block">
+      <h2 class="section-heading">{about.heading.skills}</h2>
+      <div class="skills-list">
+        {about.skillGroups.map(group => (
+          <div class="skill-line">
+            <span class="skill-label">&gt; {group.label}</span>
+            <span class="skill-items">{group.skills.join(', ')}</span>
+          </div>
+        ))}
+      </div>
     </div>
   </div>
 </section>

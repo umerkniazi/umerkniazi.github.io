@@ -5,31 +5,33 @@ import { siteConfig } from '../config';
 const { projects } = siteConfig;
 ---
 
-<section class="section container" id="projects">
-  <h2 class="section-heading">{projects.heading.title}</h2>
+<section class="section" id="projects">
+  <div class="container">
+    <h2 class="section-heading">{projects.heading.title}</h2>
 
-  <div class="projects-list">
-    {projects.featured.map(project => {
-      const githubLink = project.links.find(link => link.label.toLowerCase() === 'github');
-      
-      return (
-        <article class="project-item">
-          <h3>
-            {githubLink ? (
-              <a href={githubLink.url} target="_blank" rel="noopener noreferrer" class="project-title-link">
-                {project.title} 
-                <span class="arrow">
-                  <IconArrowUpRight size={18} stroke={2} />
-                </span>
-              </a>
-            ) : (
-              project.title
-            )}
-          </h3>
-          <p>{project.description}</p>
-        </article>
-      );
-    })}
+    <div class="projects-list">
+      {projects.featured.map(project => {
+        const githubLink = project.links.find(link => link.label.toLowerCase() === 'github');
+        
+        return (
+          <article class="project-item">
+            <h3>
+              {githubLink ? (
+                <a href={githubLink.url} target="_blank" rel="noopener noreferrer" class="project-title-link">
+                  {project.title} 
+                  <span class="arrow">
+                    <IconArrowUpRight size={18} stroke={2} />
+                  </span>
+                </a>
+              ) : (
+                project.title
+              )}
+            </h3>
+            <p>{project.description}</p>
+          </article>
+        );
+      })}
+    </div>
   </div>
 </section>
 
