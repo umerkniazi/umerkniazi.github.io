@@ -78,6 +78,11 @@ const education = about.timeline.find(item => item.primary);
     color: var(--text);
     margin-bottom: 0.3rem;
   }
+
+  .edu-content h3 strong {
+    font-family: var(--font-mono);
+    font-weight: normal;
+  }
   
   .edu-content p {
     color: var(--text-muted);
@@ -98,6 +103,9 @@ const education = about.timeline.find(item => item.primary);
     color: var(--accent);
     min-width: 100px;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
   
   .skill-items {
