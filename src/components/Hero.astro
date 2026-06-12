@@ -1,35 +1,40 @@
 ---
 import { siteConfig } from '../config';
 
-const { hero } = siteConfig;
+const { hero, name } = siteConfig;
 ---
 
-<section class="section" id="hero">
+<section class="section hero-section" id="hero">
   <div class="container">
-    <h1 class="hero-title">{hero.title}</h1>
-    <div class="hero-status">{hero.status}</div>
+    <h1 class="hero-title">{name}</h1>
+    <p class="hero-status">{hero.status}</p>
     <p class="hero-intro">{hero.intro}</p>
   </div>
 </section>
 
 <style>
-  .hero {
-    padding-top: 3rem;
+  .hero-section {
+    padding-top: 4rem;
+    padding-bottom: 2rem;
   }
   
   .hero-title {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: bold;
     color: var(--text);
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.02em;
   }
   
   .hero-status {
     color: var(--accent);
     margin-bottom: 1.5rem;
+    font-size: 1rem;
   }
   
   .hero-intro {
     color: var(--text-muted);
     max-width: 65ch;
+    line-height: 1.6;
   }
 </style>
