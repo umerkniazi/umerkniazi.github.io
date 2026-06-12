@@ -16,7 +16,6 @@ export const siteConfig = {
 
   hero: {
     status: "Machine Learning & Systems",
-    title: "Umer Khan Niazi",
     intro: "I build things that actually run: pipelines, classifiers and terminal tools. Python mostly, C++ when it matters."
   },
 
@@ -30,8 +29,12 @@ export const siteConfig = {
         description: "I wanted to understand what Dawn actually writes about so I built a pipeline for unguided analysis. It runs raw text through BERTopic for topic modeling, spaCy for NER and a classifier for sentiment. No labels or supervision. The structure emerges from the data itself.",
         links: [
           {
-            label: "GitHub",
-            url: "https://github.com/umerkniazi/news-nlp-pipeline"
+            label: "github",
+            href: "https://github.com/umerkniazi/news-nlp-pipeline"
+          },
+          {
+            label: "demo",
+            href: "https://news-nlp-pipeline.streamlit.app/"
           }
         ]
       },
@@ -40,8 +43,12 @@ export const siteConfig = {
         description: "Used a frozen backbone with a custom 3-class head trained on endangered Himalayan species from Gilgit-Baltistan. Focused on stress testing out-of-distribution inputs and added an 80% confidence threshold to flag uncertain predictions. Documented failure cases where visual similarity causes confusion between species.",
         links: [
           {
-            label: "GitHub",
-            url: "https://github.com/umerkniazi/gb-wildlife-classifier"
+            label: "github",
+            href: "https://github.com/umerkniazi/gb-wildlife-classifier"
+          },
+          {
+            label: "demo",
+            href: "https://gb-wildlife-classifier.streamlit.app/"
           }
         ]
       },
@@ -50,8 +57,12 @@ export const siteConfig = {
         description: "Trained a Random Forest on data from Austin Animal Center to predict which animals are at risk. Built for recall over precision since missing an at-risk animal is worse than a false alarm.",
         links: [
           {
-            label: "GitHub",
-            url: "https://github.com/umerkniazi/shelter-outcome-predictor"
+            label: "github",
+            href: "https://github.com/umerkniazi/shelter-outcome-predictor"
+          },
+          {
+            label: "demo",
+            href: "https://shelter-outcome-predictor.streamlit.app/"
           }
         ]
       },
@@ -60,8 +71,8 @@ export const siteConfig = {
         description: "I use cmus on Linux and wanted something similar on Windows. Nothing felt right so I wrote my own. A cmus-inspired Python terminal music player with fuzzy search, vim-style bindings and metadata caching. It focuses on doing one thing well without getting in the way.",
         links: [
           {
-            label: "GitHub",
-            url: "https://github.com/umerkniazi/wmus"
+            label: "github",
+            href: "https://github.com/umerkniazi/wmus"
           }
         ]
       }
@@ -80,11 +91,11 @@ export const siteConfig = {
     ],
     skillGroups: [
       {
-        label: "Core",
+        label: "core",
         skills: ["Python", "C++", "Linux"]
       },
       {
-        label: "ML & Data",
+        label: "ml & data",
         skills: ["PyTorch", "scikit-learn", "spaCy"]
       }
     ],
@@ -92,7 +103,6 @@ export const siteConfig = {
       {
         year: "2025 — Present",
         title: "BS Artificial Intelligence, UET",
-        description: "",
         primary: true
       }
     ]
@@ -102,18 +112,18 @@ export const siteConfig = {
     status: "open to opportunities",
     contacts: [
       {
-        label: "Email",
+        label: "email",
         href: "mailto:umerkniazi@proton.me",
         value: "umerkniazi@proton.me"
       },
       {
-        label: "GitHub",
+        label: "github",
         href: "https://github.com/umerkniazi",
         value: "github.com/umerkniazi",
         external: true
       },
       {
-        label: "LinkedIn",
+        label: "linkedin",
         href: "https://linkedin.com/in/umerkniazi",
         value: "linkedin.com/in/umerkniazi",
         external: true
@@ -122,7 +132,7 @@ export const siteConfig = {
   },
 
   error404: {
-    title: "Signal Lost",
+    title: "signal lost",
     message: "The route you requested doesn't exist on this machine.",
     cta: {
       label: "return home",
