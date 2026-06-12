@@ -114,18 +114,15 @@ export const siteConfig = {
       {
         label: "email",
         href: "mailto:umerkniazi@proton.me",
-        value: "umerkniazi@proton.me"
       },
       {
         label: "github",
         href: "https://github.com/umerkniazi",
-        value: "github.com/umerkniazi",
         external: true
       },
       {
         label: "linkedin",
         href: "https://linkedin.com/in/umerkniazi",
-        value: "linkedin.com/in/umerkniazi",
         external: true
       }
     ]
