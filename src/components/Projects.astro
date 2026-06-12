@@ -1,5 +1,4 @@
 ---
-import { IconArrowUpRight } from '@tabler/icons-react';
 import { siteConfig } from '../config';
 
 const { projects } = siteConfig;
@@ -10,27 +9,25 @@ const { projects } = siteConfig;
     <h2 class="section-heading">{projects.heading.title}</h2>
 
     <div class="projects-list">
-      {projects.featured.map(project => {
-        const githubLink = project.links.find(link => link.label.toLowerCase() === 'github');
-        
-        return (
-          <article class="project-item">
-            <h3>
-              {githubLink ? (
-                <a href={githubLink.url} target="_blank" rel="noopener noreferrer" class="project-title-link project-name">
-                  {project.title} 
-                  <span class="arrow">
-                    <IconArrowUpRight size={18} stroke={2} />
-                  </span>
+      {projects.featured.map(project => (
+        <article class="project-item">
+          <header>
+            <h3>{project.title}</h3>
+          </header>
+          
+          <p>{project.description}</p>
+          
+          {project.links && project.links.length > 0 && (
+            <div class="project-links-row">
+              {project.links.map(link => (
+                <a href={link.href || link.url} target="_blank" rel="noopener noreferrer" class="secondary-link">
+                  [{link.label.toLowerCase()}]
                 </a>
-              ) : (
-                project.title
-              )}
-            </h3>
-            <p>{project.description}</p>
-          </article>
-        );
-      })}
+              ))}
+            </div>
+          )}
+        </article>
+      ))}
     </div>
   </div>
 </section>
@@ -45,45 +42,36 @@ const { projects } = siteConfig;
   .project-item h3 {
     font-size: 1.1rem;
     margin-bottom: 0.4rem;
-  }
-  
-  .project-title-link {
     color: var(--text);
     font-weight: bold;
-    text-decoration: none;
-    transition: color 0.2s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.2rem;
-  }
-  
-  .project-title-link:hover {
-    color: var(--accent);
-  }
-
-  .arrow {
-    display: inline-flex;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-  }
-
-  .project-name:hover .arrow {
-    opacity: 1;
   }
   
   .project-item p {
     color: var(--text-muted);
+    margin-bottom: 0.8rem;
+  }
+
+  .project-links-row {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .secondary-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    outline: none;
+  }
+
+  .secondary-link:hover,
+  .secondary-link:focus-visible {
+    color: var(--accent);
   }
 
   @media (max-width: 768px) {
-    .project-name {
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    .project-name .arrow {
-      opacity: 0;
+    .project-links-row {
+      gap: 1.2rem;
     }
   }
 </style>
