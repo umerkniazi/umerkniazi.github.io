@@ -13,11 +13,11 @@ const title = '404 | Page Not Found';
   <main id="main">
     <section class="section container error-page">
       <h1 class="error-title">404</h1>
-      <div class="error-status">{error404.title}</div>
+      <p class="error-status">{error404.title.toLowerCase()}</p>
       <p class="error-message">{error404.message}</p>
       
       <a class="error-link" href={error404.cta.href}>
-        &lt; {error404.cta.label}
+        [{error404.cta.label.toLowerCase()}]
       </a>
     </section>
   </main>
@@ -28,26 +28,31 @@ const title = '404 | Page Not Found';
 <style>
   .error-page {
     padding-top: 6rem;
+    padding-bottom: 4rem;
     display: flex;
     flex-direction: column;
     min-height: 50vh;
   }
 
   .error-title {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: bold;
     color: var(--text);
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.02em;
   }
 
   .error-status {
-    color: var(--text-muted);
+    color: var(--accent);
     margin-bottom: 1.5rem;
+    font-size: 1rem;
   }
 
   .error-message {
     color: var(--text-muted);
     max-width: 65ch;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
   }
 
   .error-link {
@@ -55,9 +60,17 @@ const title = '404 | Page Not Found';
     text-decoration: none;
     width: fit-content;
     transition: color 0.2s ease;
+    outline: none;
+    font-size: 1rem;
   }
 
-  .error-link:hover {
+  .error-link:hover,
+  .error-link:focus-visible {
     color: var(--accent);
+  }
+
+  .error-link:focus-visible {
+    text-decoration: underline;
+    text-underline-offset: 4px;
   }
 </style>
