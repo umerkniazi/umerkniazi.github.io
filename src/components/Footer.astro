@@ -8,7 +8,7 @@ const { footer } = siteConfig;
   <div class="container">
     <div class="status-indicator">
       <span class="dot"></span>
-      <span>{footer.status}</span>
+      <span>{footer.status.toLowerCase()}</span>
       <span class="dot"></span>
     </div>
     
@@ -18,8 +18,9 @@ const { footer } = siteConfig;
           href={c.href} 
           target={c.external ? "_blank" : undefined}
           rel={c.external ? "noopener noreferrer" : undefined}
+          class="footer-link"
         >
-          {c.label}
+          {c.label.toLowerCase()}
         </a>
       ))}
     </div>
@@ -28,18 +29,16 @@ const { footer } = siteConfig;
 
 <style>
   .site-footer {
+    padding-top: 4rem;
     padding-bottom: 4rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
+    margin-top: auto;
   }
   
   .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: 2rem;
   }
   
   .status-indicator {
@@ -47,7 +46,7 @@ const { footer } = siteConfig;
     align-items: center;
     gap: 0.8rem;
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
   
   .dot {
@@ -59,9 +58,9 @@ const { footer } = siteConfig;
   }
   
   @keyframes pulse {
-    0% { opacity: 0.3; }
-    50% { opacity: 1; box-shadow: 0 0 8px var(--accent); }
-    100% { opacity: 0.3; }
+    0% { opacity: 0.6; }
+    50% { opacity: 1; box-shadow: 0 0 6px var(--accent); }
+    100% { opacity: 0.6; }
   }
   
   .footer-links {
@@ -71,12 +70,21 @@ const { footer } = siteConfig;
     justify-content: center;
   }
   
-  .footer-links a {
+  .footer-link {
     color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    outline: none;
+    font-size: 1rem;
   }
   
-  .footer-links a:hover {
-    color: var(--text);
+  .footer-link:hover,
+  .footer-link:focus-visible {
+    color: var(--accent);
+  }
+
+  .footer-link:focus-visible {
     text-decoration: underline;
+    text-underline-offset: 4px;
   }
 </style>
