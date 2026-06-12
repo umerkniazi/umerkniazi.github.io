@@ -1,6 +1,7 @@
 ---
 import { IconSun, IconMoon, IconMenu2, IconX } from '@tabler/icons-react';
 import { siteConfig } from '../config';
+
 const { navbar } = siteConfig;
 ---
 
@@ -12,7 +13,7 @@ const { navbar } = siteConfig;
           {navbar.links.map(link => (
             <a href={link.href}>{link.label}</a>
           ))}
-          <a href={navbar.resume.href} download>{navbar.resume.label}</a>
+          <a href={navbar.resume.href} target="_blank" rel="noopener noreferrer">{navbar.resume.label}</a>
         </div>
       </nav>
 
@@ -68,11 +69,20 @@ const { navbar } = siteConfig;
     padding: 0.5rem;
     transition: color 0.2s ease;
     line-height: 1;
+    outline: none;
+    border-radius: 2px;
   }
 
   .menu-toggle:hover,
-  .theme-icon-btn:hover {
+  .menu-toggle:focus-visible,
+  .theme-icon-btn:hover,
+  .theme-icon-btn:focus-visible {
     color: var(--text);
+  }
+
+  .menu-toggle:focus-visible,
+  .theme-icon-btn:focus-visible {
+    box-shadow: 0 0 0 2px var(--text-muted);
   }
 
   .theme-btn-icon,
@@ -115,13 +125,20 @@ const { navbar } = siteConfig;
     font-family: inherit;
     font-size: 1rem;
     cursor: pointer;
-    padding: 0;
+    padding: 0.2rem 0;
     transition: color 0.2s ease;
     text-decoration: none;
+    outline: none;
   }
   
-  .nav-links a:hover {
-    color: var(--text);
+  .nav-links a:hover,
+  .nav-links a:focus-visible {
+    color: var(--accent);
+  }
+
+  .nav-links a:focus-visible {
+    text-decoration: underline;
+    text-underline-offset: 4px;
   }
 
   .theme-btn-icon--dark { display: block; }
