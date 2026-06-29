@@ -6,35 +6,114 @@ const { hero, name } = siteConfig;
 
 <section class="section hero-section" id="hero">
   <div class="container">
-    <h1 class="hero-title">{name}</h1>
-    <p class="hero-status">{hero.status}</p>
-    <p class="hero-intro">{hero.intro}</p>
+    <div class="hero-header">
+      {hero.eyebrow && <span class="hero-eyebrow">{hero.eyebrow}</span>}
+      <h1 class="hero-title">{name}</h1>
+    </div>
+    
+    <div class="hero-status">
+      <span class={`status-dot ${hero.status.available ? 'pulse' : ''}`} aria-hidden="true"></span>
+      <p>{hero.status.label}</p>
+    </div>
+    
+    <p class="hero-intro">{hero.tagline}</p>
+
+    {hero.cta && (
+      <div class="hero-action">
+        <a href={hero.cta.href} class="hero-cta">{hero.cta.label}</a>
+      </div>
+    )}
   </div>
 </section>
 
 <style>
   .hero-section {
-    padding-top: 4rem;
-    padding-bottom: 2rem;
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+  }
+  
+  .hero-header {
+    margin-bottom: 1rem;
+  }
+
+  .hero-eyebrow {
+    display: block;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.02em;
   }
   
   .hero-title {
-    font-size: 1.8rem;
-    font-weight: bold;
+    font-size: 2rem;
     color: var(--text);
-    margin-bottom: 0.25rem;
     letter-spacing: -0.02em;
   }
   
   .hero-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
     color: var(--accent);
-    margin-bottom: 1.5rem;
-    font-size: 1rem;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+    background: color-mix(in srgb, var(--accent) 10%, transparent);
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+  }
+
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent);
+    border-radius: 50%;
+  }
+
+  .pulse {
+    animation: pulse-ring 2s infinite ease-in-out;
+  }
+
+  @keyframes pulse-ring {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 70%, transparent); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 0%, transparent); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 transparent; }
   }
   
   .hero-intro {
     color: var(--text-muted);
     max-width: 65ch;
-    line-height: 1.6;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+  }
+
+  .hero-action {
+    margin-top: 2rem;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    background-color: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+
+  .hero-cta:hover,
+  .hero-cta:focus-visible {
+    background-color: var(--accent);
+    color: var(--bg);
+  }
+
+  .hero-cta:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
   }
 </style>

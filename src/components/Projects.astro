@@ -1,27 +1,56 @@
 ---
 import { siteConfig } from '../config';
 
-const { projects } = siteConfig;
+const { sectionLabel, items } = siteConfig.projects;
 ---
 
-<section class="section" id="projects">
+<section id="projects" class="section">
   <div class="container">
-    <h2 class="section-heading">{projects.heading.title}</h2>
+    <h2 class="label">{sectionLabel}</h2>
 
     <div class="projects-list">
-      {projects.featured.map(project => (
-        <article class="project-item">
-          <header>
-            <h3>{project.title}</h3>
-          </header>
-          
-          <p>{project.description}</p>
-          
+      {items.map((project) => (
+        <article class="project-card">
+          <div class="project-header">
+            <h3 class="project-title">{project.title}</h3>
+            <div class="project-tags" aria-label="Technologies used">
+              {project.tags.map(tag => (
+                <span class="project-tag">{tag}</span>
+              ))}
+            </div>
+          </div>
+
+          <p class="project-desc">{project.description}</p>
+
+          <div class="project-outcome">
+            <span class="outcome-label">Result</span>
+            <span class="outcome-text">{project.outcome}</span>
+          </div>
+
+          <details class="project-detail">
+            <summary class="detail-toggle">
+              <span>Technical details</span>
+              <span class="detail-icon" aria-hidden="true">+</span>
+            </summary>
+            <dl class="detail-grid">
+              <dt>Problem</dt>
+              <dd>{project.detail.problem}</dd>
+              <dt>Approach</dt>
+              <dd>{project.detail.approach}</dd>
+              <dt>Result</dt>
+              <dd>{project.detail.result}</dd>
+            </dl>
+          </details>
+
           {project.links && project.links.length > 0 && (
-            <div class="project-links-row">
+            <div class="project-links">
               {project.links.map(link => (
-                <a href={link.href || link.url} target="_blank" rel="noopener noreferrer" class="secondary-link">
-                  [{link.label.toLowerCase()}]
+                <a 
+                  href={link.href} 
+                  class={`project-link ${link.label.toLowerCase() === 'live demo' ? 'primary' : ''}`}
+                  {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                >
+                  {link.label}{link.external ? ' ↗' : ''}
                 </a>
               ))}
             </div>
@@ -36,42 +65,174 @@ const { projects } = siteConfig;
   .projects-list {
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
-  }
-  
-  .project-item h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.4rem;
-    color: var(--text);
-    font-weight: bold;
-  }
-  
-  .project-item p {
-    color: var(--text-muted);
-    margin-bottom: 0.8rem;
+    gap: 3.5rem;
   }
 
-  .project-links-row {
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+    border-left: 2px solid var(--border);
+    transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .project-card:hover {
+    border-left-color: var(--accent);
+    transform: translateX(0.25rem);
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-title {
+    font-size: 1.25rem;
+    color: var(--text);
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .project-tag {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    padding: 0.1rem 0.6rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: color-mix(in srgb, var(--surface) 50%, transparent);
+  }
+
+  .project-desc {
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+    max-width: 65ch;
+  }
+
+  .project-outcome {
     display: flex;
     gap: 1rem;
+    align-items: baseline;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .outcome-label {
+    color: var(--accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+  }
+
+  .outcome-text {
+    color: var(--text);
+  }
+
+  .project-detail {
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: color-mix(in srgb, var(--surface) 50%, transparent);
+    overflow: hidden;
+  }
+
+  .detail-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
     font-size: 0.9rem;
-  }
-
-  .secondary-link {
+    font-family: var(--font-mono);
     color: var(--text-muted);
-    text-decoration: none;
-    transition: color 0.2s ease;
-    outline: none;
+    user-select: none;
+    transition: color 0.2s ease, background-color 0.2s ease;
   }
 
-  .secondary-link:hover,
-  .secondary-link:focus-visible {
+  .detail-toggle:hover {
+    color: var(--text);
+    background-color: var(--surface);
+  }
+
+  .detail-toggle::-webkit-details-marker { display: none; }
+  .project-detail > summary { list-style: none; }
+
+  .detail-icon {
+    font-size: 1.2rem;
+    line-height: 1;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  details[open] .detail-icon {
+    transform: rotate(45deg);
     color: var(--accent);
   }
 
-  @media (max-width: 768px) {
-    .project-links-row {
-      gap: 1.2rem;
+  .detail-grid {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 1rem;
+    padding: 1.25rem 1rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.95rem;
+  }
+
+  details[open] .detail-grid {
+    animation: slideFade 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes slideFade {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .detail-grid dt {
+    color: var(--text);
+    font-weight: 600;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+  }
+
+  .detail-grid dd {
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    font-size: 0.95rem;
+    font-family: var(--font-mono);
+  }
+
+  .project-link {
+    color: var(--text-muted);
+  }
+
+  .project-link:hover {
+    color: var(--text);
+  }
+
+  .project-link.primary {
+    color: var(--accent);
+  }
+
+  @media (max-width: 600px) {
+    .detail-grid {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+    .detail-grid dt {
+      margin-bottom: -0.25rem;
     }
   }
 </style>

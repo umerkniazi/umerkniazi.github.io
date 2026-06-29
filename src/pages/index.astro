@@ -5,11 +5,12 @@ import Hero from '../components/Hero.astro';
 import Projects from '../components/Projects.astro';
 import About from '../components/About.astro';
 import Footer from '../components/Footer.astro';
+import { siteConfig } from '../config';
 
-const title = 'Umer Khan Niazi — AI & Systems';
+const title = siteConfig.title;
 ---
 
-<Layout title={title}>
+<Layout title={title} description={siteConfig.description}>
   <Header />
   <main id="main">
     <Hero />

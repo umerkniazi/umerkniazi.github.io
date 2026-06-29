@@ -12,65 +12,56 @@ const title = '404 | Page Not Found';
   <Header />
   <main id="main">
     <section class="section container error-page">
-      <h1 class="error-title">404</h1>
-      <p class="error-status">{error404.title.toLowerCase()}</p>
-      <p class="error-message">{error404.message}</p>
-      
-      <a class="error-link" href={error404.cta.href}>
-        [{error404.cta.label.toLowerCase()}]
-      </a>
+      <div class="error-content">
+        <p class="error-eyebrow">{error404.eyebrow}</p>
+        <h1 class="error-title">{error404.title}</h1>
+        <p class="error-message">{error404.message}</p>
+        
+        <a class="error-link" href={error404.cta.href}>
+          {error404.cta.label}
+        </a>
+      </div>
     </section>
   </main>
   <Footer />
-  <script is:inline src="/script.js" defer></script>
 </Layout>
 
 <style>
   .error-page {
-    padding-top: 6rem;
-    padding-bottom: 4rem;
     display: flex;
     flex-direction: column;
-    min-height: 50vh;
+    justify-content: center;
+    min-height: 60vh;
+  }
+
+  .error-eyebrow {
+    color: var(--accent);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
   }
 
   .error-title {
-    font-size: 1.8rem;
-    font-weight: bold;
+    font-size: 2.5rem;
     color: var(--text);
-    margin-bottom: 0.25rem;
-    letter-spacing: -0.02em;
-  }
-
-  .error-status {
-    color: var(--accent);
     margin-bottom: 1.5rem;
-    font-size: 1rem;
+    letter-spacing: -0.02em;
   }
 
   .error-message {
     color: var(--text-muted);
-    max-width: 65ch;
+    max-width: 50ch;
     margin-bottom: 2.5rem;
-    line-height: 1.6;
+    font-size: 1.05rem;
   }
 
   .error-link {
-    color: var(--text-muted);
-    text-decoration: none;
-    width: fit-content;
-    transition: color 0.2s ease;
-    outline: none;
-    font-size: 1rem;
+    display: inline-block;
+    color: var(--text);
+    font-weight: 500;
   }
 
-  .error-link:hover,
-  .error-link:focus-visible {
+  .error-link:hover {
     color: var(--accent);
-  }
-
-  .error-link:focus-visible {
-    text-decoration: underline;
-    text-underline-offset: 4px;
   }
 </style>
