@@ -120,7 +120,7 @@ export const siteConfig = {
           result:
             "A fully featured daily driver supporting MP3, FLAC, WAV, OGG, AAC and M4A. Includes fuzzy search with intelligent filtering, shuffle and repeat modes, volume control, seeking and vim-style navigation (j/k/h/l).",
         },
-        tags: ["Python", "C++", "Terminal", "Linux"],
+        tags: ["Python", "Terminal", "Windows", "Audio"],
         outcome:
           "Terminal-based music player with advanced caching, multi-format support and vim-style navigation.",
         links: [
@@ -148,7 +148,7 @@ export const siteConfig = {
       },
       {
         label: "NLP & Data",
-        skills: ["spaCy", "NER", "Topic Modeling", "Pandas", "SQLite", "Pipelines"],
+        skills: ["spaCy", "NER", "Topic Modeling", "Pandas", "SQLite"],
       },
       {
         label: "Deployment",
