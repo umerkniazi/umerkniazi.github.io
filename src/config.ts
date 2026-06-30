@@ -48,6 +48,8 @@ export const siteConfig = {
             "Processed 350,718 headlines into 404,583 named entities across 20 discovered topics. Cricket dominates coverage at 40,000+ headlines, nearly double the next largest topic. Coverage skews negative overall (36.2% negative vs. 22.6% positive). The US is the second most-mentioned entity after Pakistan, ahead of India.",
         },
         tags: ["Python", "SQLite", "BERTopic", "spaCy", "NLP", "Streamlit"],
+        dataset:
+          "Self-scraped, 350,718 headlines from Dawn News, stored in SQLite",
         outcome:
           "350K+ self-scraped headlines, 20 coherent topic clusters, zero hand-labeled examples.",
         links: [
@@ -69,8 +71,12 @@ export const siteConfig = {
             "98.16% validation accuracy. The confidence threshold correctly flagged an out-of-distribution toaster image as 'unknown' instead of forcing a guess. Documented two real failure modes: background bias (a polar bear misclassified as a Himalayan brown bear, 93% confidence, due to shared snowy context) and fine-grained limits (an ibex misclassified as a markhor, 98% confidence, due to shared Caprinae features the model wasn't trained to distinguish).",
         },
         tags: ["Python", "PyTorch", "ResNet18", "Computer Vision", "Streamlit"],
+        dataset:
+          "Public Kaggle dataset of camera-trap and field photography",
         outcome:
           "98.16% validation accuracy. Confidence threshold + documented OOD failure analysis.",
+        highlight:
+          "Stress-tested the model with out-of-distribution inputs after training. A toaster was correctly flagged as unknown by the confidence threshold. A polar bear was misclassified as a Himalayan brown bear at 93% confidence due to shared snowy background context. An ibex was misclassified as a markhor at 98% confidence due to shared Caprinae features the model wasn't trained to distinguish.",
         links: [
           { label: "GitHub", href: "https://github.com/umerkniazi/gb-wildlife-classifier", external: true },
           { label: "Live demo", href: "https://gb-wildlife-classifier.streamlit.app/", external: true },
@@ -90,6 +96,8 @@ export const siteConfig = {
             "76% overall accuracy. 63% euthanasia recall. 0.83 F1 score on adoptions. The model surfaces animals needing intervention earlier than an accuracy-optimized baseline would.",
         },
         tags: ["Python", "scikit-learn", "Pandas", "Streamlit"],
+        dataset:
+          "Austin Animal Center public intake dataset, 62,000+ records",
         outcome:
           "63% euthanasia recall on 12.5K test samples. 0.83 F1 for adoptions.",
         links: [
@@ -100,6 +108,8 @@ export const siteConfig = {
       {
         slug: "wmus",
         title: "wmus",
+        nonMl: true,
+        subtitle: "Not ML, the systems-engineering proof",
         description:
           "I use cmus on Linux. Nothing comparable existed on Windows, so I wrote my own: a terminal music player with fuzzy search, vim-style keybindings and smart metadata caching. Strictly keyboard-first, no GUI overhead. Also a useful test case for Python performance on I/O-bound workloads.",
         detail: {
