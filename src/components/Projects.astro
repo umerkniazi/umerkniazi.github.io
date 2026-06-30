@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from '../config';
+import { IconBrandGithub, IconExternalLink } from '@tabler/icons-react';
 
 const { sectionLabel, items } = siteConfig.projects;
 ---
@@ -65,7 +66,12 @@ const { sectionLabel, items } = siteConfig.projects;
                   class={`project-link ${link.label.toLowerCase() === 'live demo' ? 'primary' : ''}`}
                   {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                 >
-                  {link.label}{link.external ? ' ↗' : ''}
+                  {link.label.toLowerCase() === 'github' ? (
+                    <IconBrandGithub size={18} stroke={1.5} aria-hidden="true" />
+                  ) : (
+                    <IconExternalLink size={18} stroke={1.5} aria-hidden="true" />
+                  )}
+                  <span>{link.label}</span>
                 </a>
               ))}
             </div>
@@ -284,7 +290,12 @@ const { sectionLabel, items } = siteConfig.projects;
   }
 
   .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
     color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
   }
 
   .project-link:hover {

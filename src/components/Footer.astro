@@ -1,5 +1,6 @@
 ---
 import { siteConfig } from '../config';
+import { IconBrandGithub, IconBrandLinkedin, IconMail, IconLink } from '@tabler/icons-react';
 
 const { footer } = siteConfig;
 ---
@@ -13,16 +14,28 @@ const { footer } = siteConfig;
       </div>
       
       <nav class="footer-links" aria-label="Footer navigation">
-        {footer.contacts.map(c => (
-          <a 
-            href={c.href} 
-            target={c.external ? "_blank" : undefined}
-            rel={c.external ? "noopener noreferrer" : undefined}
-            class="footer-link"
-          >
-            {c.label}{c.external ? ' ↗' : ''}
-          </a>
-        ))}
+        {footer.contacts.map(c => {
+          // Dynamically map standard text labels to their respective icons
+          const lowerLabel = c.label.toLowerCase();
+          let Icon = IconLink; // Generic fallback icon
+          
+          if (lowerLabel.includes('github')) Icon = IconBrandGithub;
+          else if (lowerLabel.includes('linkedin')) Icon = IconBrandLinkedin;
+          else if (lowerLabel.includes('email') || lowerLabel.includes('mail')) Icon = IconMail;
+
+          return (
+            <a 
+              href={c.href} 
+              target={c.external ? "_blank" : undefined}
+              rel={c.external ? "noopener noreferrer" : undefined}
+              class="footer-link"
+              aria-label={c.label}
+              title={c.label}
+            >
+              <Icon size={24} stroke={1.5} aria-hidden="true" />
+            </a>
+          );
+        })}
       </nav>
 
       {footer.meta && (
@@ -82,11 +95,21 @@ const { footer } = siteConfig;
     gap: 2rem;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
   }
   
   .footer-link {
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+
+  /* Added hover effect to make the icons pop interactively */
+  .footer-link:hover {
     color: var(--text);
-    font-size: 0.95rem;
+    transform: translateY(-2px);
   }
   
   .footer-meta {
