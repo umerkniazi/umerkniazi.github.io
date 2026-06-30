@@ -68,7 +68,7 @@ export const siteConfig = {
           approach:
             "Frozen ResNet18 backbone with a custom 3-class head, trained for 5 epochs with aggressive augmentation on a public Kaggle dataset of the three species. Confidence threshold at 80% surfaces uncertain predictions explicitly. Stress-tested with out-of-distribution inputs (a toaster, a polar bear, an ibex) to find and document where it breaks.",
           result:
-            "98.16% validation accuracy. The confidence threshold correctly flagged an out-of-distribution toaster image as 'unknown' instead of forcing a guess. Documented two real failure modes: background bias (a polar bear misclassified as a Himalayan brown bear, 93% confidence, due to shared snowy context) and fine-grained limits (an ibex misclassified as a markhor, 98% confidence, due to shared Caprinae features the model wasn't trained to distinguish).",
+            "98.16% validation accuracy, 91.77% training accuracy at 5 epochs. Validation loss of 0.0631. Full failure-case analysis from out-of-distribution stress testing above.",
         },
         tags: ["Python", "PyTorch", "ResNet18", "Computer Vision", "Streamlit"],
         dataset:
