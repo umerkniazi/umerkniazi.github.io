@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "Umer Khan Niazi",
-  title: "Umer Khan Niazi | ML Engineer",
+  title: "Umer Khan Niazi | AI & ML Student",
   description:
-    "I build ML pipelines, classifiers and tools that run on real data with real constraints. Second-year AI student at UET Lahore. Open to ML internships and research roles.",
+    "I build ML pipelines, classifiers and tools that run on real data with real constraints. Second-year AI student at UET Lahore. Open to AI/ML internships and research roles.",
   url: "https://umerkniazi.github.io/",
 
   navbar: {
@@ -17,12 +17,12 @@ export const siteConfig = {
   },
 
   hero: {
-    eyebrow: "Machine Learning & Systems",
+    eyebrow: "AI, Machine Learning and Systems",
     name: "Umer Khan Niazi",
     tagline:
-      "I build ML systems that don't stop at the notebook. I write pipelines, classifiers and tools designed for real data, real hardware and real constraints.",
+      "I build AI and machine learning systems that don't stop at the notebook. I write pipelines, classifiers and tools designed for real data, real hardware and real constraints.",
     status: {
-      label: "Open to ML internships and research roles",
+      label: "Open to AI/ML internships and research roles",
       available: true,
     },
     cta: {
@@ -166,7 +166,7 @@ export const siteConfig = {
 
   footer: {
     availability: {
-      label: "Open to ML internships and research roles, remote or Lahore-based",
+      label: "Open to AI/ML internships and research roles, remote or Lahore-based",
       available: true,
     },
     contacts: [
