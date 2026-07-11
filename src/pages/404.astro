@@ -11,15 +11,17 @@ const title = '404 | Page Not Found';
 <Layout title={title} description="The page you requested could not be found.">
   <Header />
   <main id="main">
-    <section class="section container error-page">
-      <div class="error-content">
-        <p class="error-eyebrow">{error404.eyebrow}</p>
-        <h1 class="error-title">{error404.title}</h1>
-        <p class="error-message">{error404.message}</p>
-        
-        <a class="error-link" href={error404.cta.href}>
-          {error404.cta.label}
-        </a>
+    <section class="section error-page">
+      <div class="container error-page-shell">
+        <div class="error-content card card-strong">
+          <p class="error-eyebrow">{error404.eyebrow}</p>
+          <h1 class="error-title">{error404.title}</h1>
+          <p class="error-message">{error404.message}</p>
+
+          <a class="error-link button" href={error404.cta.href}>
+            {error404.cta.label}
+          </a>
+        </div>
       </div>
     </section>
   </main>
@@ -28,40 +30,48 @@ const title = '404 | Page Not Found';
 
 <style>
   .error-page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 60vh;
+    min-height: 68vh;
+    display: grid;
+    align-items: center;
+  }
+
+  .error-page-shell {
+    display: grid;
+    place-items: start;
+  }
+
+  .error-content {
+    max-width: 36rem;
+    padding: var(--space-8);
+    display: grid;
+    gap: var(--space-4);
   }
 
   .error-eyebrow {
-    color: var(--accent);
-    font-size: 1.1rem;
+    color: var(--text-subtle);
+    font-size: var(--text-xs);
     font-weight: 600;
-    margin-bottom: 0.5rem;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
   }
 
   .error-title {
-    font-size: 2.5rem;
     color: var(--text);
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.02em;
   }
 
   .error-message {
     color: var(--text-muted);
-    max-width: 50ch;
-    margin-bottom: 2.5rem;
-    font-size: 1.05rem;
+    line-height: var(--leading-normal);
   }
 
   .error-link {
-    display: inline-block;
-    color: var(--text);
-    font-weight: 500;
+    width: fit-content;
   }
 
-  .error-link:hover {
-    color: var(--accent);
+  @media (max-width: 720px) {
+    .error-content {
+      padding: var(--space-6);
+    }
   }
 </style>

@@ -1,40 +1,42 @@
 ---
-import { IconSun, IconMoon, IconMenu2, IconX } from '@tabler/icons-react';
+import { IconSun, IconMoon, IconMenu2, IconX, IconDownload } from '@tabler/icons-react';
 import { siteConfig } from '../config';
 
 const { navbar } = siteConfig;
 ---
 
 <header class="site-header">
-  <div class="container">
-    <div class="header-inner">
-      <nav class="site-nav" id="siteNav" aria-label="Primary navigation">
-        <div class="nav-links">
-          {navbar.links.map(link => (
-            <a href={link.href}>{link.label}</a>
-          ))}
-          <a href={navbar.resume.href} target="_blank" rel="noopener noreferrer" class="header-resume">
-            {navbar.resume.label}
-          </a>
-        </div>
-      </nav>
+  <div class="container header-shell">
+    <a class="brand" href="/" aria-label={`${siteConfig.name} home`}>
+      <span class="brand-mark" aria-hidden="true">UKN</span>
+      <span class="brand-copy">
+        <span class="brand-name">{siteConfig.name}</span>
+        <span class="brand-role">{siteConfig.hero.eyebrow}</span>
+      </span>
+    </a>
 
-      <div class="controls">
-        <button id="themeToggle" class="theme-switch" aria-label="Toggle color theme" role="switch" aria-checked="false">
-          <div class="theme-icon-wrapper" aria-hidden="true">
-            <IconSun className="theme-icon theme-icon--light" stroke={2} />
-            <IconMoon className="theme-icon theme-icon--dark" stroke={2} />
-          </div>
-          <span class="theme-track" aria-hidden="true">
-            <span class="theme-dot"></span>
-          </span>
-        </button>
-        
-        <button id="menuToggle" class="menu-toggle" aria-expanded="false" aria-controls="siteNav" aria-label="Toggle menu">
-          <IconMenu2 className="menu-icon-open" stroke={2} aria-hidden="true" />
-          <IconX className="menu-icon-close" stroke={2} aria-hidden="true" />
-        </button>
+    <nav class="site-nav" id="siteNav" aria-label="Primary navigation">
+      <div class="nav-links">
+        {navbar.links.map((link) => (
+          <a href={link.href}>{link.label}</a>
+        ))}
+        <a href={navbar.resume.href} target="_blank" rel="noopener noreferrer" class="header-resume">
+          <span>{navbar.resume.label}</span>
+          <IconDownload size={14} stroke={1.5} aria-hidden="true" />
+        </a>
       </div>
+    </nav>
+
+    <div class="header-actions">
+      <button id="themeToggle" class="theme-switch" aria-label="Toggle color theme" role="switch" aria-checked="false">
+        <IconSun className="theme-icon theme-icon-light" stroke={2} aria-hidden="true" />
+        <IconMoon className="theme-icon theme-icon-dark" stroke={2} aria-hidden="true" />
+      </button>
+
+      <button id="menuToggle" class="menu-toggle" aria-expanded="false" aria-controls="siteNav" aria-label="Toggle navigation">
+        <IconMenu2 className="menu-icon-open" stroke={2} aria-hidden="true" />
+        <IconX className="menu-icon-close" stroke={2} aria-hidden="true" />
+      </button>
     </div>
   </div>
 </header>
@@ -44,218 +46,180 @@ const { navbar } = siteConfig;
     position: sticky;
     top: 0;
     z-index: 100;
-    background: color-mix(in srgb, var(--bg) 85%, transparent);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    transition: background-color 0.3s ease;
-    border-bottom: 1px solid transparent;
+    background: var(--bg);
+    border-bottom: var(--border-width-thin) solid var(--border);
   }
 
-  :global(.is-scrolled) .site-header {
-    border-bottom-color: var(--border);
-  }
-
-  .header-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 0;
-  }
-
-  .controls {
+  .header-shell {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: var(--space-6);
+    padding-block: var(--space-4);
   }
 
-  .menu-toggle {
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-4);
+    min-width: 0;
+    flex: 0 0 auto;
+  }
+
+  .brand-mark {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: transparent;
-    border: none;
-    color: var(--text-muted);
-    cursor: pointer;
-    padding: 0.5rem;
-    transition: color 0.2s ease;
-    border-radius: 4px;
-  }
-
-  .menu-toggle:hover {
-    color: var(--text);
+    width: 2.875rem;
+    height: 2.875rem;
+    border: var(--border-width-thin) solid var(--border);
+    border-radius: var(--radius-sm);
     background: var(--surface);
-  }
-
-  .menu-toggle:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
-
-  .theme-switch {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0.25rem;
-    border-radius: 4px;
-    outline: none;
-  }
-
-  .theme-switch:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 4px;
-  }
-
-  .theme-icon-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 1.25rem;
-    height: 1.25rem;
-  }
-
-  .theme-icon {
-    width: 1.15rem;
-    height: 1.15rem;
-    color: var(--text-muted);
-    transition: color 0.2s ease;
-  }
-
-  .theme-switch:hover .theme-icon {
     color: var(--text);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.08em;
   }
 
-  .theme-icon--dark { display: none; }
-  :global([data-theme='dark']) .theme-icon--light { display: none; }
-  :global([data-theme='dark']) .theme-icon--dark { display: block; }
-
-  @media (prefers-color-scheme: dark) {
-    :global(:root:not([data-theme='light'])) .theme-icon--light { display: none; }
-    :global(:root:not([data-theme='light'])) .theme-icon--dark { display: block; }
+  .brand-copy {
+    display: grid;
+    gap: 0.1rem;
+    min-width: 0;
   }
 
-  .theme-track {
-    width: 32px;
-    height: 18px;
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    position: relative;
-    transition: border-color 0.2s ease;
+  .brand-name {
+    color: var(--text);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    white-space: nowrap;
   }
 
-  .theme-dot {
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 12px;
-    height: 12px;
-    background-color: var(--text-muted);
-    border-radius: 50%;
-    transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), background-color 0.2s ease;
+  .brand-role {
+    color: var(--text-subtle);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
-  .theme-switch:hover .theme-track {
-    border-color: var(--border-hover);
-  }
-
-  .theme-switch:hover .theme-dot {
-    background-color: var(--text);
-  }
-
-  :global([data-theme='dark']) .theme-dot {
-    transform: translateX(14px);
-    background-color: var(--accent);
-  }
-
-  :global([data-theme='dark']) .theme-track {
-    border-color: var(--border-hover);
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :global(:root:not([data-theme='light'])) .theme-dot {
-      transform: translateX(14px);
-      background-color: var(--accent);
-    }
-    :global(:root:not([data-theme='light'])) .theme-track {
-      border-color: var(--border-hover);
-    }
-  }
-
-  .menu-icon-open,
-  .menu-icon-close {
-    width: 1.25rem;
-    height: 1.25rem;
-  }
-
-  .menu-icon-close { display: none; }
-  :global(.nav-open) .menu-icon-open { display: none; }
-  :global(.nav-open) .menu-icon-close { display: block; }
-  
   .site-nav {
     display: flex;
     align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    margin-left: auto;
   }
-  
+
   .nav-links {
-    display: flex;
-    gap: 2rem;
+    display: inline-flex;
     align-items: center;
+    gap: var(--space-4);
   }
-  
+
   .nav-links a {
     color: var(--text-muted);
-    font-size: 0.95rem;
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
     font-weight: 500;
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid transparent;
   }
-  
+
   .nav-links a:hover,
-  .nav-links a.active {
+  .nav-links a.active,
+  .nav-links a[aria-current='page'] {
     color: var(--text);
+    border-bottom-color: var(--accent);
   }
 
   .header-resume {
     display: inline-flex;
     align-items: center;
+    gap: 0.25rem;
+    white-space: nowrap;
+  }
+
+  .header-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-left: auto;
+    flex: 0 0 auto;
+  }
+
+  .theme-switch,
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-    padding: 0.4rem 1rem;
-    border: 1px solid var(--border);
-    border-radius: 4px;
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+    border: var(--border-width-thin) solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    color: var(--text-muted);
+  }
+
+  .theme-switch:hover,
+  .menu-toggle:hover {
+    border-color: var(--border-strong);
     color: var(--text);
-    font-family: var(--font-mono);
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
   }
 
-  .header-resume:hover, 
-  .header-resume:focus-visible {
-    border-color: var(--accent);
-    color: var(--accent);
+  .theme-switch {
+    position: relative;
   }
 
-  @media (max-width: 600px) {
-    .header-inner {
-      flex-direction: column;
-      gap: 0;
-    }
+  .theme-icon {
+    width: var(--size-icon-sm);
+    height: var(--size-icon-sm);
+  }
 
-    .controls {
-      width: 100%;
-      justify-content: space-between;
-      order: -1;
-    }
+  .theme-icon-dark {
+    display: none;
+  }
 
+  :global([data-theme='dark']) .theme-icon-light {
+    display: none;
+  }
+
+  :global([data-theme='dark']) .theme-icon-dark {
+    display: block;
+  }
+
+  .menu-icon-close {
+    display: none;
+  }
+
+  :global(.nav-open) .menu-icon-open {
+    display: none;
+  }
+
+  :global(.nav-open) .menu-icon-close {
+    display: block;
+  }
+
+  @media (min-width: 721px) {
     .menu-toggle {
-      display: inline-flex;
+      display: none;
     }
-    
+  }
+
+  @media (max-width: 720px) {
+    .header-shell {
+      flex-wrap: wrap;
+    }
+
     .site-nav {
+      order: 3;
       display: none;
       width: 100%;
-      padding-top: 1.5rem;
-      padding-bottom: 1rem;
+      margin-left: 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: var(--space-3);
+      padding-top: var(--space-4);
     }
 
     :global(.nav-open) .site-nav {
@@ -264,14 +228,28 @@ const { navbar } = siteConfig;
 
     .nav-links {
       flex-direction: column;
-      gap: 1.5rem;
-      width: 100%;
-      align-items: flex-start;
+      align-items: stretch;
+      gap: 0;
+      border: var(--border-width-thin) solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      overflow: hidden;
     }
-  }
 
-  @media (min-width: 601px) {
-    .menu-toggle { display: none; }
+    .nav-links a {
+      padding: var(--space-4);
+      border-bottom: var(--border-width-thin) solid var(--border);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active,
+    .nav-links a[aria-current='page'] {
+      background-color: var(--surface-alt);
+    }
+
+    .nav-links a:last-child {
+      border-bottom: 0;
+    }
   }
 </style>
 
@@ -280,37 +258,31 @@ const { navbar } = siteConfig;
   const menuToggle = document.getElementById('menuToggle');
   const themeToggle = document.getElementById('themeToggle');
   const navLinks = document.querySelectorAll('.nav-links a');
+  const root = document.documentElement;
 
-  const updateAriaState = (isDark: boolean) => {
-    themeToggle?.setAttribute('aria-checked', String(isDark));
+  const isDarkTheme = () => {
+    const currentTheme = root.getAttribute('data-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return currentTheme === 'dark' || (!currentTheme && prefersDark);
   };
 
-  const initTheme = () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const isSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const isDark = currentTheme === 'dark' || (!currentTheme && isSystemDark);
-    updateAriaState(isDark);
+  const setThemeState = (value) => {
+    themeToggle?.setAttribute('aria-checked', String(value));
   };
 
-  initTheme();
+  setThemeState(isDarkTheme());
 
   themeToggle?.addEventListener('click', () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const isSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const isDark = currentTheme === 'dark' || (!currentTheme && isSystemDark);
-
-    const nextTheme = isDark ? 'light' : 'dark';
-    
-    document.documentElement.setAttribute('data-theme', nextTheme);
+    const nextTheme = isDarkTheme() ? 'light' : 'dark';
+    root.setAttribute('data-theme', nextTheme);
     localStorage.setItem('theme', nextTheme);
-    updateAriaState(!isDark);
+    setThemeState(nextTheme === 'dark');
   });
 
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
     if (!localStorage.getItem('theme')) {
-      const isDark = e.matches;
-      document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
-      updateAriaState(isDark);
+      root.setAttribute('data-theme', event.matches ? 'dark' : 'light');
+      setThemeState(event.matches);
     }
   });
 
@@ -321,39 +293,38 @@ const { navbar } = siteConfig;
 
   menuToggle?.addEventListener('click', () => {
     const isOpen = header?.classList.toggle('nav-open');
-    menuToggle.setAttribute('aria-expanded', String(isOpen));
+    menuToggle.setAttribute('aria-expanded', String(Boolean(isOpen)));
   });
 
-  navLinks.forEach(link => link.addEventListener('click', closeMenu));
+  navLinks.forEach((link) => link.addEventListener('click', closeMenu));
 
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && header?.classList.contains('nav-open')) closeMenu();
-  });
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.id;
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          link.removeAttribute('aria-current');
-          const href = link.getAttribute('href');
-          if (href === `/#${id}` || (id === 'hero' && href === '/')) {
-            link.classList.add('active');
-            link.setAttribute('aria-current', 'page');
-          }
-        });
-      }
-    });
-  }, { rootMargin: '-20% 0px -80% 0px' });
-
-  document.querySelectorAll('section[id]').forEach(section => observer.observe(section));
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) {
-      document.body.classList.add('is-scrolled');
-    } else {
-      document.body.classList.remove('is-scrolled');
+  window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && header?.classList.contains('nav-open')) {
+      closeMenu();
     }
   });
+
+  const sections = document.querySelectorAll('section[id]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        return;
+      }
+
+      const id = entry.target.id;
+      navLinks.forEach((link) => {
+        const href = link.getAttribute('href');
+        const matches = href === `/#${id}` || (id === 'hero' && href === '/');
+        link.classList.toggle('active', matches);
+
+        if (matches) {
+          link.setAttribute('aria-current', 'page');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
+    });
+  }, { rootMargin: '-25% 0px -65% 0px' });
+
+  sections.forEach((section) => observer.observe(section));
 </script>

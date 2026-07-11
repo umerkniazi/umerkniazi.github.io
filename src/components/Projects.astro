@@ -1,68 +1,55 @@
 ---
 import { siteConfig } from '../config';
-import { IconBrandGithub, IconExternalLink } from '@tabler/icons-react';
+import { IconBrandGithub, IconExternalLink, IconChevronDown } from '@tabler/icons-react';
 
 const { sectionLabel, items } = siteConfig.projects;
 ---
 
 <section id="projects" class="section">
   <div class="container">
-    <h2 class="label">{sectionLabel}</h2>
+    <div class="section-heading">
+      <p class="section-kicker">{sectionLabel}</p>
+      <h2 class="section-title">Things I've built.</h2>
+      <p class="section-lede">Projects shaped around systems, measurement, and a clear view of failure modes.</p>
+    </div>
 
     <div class="projects-list">
       {items.map((project) => (
-        <article class={`project-card ${project.nonMl ? 'project-card-secondary' : ''}`}>
-          <div class="project-header">
-            <h3 class="project-title">{project.title}</h3>
+        <article class="project-card card card-strong">
+          <div class="project-top">
+            <div class="project-copy">
+              <h3 class="project-title">{project.title}</h3>
+              {project.subtitle && <p class="project-subtitle">{project.subtitle}</p>}
+              <p class="project-desc">{project.description}</p>
+            </div>
+
             <div class="project-tags" aria-label="Technologies used">
-              {project.tags.map(tag => (
-                <span class="project-tag">{tag}</span>
+              {project.tags.map((tag) => (
+                <span class="chip project-tag">{tag}</span>
               ))}
             </div>
           </div>
 
-          {project.subtitle && (
-            <p class="project-subtitle">{project.subtitle}</p>
-          )}
-
-          <p class="project-desc">{project.description}</p>
-
-          {project.dataset && (
-            <p class="project-dataset">
-              <span class="dataset-label">Data</span>
-              <span class="dataset-text">{project.dataset}</span>
-            </p>
-          )}
-
-          <div class="project-outcome">
-            <span class="outcome-label">Result</span>
-            <span class="outcome-text">{project.outcome}</span>
-          </div>
-
-          {project.highlight && (
-            <p class="project-highlight">{project.highlight}</p>
-          )}
-
-          <details class="project-detail">
-            <summary class="detail-toggle">
-              <span>Technical details</span>
-              <span class="detail-icon" aria-hidden="true">+</span>
-            </summary>
-            <dl class="detail-grid">
-              <dt>Problem</dt>
-              <dd>{project.detail.problem}</dd>
-              <dt>Approach</dt>
-              <dd>{project.detail.approach}</dd>
+          <dl class="project-facts">
+            {project.dataset && (
+              <div class="project-fact">
+                <dt>Data</dt>
+                <dd>{project.dataset}</dd>
+              </div>
+            )}
+            <div class="project-fact">
               <dt>Result</dt>
-              <dd>{project.detail.result}</dd>
-            </dl>
-          </details>
+              <dd>{project.outcome}</dd>
+            </div>
+          </dl>
+
+          {project.highlight && <p class="project-highlight">{project.highlight}</p>}
 
           {project.links && project.links.length > 0 && (
             <div class="project-links">
-              {project.links.map(link => (
-                <a 
-                  href={link.href} 
+              {project.links.map((link) => (
+                <a
+                  href={link.href}
                   class={`project-link ${link.label.toLowerCase() === 'live demo' ? 'primary' : ''}`}
                   {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                 >
@@ -76,6 +63,21 @@ const { sectionLabel, items } = siteConfig.projects;
               ))}
             </div>
           )}
+
+          <details class="project-detail">
+            <summary class="detail-toggle">
+              <span>Technical details</span>
+              <IconChevronDown className="detail-icon" stroke={1.8} aria-hidden="true" />
+            </summary>
+            <dl class="detail-grid">
+              <dt>Problem</dt>
+              <dd>{project.detail.problem}</dd>
+              <dt>Approach</dt>
+              <dd>{project.detail.approach}</dd>
+              <dt>Result</dt>
+              <dd>{project.detail.result}</dd>
+            </dl>
+          </details>
         </article>
       ))}
     </div>
@@ -86,136 +88,103 @@ const { sectionLabel, items } = siteConfig.projects;
   .projects-list {
     display: flex;
     flex-direction: column;
-    gap: 3.5rem;
+    gap: var(--space-8);
   }
 
   .project-card {
     display: flex;
     flex-direction: column;
-    padding-left: 1rem;
-    border-left: 2px solid var(--border);
-    transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    gap: var(--space-5);
+    padding: var(--space-6);
   }
 
   .project-card:hover {
-    border-left-color: var(--accent);
-    transform: translateX(0.25rem);
+    border-color: var(--border-strong);
   }
 
-  /* Visually sets non-ML projects (e.g. wmus) apart as a deliberate
-     inclusion rather than a same-weight fourth ML project. Subtle:
-     a muted border instead of the default, no change to spacing or size. */
-  .project-card-secondary {
-    border-left-style: dashed;
-  }
-
-  .project-card-secondary:hover {
-    border-left-color: var(--text-muted);
-  }
-
-  .project-header {
+  .project-top {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-bottom: 0.75rem;
+    gap: var(--space-6);
+    align-items: start;
+  }
+
+  .project-copy {
+    display: grid;
+    gap: var(--space-3);
   }
 
   .project-title {
-    font-size: 1.25rem;
     color: var(--text);
+  }
+
+  .project-subtitle {
+    color: var(--text-subtle);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .project-desc {
+    color: var(--text-muted);
+    line-height: var(--leading-normal);
   }
 
   .project-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: var(--space-2);
+    justify-content: flex-end;
+    max-width: 22rem;
   }
 
   .project-tag {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    padding: 0.1rem 0.6rem;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    background: color-mix(in srgb, var(--surface) 50%, transparent);
+    white-space: nowrap;
   }
 
-  .project-subtitle {
-    font-size: 0.85rem;
+  .project-facts {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .project-fact {
+    display: grid;
+    grid-template-columns: 5rem minmax(0, 1fr);
+    gap: var(--space-4);
+    align-items: start;
+    padding-top: var(--space-3);
+    border-top: var(--border-width-thin) solid var(--border);
+  }
+
+  .project-fact dt {
+    color: var(--text-subtle);
     font-family: var(--font-mono);
-    color: var(--text-muted);
-    font-style: italic;
-    margin-bottom: 0.75rem;
-  }
-
-  .project-desc {
-    color: var(--text-muted);
-    margin-bottom: 1.25rem;
-    max-width: 65ch;
-  }
-
-  .project-dataset {
-    display: flex;
-    gap: 0.6rem;
-    align-items: baseline;
-    margin-bottom: 1.25rem;
-    font-size: 0.85rem;
-    max-width: 65ch;
-  }
-
-  .dataset-label {
-    color: var(--text-muted);
-    font-family: var(--font-mono);
-    text-transform: uppercase;
-    font-size: 0.7rem;
-    letter-spacing: 0.05em;
-    opacity: 0.8;
-  }
-
-  .dataset-text {
-    color: var(--text-muted);
-  }
-
-  .project-outcome {
-    display: flex;
-    gap: 1rem;
-    align-items: baseline;
-    margin-bottom: 1.5rem;
-    font-size: 0.95rem;
-  }
-
-  .outcome-label {
-    color: var(--accent);
+    font-size: var(--text-xs);
     font-weight: 600;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 0.05em;
   }
 
-  .outcome-text {
-    color: var(--text);
+  .project-fact dd {
+    color: var(--text-muted);
+    margin: 0;
+    line-height: var(--leading-normal);
   }
 
-  /* Promoted, previously-buried content (e.g. the OOD failure analysis).
-     Sits visibly between Result and the accordion, distinct from both:
-     not a headline stat, not hidden supplementary detail. */
   .project-highlight {
     color: var(--text-muted);
-    max-width: 65ch;
-    margin-bottom: 1.5rem;
-    padding: 0.85rem 1rem;
-    border-left: 2px solid var(--accent);
-    background: color-mix(in srgb, var(--surface) 50%, transparent);
-    font-size: 0.92rem;
+    padding: var(--space-4);
+    border-left: var(--border-width-medium) solid var(--accent);
+    background: var(--surface-alt);
+    font-size: var(--text-sm);
   }
 
   .project-detail {
-    margin-bottom: 1.5rem;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    background: color-mix(in srgb, var(--surface) 50%, transparent);
+    border: var(--border-width-thin) solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
     overflow: hidden;
   }
 
@@ -223,96 +192,121 @@ const { sectionLabel, items } = siteConfig.projects;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.75rem 1rem;
+    padding: var(--space-3) var(--space-4);
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: var(--text-sm);
     font-family: var(--font-mono);
     color: var(--text-muted);
     user-select: none;
-    transition: color 0.2s ease, background-color 0.2s ease;
   }
 
   .detail-toggle:hover {
     color: var(--text);
-    background-color: var(--surface);
+    background-color: var(--surface-alt);
+  }
+
+  .detail-toggle:focus-visible {
+    outline-offset: -2px;
+    border-radius: var(--radius-sm);
   }
 
   .detail-toggle::-webkit-details-marker { display: none; }
   .project-detail > summary { list-style: none; }
 
   .detail-icon {
-    font-size: 1.2rem;
-    line-height: 1;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 1rem;
+    height: 1rem;
+    transition: transform var(--duration-base) var(--ease-standard);
   }
 
   details[open] .detail-icon {
-    transform: rotate(45deg);
-    color: var(--accent);
+    transform: rotate(180deg);
   }
 
   .detail-grid {
     display: grid;
-    grid-template-columns: 100px 1fr;
-    gap: 1rem;
-    padding: 1.25rem 1rem;
-    border-top: 1px solid var(--border);
-    font-size: 0.95rem;
-  }
-
-  details[open] .detail-grid {
-    animation: slideFade 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-
-  @keyframes slideFade {
-    from { opacity: 0; transform: translateY(-4px); }
-    to { opacity: 1; transform: translateY(0); }
+    grid-template-columns: var(--size-column-narrow) 1fr;
+    gap: var(--space-4);
+    padding: var(--space-5) var(--space-4);
+    border-top: var(--border-width-thin) solid var(--border);
+    font-size: var(--text-sm);
   }
 
   .detail-grid dt {
     color: var(--text);
     font-weight: 600;
     font-family: var(--font-mono);
-    font-size: 0.85rem;
+    font-size: var(--text-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
   .detail-grid dd {
     color: var(--text-muted);
     margin: 0;
+    line-height: var(--leading-normal);
   }
 
   .project-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.5rem;
-    font-size: 0.95rem;
+    gap: var(--space-3);
+    font-size: var(--text-sm);
     font-family: var(--font-mono);
   }
 
   .project-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.35rem;
+    gap: var(--space-2);
+    min-height: 40px;
+    padding: 0 var(--space-3);
+    border: var(--border-width-thin) solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
     color: var(--text-muted);
-    text-decoration: none;
-    transition: color 0.2s ease;
   }
 
   .project-link:hover {
-    color: var(--text);
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--surface-alt);
   }
 
   .project-link.primary {
     color: var(--accent);
   }
 
-  @media (max-width: 600px) {
+  .project-link.primary:hover {
+    color: var(--accent-hover);
+  }
+
+  @media (max-width: 720px) {
+    .project-card {
+      padding: var(--space-5);
+    }
+
+    .project-top {
+      flex-direction: column;
+    }
+
+    .project-tags {
+      justify-content: flex-start;
+      max-width: none;
+    }
+
     .detail-grid {
       grid-template-columns: 1fr;
-      gap: 0.5rem;
+      gap: var(--space-2);
     }
+
     .detail-grid dt {
-      margin-bottom: -0.25rem;
+      margin-bottom: calc(var(--space-1) * -1);
+    }
+
+    .project-fact {
+      grid-template-columns: 1fr;
+      gap: var(--space-2);
     }
   }
 </style>

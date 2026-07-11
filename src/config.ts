@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "Umer Khan Niazi",
-  title: "Umer Khan Niazi | AI & ML Student",
+  title: "Umer Khan Niazi | Software Engineer",
   description:
-    "I build ML pipelines, classifiers and tools that run on real data with real constraints. Second-year AI student at UET Lahore. Open to AI/ML internships and research roles.",
+    "I build software across systems, machine learning and games, from terminal tools to ML pipelines to a Godot platformer. Second-year Artificial Intelligence student at UET Lahore, currently open to software engineering roles.",
   url: "https://umerkniazi.github.io/",
 
   navbar: {
@@ -17,12 +17,12 @@ export const siteConfig = {
   },
 
   hero: {
-    eyebrow: "AI, Machine Learning and Systems",
+    eyebrow: "Software Engineer",
     name: "Umer Khan Niazi",
     tagline:
-      "I build AI and machine learning systems that don't stop at the notebook. I write pipelines, classifiers and tools designed for real data, real hardware and real constraints.",
+      "I build software to understand how things work. Most of what I build starts with a question rather than a choice of technology, whether that ends up being an ML pipeline, a terminal tool or a small game.",
     status: {
-      label: "Open to AI/ML internships and research roles",
+      label: "Open to software engineering roles",
       available: true,
     },
     cta: {
@@ -83,35 +83,10 @@ export const siteConfig = {
         ],
       },
       {
-        slug: "shelter-outcome-predictor",
-        title: "Shelter Outcome Predictor",
-        description:
-          "An animal shelter can't save everyone. Using Austin Animal Center's public intake dataset, I looked at whether a model could flag at-risk animals early enough for limited resources to reach the right place first. Missing an at-risk animal is a worse outcome than a false alarm, so I optimized explicitly for recall instead of overall accuracy.",
-        detail: {
-          problem:
-            "Standard accuracy-optimized models underperform on minority classes, like at-risk animals, where the real cost of a missed case is highest.",
-          approach:
-            "Random Forest trained on 62,000+ historical intake records from Austin Animal Center's public dataset. Used class weighting to prioritize recall on the at-risk class, matching the real-world cost asymmetry between a missed case and a false alarm. Evaluated on 12,500 held-out samples.",
-          result:
-            "76% overall accuracy. 63% euthanasia recall. 0.83 F1 score on adoptions. The model surfaces animals needing intervention earlier than an accuracy-optimized baseline would.",
-        },
-        tags: ["Python", "scikit-learn", "Pandas", "Streamlit"],
-        dataset:
-          "Austin Animal Center public intake dataset, 62,000+ records",
-        outcome:
-          "63% euthanasia recall on 12.5K test samples. 0.83 F1 for adoptions.",
-        links: [
-          { label: "GitHub", href: "https://github.com/umerkniazi/shelter-outcome-predictor", external: true },
-          { label: "Live demo", href: "https://shelter-outcome-predictor.streamlit.app/", external: true },
-        ],
-      },
-      {
         slug: "wmus",
         title: "wmus",
-        nonMl: true,
-        subtitle: "Not ML, the systems-engineering proof",
         description:
-          "I use cmus on Linux. Nothing comparable existed on Windows, so I wrote my own: a terminal music player with fuzzy search, vim-style keybindings and smart metadata caching. Strictly keyboard-first, no GUI overhead. Also a useful test case for Python performance on I/O-bound workloads.",
+          "I use cmus on Linux. Nothing comparable existed on Windows, so I wrote my own: a terminal music player with fuzzy search, vim-style keybindings and smart metadata caching. Strictly keyboard-first, no GUI overhead. I built it because I wanted it to exist, and it's what I actually use now.",
         detail: {
           problem:
             "Every Windows music player is either too heavy or mouse-dependent. cmus has no Windows port. The gap was a lightweight, keyboard-driven alternative with no Electron.",
@@ -127,15 +102,36 @@ export const siteConfig = {
           { label: "GitHub", href: "https://github.com/umerkniazi/wmus", external: true },
         ],
       },
+      {
+        slug: "waddle-away",
+        title: "Waddle Away",
+        description:
+          "A Godot project I built to learn game development. It's an endless runner with a penguin instead of a dinosaur, and building it meant working through player movement, obstacle spawning, state management, difficulty scaling and getting it running in the browser.",
+        detail: {
+          problem:
+            "Endless runners live or die on feel. Jump timing, obstacle spacing and difficulty ramp all have to be tuned by hand, there's no dataset or metric that tells you when a game feels good.",
+          approach:
+            "Built in Godot with GDScript, using a state machine for the player character and a spawner system that increases obstacle frequency and speed as the score rises. Iterated on jump physics and hitboxes through repeated playtesting rather than a formula.",
+          result:
+            "A complete, playable endless runner with jump and slide mechanics, a difficulty curve that ramps with score, and a penguin doing a very reasonable impression of a dinosaur.",
+        },
+        tags: ["Godot", "GDScript", "Game Dev"],
+        outcome:
+          "A finished, playable Godot game shipped from concept to done.",
+        links: [
+          { label: "GitHub", href: "https://github.com/umerkniazi/waddle-away", external: true },
+          { label: "Play on itch.io", href: "https://umerkniazi.itch.io/waddle-away", external: true },
+        ],
+      },
     ],
   },
 
   about: {
     sectionLabel: "About",
     introParagraphs: [
-      "Second-year AI student at UET Lahore. I write a lot of Python, some C++, and spend more time in the terminal than I'd like to admit.",
+      "Second-year Artificial Intelligence student at UET Lahore. I write mostly Python and C++, run Fedora on everything, and I'm just as likely to be tinkering with a Godot project or a terminal tool as training a model. Most of my projects start with a question rather than a tech stack.",
       "I got into this because I wanted to understand how things actually work. Not theory in isolation, but what happens when you run it on real data with real constraints on a machine that has better things to do.",
-      "Three of my projects exist because I cared about a question more than I cared about a tech stack. What 15 years of news coverage actually looked like. Whether a classifier could tell endangered Himalayan species apart without faking confidence it didn't have. Which shelter animals were quietly at the most risk. I think the most interesting software is written by people who care about something other than software.",
+      "What 15 years of Pakistani news coverage actually looked like. Whether a classifier could tell endangered Himalayan species apart without faking confidence it didn't have. Why Windows never got a proper terminal music player. What a Chrome Dino clone looks like with a penguin instead of a dinosaur. Different questions, but the same instinct: go build the thing and see what happens.",
     ],
     skillGroups: [
       {
@@ -143,8 +139,12 @@ export const siteConfig = {
         skills: ["Python", "C++", "Linux", "Bash", "Git"],
       },
       {
-        label: "ML / DL",
+        label: "AI / ML",
         skills: ["PyTorch", "scikit-learn", "HuggingFace", "BERTopic"],
+      },
+      {
+        label: "Game Development",
+        skills: ["Godot", "GDScript"],
       },
       {
         label: "NLP & Data",
@@ -166,7 +166,7 @@ export const siteConfig = {
 
   footer: {
     availability: {
-      label: "Open to AI/ML internships and research roles, remote or Lahore-based",
+      label: "Based in Lahore, open to remote work.",
       available: true,
     },
     contacts: [
