@@ -58,10 +58,30 @@ export const siteConfig = {
         ],
       },
       {
+        slug: "wmus",
+        title: "wmus",
+        description:
+          "I use cmus on Linux. Nothing comparable existed on Windows, so I wrote my own: a terminal music player with fuzzy search, vim-style keybindings and a caching layer that avoids rescanning the whole library on every launch. Strictly keyboard-first, no GUI overhead. I built it because I wanted it to exist, and it's what I actually use now.",
+        detail: {
+          problem:
+            "Every Windows music player is either too heavy or mouse-dependent. cmus has no Windows port. The gap was a lightweight, keyboard-driven alternative with no Electron.",
+          approach:
+            "Python with a metadata caching layer to avoid rescanning on every launch. Built with Library, Albums and Queue views, plus configurable keybindings and robust playback controls. Minimal dependencies.",
+          result:
+            "A fully featured daily driver supporting MP3, FLAC, WAV, OGG, AAC and M4A. Includes fuzzy search with intelligent filtering, shuffle and repeat modes, volume control, seeking and vim-style navigation (j/k/h/l).",
+        },
+        tags: ["Python", "Terminal", "Windows", "Audio"],
+        outcome:
+          "Terminal-based music player with advanced caching, multi-format support and vim-style navigation.",
+        links: [
+          { label: "GitHub", href: "https://github.com/umerkniazi/wmus", external: true },
+        ],
+      },
+      {
         slug: "gb-wildlife-classifier",
         title: "GB Wildlife Classifier",
         description:
-          "Three endangered Himalayan species from Gilgit-Baltistan look similar enough that silent misclassification is a real failure mode. Trained on a public dataset of camera-trap and field photography, the harder problem wasn't accuracy, it was knowing when not to guess. I added an explicit confidence threshold so uncertain inputs get flagged rather than forced into a wrong class, then deliberately tried to break the model with out-of-distribution inputs.",
+          "Three endangered Himalayan species from Gilgit-Baltistan look similar enough that silent misclassification is a real failure mode. Trained on a public dataset of camera-trap and field photography, the harder problem wasn't accuracy, it was knowing when not to guess. I added an explicit confidence threshold so uncertain inputs get flagged rather than forced into a wrong class.",
         detail: {
           problem:
             "Standard image classifiers confidently misclassify inputs that don't resemble their training distribution. In a conservation context, a confident wrong label is worse than an honest 'unknown.'",
@@ -83,30 +103,10 @@ export const siteConfig = {
         ],
       },
       {
-        slug: "wmus",
-        title: "wmus",
-        description:
-          "I use cmus on Linux. Nothing comparable existed on Windows, so I wrote my own: a terminal music player with fuzzy search, vim-style keybindings and smart metadata caching. Strictly keyboard-first, no GUI overhead. I built it because I wanted it to exist, and it's what I actually use now.",
-        detail: {
-          problem:
-            "Every Windows music player is either too heavy or mouse-dependent. cmus has no Windows port. The gap was a lightweight, keyboard-driven alternative with no Electron.",
-          approach:
-            "Python with a metadata caching layer to avoid rescanning on every launch. Built with Library, Albums and Queue views, plus configurable keybindings and robust playback controls. Minimal dependencies.",
-          result:
-            "A fully featured daily driver supporting MP3, FLAC, WAV, OGG, AAC and M4A. Includes fuzzy search with intelligent filtering, shuffle and repeat modes, volume control, seeking and vim-style navigation (j/k/h/l).",
-        },
-        tags: ["Python", "Terminal", "Windows", "Audio"],
-        outcome:
-          "Terminal-based music player with advanced caching, multi-format support and vim-style navigation.",
-        links: [
-          { label: "GitHub", href: "https://github.com/umerkniazi/wmus", external: true },
-        ],
-      },
-      {
         slug: "waddle-away",
         title: "Waddle Away",
         description:
-          "A Godot project I built to learn game development. It's an endless runner with a penguin instead of a dinosaur, and building it meant working through player movement, obstacle spawning, state management, difficulty scaling and getting it running in the browser.",
+          "I've been building game prototypes in Unity for years, but always stalled before finishing one. Waddle Away was different: an endless runner inspired by Chrome's offline dinosaur game, but with a penguin, built with a deliberately small scope so I could actually finish and ship it. It also doubled as how I learned Godot and GDScript, working through player movement, obstacle spawning, state management, difficulty scaling and getting the whole thing running in the browser.",
         detail: {
           problem:
             "Endless runners live or die on feel. Jump timing, obstacle spacing and difficulty ramp all have to be tuned by hand, there's no dataset or metric that tells you when a game feels good.",
@@ -129,14 +129,18 @@ export const siteConfig = {
   about: {
     sectionLabel: "About",
     introParagraphs: [
-      "Second-year Artificial Intelligence student at UET Lahore. I write mostly Python and C++, run Fedora on everything, and I'm just as likely to be tinkering with a Godot project or a terminal tool as training a model. Most of my projects start with a question rather than a tech stack.",
+      "Most of my projects start with a question rather than a tech stack. I'm a student who writes mostly Python and C++, runs Fedora on everything, and is just as likely to be tinkering with a Godot project or a terminal tool as training a model.",
       "I got into this because I wanted to understand how things actually work. Not theory in isolation, but what happens when you run it on real data with real constraints on a machine that has better things to do.",
-      "What 15 years of Pakistani news coverage actually looked like. Whether a classifier could tell endangered Himalayan species apart without faking confidence it didn't have. Why Windows never got a proper terminal music player. What a Chrome Dino clone looks like with a penguin instead of a dinosaur. Different questions, but the same instinct: go build the thing and see what happens.",
+      "News coverage, endangered species, a terminal music player, a penguin dodging obstacles: different questions, but the same instinct, go build the thing and see what happens.",
     ],
     skillGroups: [
       {
-        label: "Core",
-        skills: ["Python", "C++", "Linux", "Bash", "Git"],
+        label: "Languages",
+        skills: ["Python", "C++"],
+      },
+      {
+        label: "Tools",
+        skills: ["Linux", "Bash", "Git"],
       },
       {
         label: "AI / ML",
