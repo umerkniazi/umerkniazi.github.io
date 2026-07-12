@@ -45,25 +45,6 @@ const { sectionLabel, items } = siteConfig.projects;
 
           {project.highlight && <p class="project-highlight">{project.highlight}</p>}
 
-          {project.links && project.links.length > 0 && (
-            <div class="project-links">
-              {project.links.map((link) => (
-                <a
-                  href={link.href}
-                  class={`project-link ${link.label.toLowerCase() === 'live demo' ? 'primary' : ''}`}
-                  {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                >
-                  {link.label.toLowerCase() === 'github' ? (
-                    <IconBrandGithub size={18} stroke={1.5} aria-hidden="true" />
-                  ) : (
-                    <IconExternalLink size={18} stroke={1.5} aria-hidden="true" />
-                  )}
-                  <span>{link.label}</span>
-                </a>
-              ))}
-            </div>
-          )}
-
           <details class="project-detail">
             <summary class="detail-toggle">
               <span>Technical details</span>
@@ -78,6 +59,25 @@ const { sectionLabel, items } = siteConfig.projects;
               <dd>{project.detail.result}</dd>
             </dl>
           </details>
+
+          {project.links && project.links.length > 0 && (
+            <div class="project-links">
+              {project.links.map((link) => (
+                <a
+                  href={link.href}
+                  class={`project-link ${link.label.toLowerCase() !== 'github' ? 'primary' : ''}`}
+                  {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                >
+                  {link.label.toLowerCase() === 'github' ? (
+                    <IconBrandGithub size={18} stroke={1.5} aria-hidden="true" />
+                  ) : (
+                    <IconExternalLink size={18} stroke={1.5} aria-hidden="true" />
+                  )}
+                  <span>{link.label}</span>
+                </a>
+              ))}
+            </div>
+          )}
         </article>
       ))}
     </div>
@@ -203,11 +203,6 @@ const { sectionLabel, items } = siteConfig.projects;
   .detail-toggle:hover {
     color: var(--text);
     background-color: var(--surface-alt);
-  }
-
-  .detail-toggle:focus-visible {
-    outline-offset: -2px;
-    border-radius: var(--radius-sm);
   }
 
   .detail-toggle::-webkit-details-marker { display: none; }
