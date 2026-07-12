@@ -122,14 +122,12 @@ const { navbar } = siteConfig;
     font-size: var(--text-sm);
     font-weight: 500;
     padding: var(--space-2) 0;
-    border-bottom: 1px solid transparent;
   }
 
   .nav-links a:hover,
   .nav-links a.active,
   .nav-links a[aria-current='page'] {
     color: var(--text);
-    border-bottom-color: var(--accent);
   }
 
   .header-resume {
@@ -245,6 +243,7 @@ const { navbar } = siteConfig;
     .nav-links a.active,
     .nav-links a[aria-current='page'] {
       background-color: var(--surface-alt);
+      color: var(--text);
     }
 
     .nav-links a:last-child {
