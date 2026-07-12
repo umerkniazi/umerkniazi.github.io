@@ -13,13 +13,11 @@ const { about } = siteConfig;
     </div>
 
     <div class="about-grid">
-      <article class="about-card card card-strong about-story">
-        <div class="about-intro">
-          {about.introParagraphs.map((paragraph) => (
-            <p>{paragraph}</p>
-          ))}
-        </div>
-      </article>
+      <div class="about-intro">
+        {about.introParagraphs.map((paragraph) => (
+          <p>{paragraph}</p>
+        ))}
+      </div>
 
       <div class="about-stack">
         <article class="about-card card education-card">
@@ -72,10 +70,6 @@ const { about } = siteConfig;
 
   .education-card {
     padding: var(--space-4) var(--space-6);
-  }
-
-  .about-story {
-    border-left: var(--border-width-medium) solid var(--accent);
   }
 
   .about-heading {
