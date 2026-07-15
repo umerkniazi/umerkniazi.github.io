@@ -1,0 +1,120 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { IconDownload, IconExternalLink } from '@tabler/icons-react';
+import { siteConfig } from '../config';
+
+const pdfUrl = "/resume.pdf";
+---
+
+<Layout title={`Resume | ${siteConfig.name}`}>
+  <Header />
+  
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        <div class="resume-header">
+          <div class="resume-copy">
+            <p class="section-kicker">Resume</p>
+            <h1 class="section-title">{siteConfig.name}</h1>
+            <p class="section-lede">The full document is below, and the PDF is one tap away.</p>
+          </div>
+          
+          <div class="resume-actions">
+            <a href={pdfUrl} download class="button">
+              <IconDownload size={18} stroke={1.5} aria-hidden="true" />
+              <span>Download PDF</span>
+            </a>
+            <a href={pdfUrl} target="_blank" rel="noopener noreferrer" class="button-ghost">
+              <span>Open in new tab</span>
+              <IconExternalLink size={18} stroke={1.5} aria-hidden="true" />
+            </a>
+          </div>
+        </div>
+
+        <div class="resume-viewer card">
+          <object data={pdfUrl} type="application/pdf" class="pdf-embed">
+            <div class="pdf-fallback">
+              <p>Your browser doesn't support embedded PDFs.</p>
+              <a href={pdfUrl} class="button">Download Resume</a>
+            </div>
+          </object>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .resume-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: var(--space-6);
+    margin-bottom: var(--space-10);
+  }
+
+  .resume-copy {
+    display: grid;
+    gap: var(--space-3);
+    max-width: 32rem;
+  }
+
+  .resume-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    align-items: center;
+  }
+
+  .resume-actions .button {
+    gap: var(--space-2);
+  }
+
+  .resume-actions .button-ghost {
+    gap: var(--space-2);
+  }
+
+  .resume-viewer {
+    width: 100%;
+    height: 85vh;
+    min-height: 600px;
+    overflow: hidden;
+    background: var(--surface-alt);
+  }
+
+  .pdf-embed {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+
+  .pdf-fallback {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: var(--space-4);
+    color: var(--text-muted);
+    padding: var(--space-6);
+    text-align: center;
+  }
+
+  @media (max-width: 720px) {
+    .resume-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .resume-viewer {
+      height: 70vh;
+      min-height: 500px;
+    }
+  }
+</style>

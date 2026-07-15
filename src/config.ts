@@ -12,7 +12,7 @@ export const siteConfig = {
     ],
     resume: {
       label: "Resume",
-      href: "/resume.pdf",
+      href: "/resume",
     },
   },
 
