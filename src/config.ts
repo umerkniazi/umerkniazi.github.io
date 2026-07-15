@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Umer Khan Niazi",
-  title: "Umer Khan Niazi | Software Engineer",
+  title: "Umer Khan Niazi | AI Student",
   description:
     "I build software across systems, machine learning and games, from terminal tools to ML pipelines to a Godot platformer. Second-year Artificial Intelligence student at UET Lahore, open to software engineering roles.",
   url: "https://umerkniazi.github.io/",
@@ -17,7 +17,7 @@ export const siteConfig = {
   },
 
   hero: {
-    eyebrow: "Software Engineer",
+    eyebrow: "AI Student",
     name: "Umer Khan Niazi",
     tagline:
       "I build software to understand how things work. Most of what I build starts with a question rather than a choice of technology, whether that ends up being an ML pipeline, a terminal tool or a small game.",
@@ -81,18 +81,18 @@ export const siteConfig = {
         slug: "himalayan-wildlife-classifier",
         title: "Himalayan Wildlife Classifier",
         description:
-          "Built an image classifier for three endangered Himalayan species using a public camera-trap dataset. Added a confidence threshold so uncertain predictions are flagged instead of forcing incorrect classifications.",
+          "Built an image classifier for three endangered Himalayan species using a public wildlife image dataset. Added a confidence threshold so uncertain predictions are flagged instead of forcing incorrect classifications.",
         detail: {
           problem:
             "Standard image classifiers confidently misclassify inputs that don't resemble their training distribution. In a conservation context, a confident wrong label is worse than an honest 'unknown.'",
           approach:
-            "Frozen ResNet18 backbone with a custom 3-class head, trained for 5 epochs with aggressive augmentation on a public Kaggle dataset of the three species. Confidence threshold at 80% surfaces uncertain predictions explicitly. Stress-tested with out-of-distribution inputs (a toaster, a polar bear, an ibex) to find and document where it breaks.",
+            "Frozen ResNet18 backbone with a custom 3-class head, trained for 5 epochs with aggressive augmentation on a public Kaggle wildlife image dataset of the three species. Confidence threshold at 80% surfaces uncertain predictions explicitly. Stress-tested with out-of-distribution inputs (a toaster, a polar bear, an ibex) to find and document where it breaks.",
           result:
             "98.16% validation accuracy, 91.77% training accuracy at 5 epochs. Validation loss of 0.0631. Full failure-case analysis from out-of-distribution stress testing above.",
         },
         tags: ["Python", "PyTorch", "ResNet18", "Computer Vision", "Streamlit"],
         dataset:
-          "Public Kaggle dataset of camera-trap and field photography",
+          "Public Kaggle wildlife image dataset containing Snow Leopard, Markhor and Himalayan Brown Bear images",
         outcome:
           "98.16% validation accuracy • Confidence thresholding • OOD testing",
         highlight:
