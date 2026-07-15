@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Umer Khan Niazi",
   title: "Umer Khan Niazi | Software Engineer",
   description:
-    "I build software across systems, machine learning and games, from terminal tools to ML pipelines to a Godot platformer. Second-year Artificial Intelligence student at UET Lahore, currently open to software engineering roles.",
+    "I build software across systems, machine learning and games, from terminal tools to ML pipelines to a Godot platformer. Second-year Artificial Intelligence student at UET Lahore, open to software engineering roles.",
   url: "https://umerkniazi.github.io/",
 
   navbar: {
@@ -38,7 +38,7 @@ export const siteConfig = {
         slug: "news-nlp-pipeline",
         title: "News NLP Pipeline",
         description:
-          "I scraped 15 years of Dawn News headlines and stored them in a SQLite database, then ran the full corpus through BERTopic for unsupervised topic modeling, spaCy for named entity recognition and VADER for sentiment, with no manual labeling at any stage. Structure emerges from the data itself.",
+          "Scraped and processed 350,000+ Dawn News headlines into SQLite, then built an NLP pipeline using BERTopic, spaCy and VADER to discover topics, extract named entities and analyze sentiment without manual labeling.",
         detail: {
           problem:
             "No existing dataset captured 15 years of Pakistani news coverage. Building one meant scraping, deduplicating and storing 350,000+ headlines from scratch before any modeling could start.",
@@ -51,7 +51,7 @@ export const siteConfig = {
         dataset:
           "Self-scraped, 350,718 headlines from Dawn News, stored in SQLite",
         outcome:
-          "350K+ self-scraped headlines, 20 coherent topic clusters, zero hand-labeled examples.",
+          "350K+ headlines • 20 topic clusters • 404K entities",
         links: [
           { label: "GitHub", href: "https://github.com/umerkniazi/news-nlp-pipeline", external: true },
           { label: "Live demo", href: "https://news-nlp-pipeline.streamlit.app/", external: true },
@@ -61,7 +61,7 @@ export const siteConfig = {
         slug: "wmus",
         title: "wmus",
         description:
-          "I use cmus on Linux. Nothing comparable existed on Windows, so I wrote my own: a terminal music player with fuzzy search, vim-style keybindings and a caching layer that avoids rescanning the whole library on every launch. Strictly keyboard-first, no GUI overhead. I built it because I wanted it to exist, and it's what I actually use now.",
+          "Built a keyboard-first terminal music player for Windows inspired by cmus, featuring fuzzy search, vim-style keybindings and metadata caching for fast startup.",
         detail: {
           problem:
             "Every Windows music player is either too heavy or mouse-dependent. cmus has no Windows port. The gap was a lightweight, keyboard-driven alternative with no Electron.",
@@ -72,16 +72,16 @@ export const siteConfig = {
         },
         tags: ["Python", "Terminal", "Windows", "Audio"],
         outcome:
-          "Terminal-based music player with advanced caching, multi-format support and vim-style navigation.",
+          "Keyboard-first • Fuzzy search • Metadata caching",
         links: [
           { label: "GitHub", href: "https://github.com/umerkniazi/wmus", external: true },
         ],
       },
       {
-        slug: "gb-wildlife-classifier",
-        title: "GB Wildlife Classifier",
+        slug: "himalayan-wildlife-classifier",
+        title: "Himalayan Wildlife Classifier",
         description:
-          "Three endangered Himalayan species from Gilgit-Baltistan look similar enough that silent misclassification is a real failure mode. Trained on a public dataset of camera-trap and field photography, the harder problem wasn't accuracy, it was knowing when not to guess. I added an explicit confidence threshold so uncertain inputs get flagged rather than forced into a wrong class.",
+          "Built an image classifier for three endangered Himalayan species using a public camera-trap dataset. Added a confidence threshold so uncertain predictions are flagged instead of forcing incorrect classifications.",
         detail: {
           problem:
             "Standard image classifiers confidently misclassify inputs that don't resemble their training distribution. In a conservation context, a confident wrong label is worse than an honest 'unknown.'",
@@ -94,19 +94,19 @@ export const siteConfig = {
         dataset:
           "Public Kaggle dataset of camera-trap and field photography",
         outcome:
-          "98.16% validation accuracy. Confidence threshold + documented OOD failure analysis.",
+          "98.16% validation accuracy • Confidence thresholding • OOD testing",
         highlight:
           "Stress-tested the model with out-of-distribution inputs after training. A toaster was correctly flagged as unknown by the confidence threshold. A polar bear was misclassified as a Himalayan brown bear at 93% confidence due to shared snowy background context. An ibex was misclassified as a markhor at 98% confidence due to shared Caprinae features the model wasn't trained to distinguish.",
         links: [
-          { label: "GitHub", href: "https://github.com/umerkniazi/gb-wildlife-classifier", external: true },
-          { label: "Live demo", href: "https://gb-wildlife-classifier.streamlit.app/", external: true },
+          { label: "GitHub", href: "https://github.com/umerkniazi/himalayan-wildlife-classifier", external: true },
+          { label: "Live demo", href: "https://himalayan-wildlife-classifier.streamlit.app/", external: true },
         ],
       },
       {
         slug: "waddle-away",
         title: "Waddle Away",
         description:
-          "I've been building game prototypes in Unity for years, but always stalled before finishing one. Waddle Away was different: an endless runner inspired by Chrome's offline dinosaur game, but with a penguin, built with a deliberately small scope so I could actually finish and ship it. It also doubled as how I learned Godot and GDScript, working through player movement, obstacle spawning, state management, difficulty scaling and getting the whole thing running in the browser.",
+          "Built an endless runner in Godot inspired by Chrome's offline dinosaur game. I deliberately kept the scope small so I could finish and ship it while learning GDScript, player movement, obstacle spawning and difficulty scaling.",
         detail: {
           problem:
             "Endless runners live or die on feel. Jump timing, obstacle spacing and difficulty ramp all have to be tuned by hand, there's no dataset or metric that tells you when a game feels good.",
@@ -117,7 +117,7 @@ export const siteConfig = {
         },
         tags: ["Godot", "GDScript", "Game Dev"],
         outcome:
-          "A finished, playable Godot game shipped from concept to done.",
+          "Finished Godot game • Browser playable",
         links: [
           { label: "GitHub", href: "https://github.com/umerkniazi/waddle-away", external: true },
           { label: "Play on itch.io", href: "https://umerkniazi.itch.io/waddle-away", external: true },
@@ -130,7 +130,7 @@ export const siteConfig = {
     sectionLabel: "About",
     introParagraphs: [
       "Most of my projects start with a question rather than a tech stack. I'm a student who writes mostly Python and C++, runs Fedora on everything, and is just as likely to be tinkering with a Godot project or a terminal tool as training a model.",
-      "I got into this because I wanted to understand how things actually work. Not theory in isolation, but what happens when you run it on real data with real constraints on a machine that has better things to do.",
+      "I got into this because I wanted to understand how things actually work. Not theory in isolation, but what happens when ideas meet real data, practical constraints and a machine that has better things to do.",
       "News coverage, endangered species, a terminal music player, a penguin dodging obstacles: different questions, but the same instinct, go build the thing and see what happens.",
     ],
     skillGroups: [
@@ -152,7 +152,7 @@ export const siteConfig = {
       },
       {
         label: "NLP & Data",
-        skills: ["spaCy", "NER", "Topic Modeling", "Pandas", "SQLite"],
+        skills: ["spaCy", "BERTopic", "Pandas", "SQLite"],
       },
       {
         label: "Deployment",
