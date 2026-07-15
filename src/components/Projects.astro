@@ -15,7 +15,7 @@ const { sectionLabel, items } = siteConfig.projects;
 
     <div class="projects-list">
       {items.map((project) => (
-        <article class="project-card card card-strong">
+        <article class="project-card card">
           <div class="project-top">
             <div class="project-copy">
               <h3 class="project-title">{project.title}</h3>
@@ -96,10 +96,6 @@ const { sectionLabel, items } = siteConfig.projects;
     flex-direction: column;
     gap: var(--space-5);
     padding: var(--space-6);
-  }
-
-  .project-card:hover {
-    border-color: var(--border-strong);
   }
 
   .project-top {

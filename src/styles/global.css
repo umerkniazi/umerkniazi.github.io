@@ -7,7 +7,7 @@
   --border-strong: #374252;
   --text: #f4f6f8;
   --text-muted: #a6afbc;
-  --text-subtle: #7e8795;
+  --text-subtle: #94a3b8;
   --accent: #7abf9a;
   --accent-hover: #8dcaab;
   --accent-soft: rgba(122, 191, 154, 0.14);
@@ -212,7 +212,7 @@ h3 {
   transition: border-color var(--duration-base) var(--ease-standard);
 }
 
-.card-strong {
+.card:hover {
   border-color: var(--border-strong);
 }
 
