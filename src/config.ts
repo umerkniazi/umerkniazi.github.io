@@ -144,7 +144,7 @@ export const siteConfig = {
       },
       {
         label: "AI / ML",
-        skills: ["PyTorch", "scikit-learn", "HuggingFace", "BERTopic"],
+        skills: ["PyTorch", "scikit-learn", "HuggingFace"],
       },
       {
         label: "Game Development",
@@ -152,7 +152,7 @@ export const siteConfig = {
       },
       {
         label: "NLP & Data",
-        skills: ["spaCy", "BERTopic", "Pandas", "SQLite"],
+        skills: ["spaCy", "BERTopic", "NLTK", "Pandas", "SQLite"],
       },
       {
         label: "Deployment",
