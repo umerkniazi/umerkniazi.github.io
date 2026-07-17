@@ -1,10 +1,10 @@
 import { defineConfig } from 'astro/config';
-import react from '@astrojs/react';
+import icon from 'astro-icon';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://umerkniazi.github.io',
-  integrations: [react()],
-  build: {
-    inlineStylesheets: 'always'
-  }
+  base: '/',
+  output: 'static',
+  integrations: [icon(), sitemap()],
 });

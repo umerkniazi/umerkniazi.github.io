@@ -1,7 +1,12 @@
-# umerkniazi.github.io
-Personal portfolio, projects and contact.
-Live at [umerkniazi.github.io](https://umerkniazi.github.io)
+# Portfolio
 
-**Stack**: Astro  
-**Icons**: Tabler Icons (via React)  
-**Hosted on**: GitHub Pages
+A minimal personal website built with Astro and Tailwind CSS.
+
+Live at: https://umerkniazi.github.io
+
+## Stack
+
+- Astro
+- Tailwind CSS
+- Tabler Icons
+- GitHub Pages

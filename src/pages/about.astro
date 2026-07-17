@@ -1,0 +1,83 @@
+---
+import { Icon } from 'astro-icon/components';
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site.js';
+import { skills } from '../data/skills.js';
+import { environment } from '../data/environment.js';
+---
+
+<Base title="About" description={`About ${site.name}.`}>
+  <h1 class="text-3xl font-bold tracking-tight text-ink">About</h1>
+
+  <div class="mt-6 flex max-w-[60ch] flex-col gap-4 text-sm leading-relaxed text-body">
+    {site.bio.map((paragraph) => <p>{paragraph}</p>)}
+  </div>
+
+  <p class="mt-4 text-sm">
+    <a href={`mailto:${site.email}`} class="text-accent underline-offset-4 hover:underline">Email me →</a>
+  </p>
+
+  <section class="mt-14 sm:mt-16" aria-labelledby="education-heading">
+    <h2 id="education-heading" class="flex items-center gap-2 text-lg font-semibold tracking-tight text-ink">
+      <Icon name="tabler:book" class="h-4 w-4 text-muted" aria-hidden="true" />
+      Education
+    </h2>
+    <p class="mt-4 text-sm text-ink">
+      {site.education.degree} <span class="text-faint">— {site.education.school}</span>
+    </p>
+    <p class="mt-0.5 text-xs text-faint">{site.education.period}</p>
+  </section>
+
+  <div class="mt-14 grid grid-cols-1 gap-12 sm:mt-16 sm:grid-cols-2 sm:gap-10">
+    <section aria-labelledby="skills-heading">
+      <h2 id="skills-heading" class="flex items-center gap-2 text-lg font-semibold tracking-tight text-ink">
+        <Icon name="tabler:code" class="h-4 w-4 text-muted" aria-hidden="true" />
+        Skills
+      </h2>
+      <div class="mt-4 flex flex-col gap-6">
+        {
+          skills.map((group) => (
+            <div>
+              <h3 class="text-xs font-semibold uppercase tracking-widest text-muted">{group.category}</h3>
+              <ul class="mt-3 flex flex-wrap gap-2">
+                {group.items.map((skill) => (
+                  <li class="rounded-md border border-border bg-surface px-3 py-1.5 text-sm text-body transition-colors duration-150 hover:border-accent/40 hover:text-accent">
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <div class="flex flex-col gap-12">
+      <section aria-labelledby="interests-heading">
+        <h2 id="interests-heading" class="flex items-center gap-2 text-lg font-semibold tracking-tight text-ink">
+          <Icon name="tabler:compass" class="h-4 w-4 text-muted" aria-hidden="true" />
+          Interests
+        </h2>
+        <p class="mt-4 text-sm leading-relaxed text-body">{site.interests.join(' · ')}</p>
+      </section>
+
+      <section aria-labelledby="environment-heading">
+        <h2 id="environment-heading" class="flex items-center gap-2 text-lg font-semibold tracking-tight text-ink">
+          <Icon name="tabler:terminal-2" class="h-4 w-4 text-muted" aria-hidden="true" />
+          Development environment
+        </h2>
+        <p class="mt-2 text-sm text-body">What I actually build with, day to day.</p>
+        <dl class="mt-6 flex flex-col gap-6">
+          {
+            environment.map((group) => (
+              <div>
+                <dt class="text-xs font-semibold uppercase tracking-widest text-muted">{group.category}</dt>
+                <dd class="mt-1.5 text-sm text-body">{group.items.join(' · ')}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </section>
+    </div>
+  </div>
+</Base>
