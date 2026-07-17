@@ -5,6 +5,7 @@ import { site } from '../data/site.js';
 const path = new URL(Astro.request.url).pathname.replace(/\/index\.html$/, '');
 
 const links = [
+  { href: '/', label: 'home' },
   { href: '/projects', label: 'projects' },
   { href: '/about', label: 'about' },
   { href: '/resume', label: 'resume' },
