@@ -4,8 +4,9 @@ export const projects = [
     summary:
       'An NLP pipeline that explores topics and sentiment across 15 years of Pakistani news history.',
     description:
-      'A pipeline that scraped and analyzed over 350,000 Dawn News headlines to find 20 topic clusters and extract 404K+ named entities without manual labeling.',
-    stack: ['Python', 'spaCy', 'BERTopic'],
+      'A pipeline that scraped and analyzed Dawn News headlines to discover topics, run sentiment analysis and extract named entities without any manual labeling.',
+    stack: ['Python', 'BERTopic', 'spaCy', 'Transformers', 'Streamlit'],
+    outcome: ['350K+ headlines', '20 topic clusters', '404K+ named entities'],
     demoUrl: 'https://news-nlp-pipeline.streamlit.app/',
     sourceUrl: 'https://github.com/umerkniazi/news-nlp-pipeline',
     featured: true,
@@ -13,10 +14,11 @@ export const projects = [
   {
     name: 'wmus',
     summary:
-      'A keyboard-first terminal music player for Windows focused on speed and metadata caching.',
+      'A keyboard-first terminal music player for Windows, inspired by cmus.',
     description:
-      'A terminal music player for Windows with fast fuzzy search and metadata caching. Built because cmus is not available natively on Windows.',
-    stack: ['Python', 'Terminal', 'curses'],
+      'A terminal music player for Windows, built because cmus isn’t available natively on Windows.',
+    stack: ['Python', 'windows-curses', 'SQLite'],
+    outcome: ['Keyboard-first workflow', 'Fast fuzzy search', 'Metadata caching'],
     demoUrl: null,
     sourceUrl: 'https://github.com/umerkniazi/wmus',
     featured: true,
