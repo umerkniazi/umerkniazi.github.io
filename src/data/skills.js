@@ -1,7 +1,7 @@
 export const skills = [
   {
     category: 'Languages',
-    items: ['Python', 'Bash', 'GDScript'],
+    items: ['Python', 'C++', 'Bash', 'GDScript'],
   },
   {
     category: 'Systems & tools',
@@ -11,12 +11,14 @@ export const skills = [
     category: 'Machine learning & NLP',
     items: [
       'PyTorch',
+      'Transformers',
       'scikit-learn',
       'Hugging Face',
       'spaCy',
       'BERTopic',
       'NLTK',
       'Pandas',
+      'NumPy',
     ],
   },
   {
