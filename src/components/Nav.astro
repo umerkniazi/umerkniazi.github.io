@@ -17,7 +17,7 @@ function isActive(href) {
 }
 ---
 
-<header class="relative border-b border-border py-6">
+<header class="relative z-40 border-b border-border bg-bg py-6">
   <div class="flex items-center justify-between">
     <a href="/" class="py-2 text-base font-semibold tracking-tight text-ink no-underline hover-text-accent">
       ~/umer
@@ -58,7 +58,7 @@ function isActive(href) {
   <nav
     id="nav-mobile"
     aria-label="Primary"
-    class="mt-4 hidden flex-col gap-2 border-t border-border pt-4 text-base sm:hidden"
+    class="absolute left-0 top-full hidden w-full flex-col gap-2 border-b border-border bg-bg pb-4 pt-2 text-base shadow-lg sm:hidden"
   >
     {
       links.map((link) => (
