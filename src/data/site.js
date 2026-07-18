@@ -8,7 +8,7 @@ export const site = {
   githubHandle: '@umerkniazi',
   linkedin: 'https://linkedin.com/in/umerkniazi',
   available: true,
-  statusText: 'Open to Software Engineering roles',
+  statusText: 'Open to Software Engineering & AI internships',
   currentFocus: 'Machine learning and terminal-first software',
   resumeUrl: '/resume.pdf',
   description:
