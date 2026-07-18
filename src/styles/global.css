@@ -76,8 +76,10 @@
     border: 2px solid rgb(var(--color-bg));
   }
 
-  ::-webkit-scrollbar-thumb:hover {
-    background: #30363d;
+  @media (any-hover: hover) {
+    ::-webkit-scrollbar-thumb:hover {
+      background: #30363d;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -127,10 +129,44 @@
   }
 
   .btn-primary {
-    @apply btn border-border-strong text-ink hover:border-accent hover:bg-accent hover:text-bg;
+    @apply btn border-border-strong text-ink;
   }
 
   .btn-secondary {
-    @apply btn border-border text-muted hover:border-accent hover:text-accent;
+    @apply btn border-border text-muted;
+  }
+
+  .project-card {
+    @apply flex min-h-[16rem] flex-col rounded-md border border-border bg-surface p-6 transition-colors duration-150 sm:p-8;
+  }
+
+  .project-card-heading {
+    @apply text-base font-semibold text-body transition-colors duration-150;
+  }
+
+  @media (any-hover: hover) {
+    .btn-primary:hover {
+      @apply border-accent bg-accent text-bg;
+    }
+
+    .btn-secondary:hover {
+      @apply border-accent text-accent;
+    }
+
+    .project-card:hover {
+      @apply border-border-strong bg-surface-hover;
+    }
+
+    .project-card:hover .project-card-heading {
+      @apply text-ink;
+    }
+
+    .hover-text-accent:hover {
+      @apply text-accent;
+    }
+
+    .hover-underline:hover {
+      @apply underline;
+    }
   }
 }

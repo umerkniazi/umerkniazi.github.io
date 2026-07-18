@@ -35,8 +35,8 @@ const Heading = headingLevel;
       <p class="mt-2 text-sm leading-relaxed text-body">{summary || description}</p>
     </article>
   ) : (
-    <article class="group flex min-h-[16rem] flex-col rounded-md border border-border bg-surface p-6 transition-colors duration-150 hover:border-border-strong hover:bg-surface-hover sm:p-8">
-      <Heading class="text-base font-semibold text-body transition-colors duration-150 group-hover:text-ink">{name}</Heading>
+    <article class="project-card">
+      <Heading class="project-card-heading">{name}</Heading>
 
       <p class="mt-3 text-sm leading-relaxed text-body">{description}</p>
 
@@ -60,7 +60,7 @@ const Heading = headingLevel;
             href={demoUrl}
             target="_blank"
             rel="noreferrer"
-            class="flex items-center gap-1 text-accent underline-offset-4 hover:underline"
+            class="flex items-center gap-1 rounded-sm text-accent underline-offset-4 hover-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
           >
             <Icon name="tabler:external-link" class="h-3.5 w-3.5" aria-hidden="true" />
             Demo
@@ -71,7 +71,7 @@ const Heading = headingLevel;
             href={sourceUrl}
             target="_blank"
             rel="noreferrer"
-            class="flex items-center gap-1 text-muted underline-offset-4 hover:text-accent hover:underline"
+            class="flex items-center gap-1 rounded-sm text-muted underline-offset-4 hover-text-accent hover-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
           >
             <Icon name="tabler:brand-github" class="h-3.5 w-3.5" aria-hidden="true" />
             Source

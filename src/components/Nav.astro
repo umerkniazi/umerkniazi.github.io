@@ -19,7 +19,7 @@ function isActive(href) {
 
 <header class="relative border-b border-border py-6">
   <div class="flex items-center justify-between">
-    <a href="/" class="py-2 text-base font-semibold tracking-tight text-ink no-underline hover:text-accent">
+    <a href="/" class="py-2 text-base font-semibold tracking-tight text-ink no-underline hover-text-accent">
       ~/umer
     </a>
 
@@ -33,7 +33,7 @@ function isActive(href) {
               'px-2 py-2 underline-offset-4 transition-colors duration-150',
               isActive(link.href) 
                 ? 'font-medium text-ink' 
-                : 'text-muted hover:text-accent hover:underline',
+                : 'text-muted hover-text-accent hover-underline',
             ]}
           >
             {link.label}
@@ -48,17 +48,17 @@ function isActive(href) {
       aria-expanded="false"
       aria-controls="nav-mobile"
       aria-label="Open menu"
-      class="-mr-1.5 flex h-11 w-11 items-center justify-center rounded-md text-muted hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:hidden"
+      class="-mr-1.5 flex h-12 w-12 items-center justify-center rounded-md text-muted hover-text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:hidden"
     >
-      <Icon name="tabler:menu-2" class="h-5 w-5" data-icon="open" aria-hidden="true" />
-      <Icon name="tabler:x" class="hidden h-5 w-5" data-icon="close" aria-hidden="true" />
+      <Icon name="tabler:menu-2" class="h-6 w-6" data-icon="open" aria-hidden="true" />
+      <Icon name="tabler:x" class="hidden h-6 w-6" data-icon="close" aria-hidden="true" />
     </button>
   </div>
 
   <nav
     id="nav-mobile"
     aria-label="Primary"
-    class="mt-4 hidden flex-col gap-1 border-t border-border pt-4 text-base sm:hidden"
+    class="mt-4 hidden flex-col gap-2 border-t border-border pt-4 text-base sm:hidden"
   >
     {
       links.map((link) => (
@@ -66,10 +66,10 @@ function isActive(href) {
           href={link.href}
           aria-current={isActive(link.href) ? 'page' : undefined}
           class:list={[
-            'rounded px-3 py-3 underline-offset-4 transition-colors duration-150',
+            'block rounded px-4 py-3.5 underline-offset-4 transition-colors duration-150',
             isActive(link.href) 
               ? 'font-medium text-ink' 
-              : 'text-muted hover:text-accent hover:underline',
+              : 'text-muted hover-text-accent hover-underline',
           ]}
         >
           {link.label}
@@ -99,7 +99,17 @@ function isActive(href) {
     }
 
     toggle.addEventListener('click', () => {
-      setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+      const isOpening = toggle.getAttribute('aria-expanded') !== 'true';
+      setOpen(isOpening);
+      
+      if (isOpening) {
+        requestAnimationFrame(() => {
+          const firstLink = panel.querySelector('a');
+          firstLink?.focus();
+        });
+      } else {
+        toggle.focus();
+      }
     });
 
     panel.addEventListener('click', (e) => {
@@ -109,7 +119,10 @@ function isActive(href) {
     document.addEventListener('click', (e) => {
       if (toggle.getAttribute('aria-expanded') !== 'true') return;
       if (!(e.target instanceof Node)) return;
-      if (!toggle.contains(e.target) && !panel.contains(e.target)) setOpen(false);
+      if (!toggle.contains(e.target) && !panel.contains(e.target)) {
+        setOpen(false);
+        toggle.focus();
+      }
     });
 
     document.addEventListener('keydown', (e) => {
@@ -121,7 +134,9 @@ function isActive(href) {
 
     const desktopQuery = window.matchMedia('(min-width: 640px)');
     desktopQuery.addEventListener('change', (e) => {
-      if (e.matches) setOpen(false);
+      if (e.matches && toggle.getAttribute('aria-expanded') === 'true') {
+        setOpen(false);
+      }
     });
   }
 
