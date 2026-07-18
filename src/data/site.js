@@ -17,7 +17,6 @@ export const site = {
   socials: [
     { label: 'GitHub', url: 'https://github.com/umerkniazi', icon: 'tabler:brand-github' },
     { label: 'LinkedIn', url: 'https://linkedin.com/in/umerkniazi', icon: 'tabler:brand-linkedin' },
-    { label: 'Email', url: 'mailto:umerkniazi@proton.me', icon: 'tabler:mail' },
   ],
 
   bio: [
