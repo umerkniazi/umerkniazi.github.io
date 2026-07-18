@@ -1,11 +1,11 @@
 export const skills = [
   {
     category: 'Languages',
-    items: ['Python', 'C++', 'Bash', 'GDScript'],
+    items: ['Python', 'C++', 'GDScript'],
   },
   {
     category: 'Systems & tools',
-    items: ['Linux', 'Git', 'SQLite'],
+    items: ['Linux', 'Git', 'SQLite', 'Bash'],
   },
   {
     category: 'Machine learning & NLP',
