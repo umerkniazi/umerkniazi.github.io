@@ -8,7 +8,7 @@ export const skills = [
     items: ['Linux', 'Git', 'SQLite', 'Bash'],
   },
   {
-    category: 'Machine learning & NLP',
+    category: 'Machine learning & data',
     items: [
       'PyTorch',
       'Transformers',
