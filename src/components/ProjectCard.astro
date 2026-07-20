@@ -7,7 +7,9 @@ interface Props {
   summary?: string;
   stack?: string[];
   outcome?: string[];
+  features?: string[];
   demoUrl?: string | null;
+  demoLabel?: string;
   sourceUrl?: string | null;
   headingLevel?: 'h2' | 'h3';
   variant?: 'detailed' | 'minimal';
@@ -19,7 +21,9 @@ const {
   summary,
   stack,
   outcome,
+  features,
   demoUrl,
+  demoLabel = 'Demo',
   sourceUrl,
   headingLevel = 'h3',
   variant = 'detailed',
@@ -54,6 +58,16 @@ const Heading = headingLevel;
         </p>
       )}
 
+      {features && features.length > 0 && (
+        <p class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-muted">
+          {features.map((feature, i) => (
+            <span>
+              {feature}{i < features.length - 1 ? <span class="text-border-strong"> · </span> : null}
+            </span>
+          ))}
+        </p>
+      )}
+
       <div class="mt-auto pt-8 flex gap-5 text-sm">
         {demoUrl && (
           <a
@@ -63,7 +77,7 @@ const Heading = headingLevel;
             class="flex items-center gap-1 rounded-sm text-accent underline-offset-4 hover-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
           >
             <Icon name="tabler:external-link" class="h-3.5 w-3.5" aria-hidden="true" />
-            Demo
+            {demoLabel}
           </a>
         )}
         {sourceUrl && (

@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { site } from '../data/site.js';
-import { projects } from '../data/projects.js';
+import { projects, secondaryProjects } from '../data/projects.js';
 ---
 
 <Base title="Projects" description={`Projects built by ${site.name}.`}>
@@ -13,5 +13,10 @@ import { projects } from '../data/projects.js';
 
   <div class="mt-12 grid grid-cols-1 gap-y-10 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12">
     {projects.map((project) => <ProjectCard {...project} headingLevel="h2" />)}
+  </div>
+
+  <h2 class="mt-20 text-2xl font-bold tracking-tight text-ink">Also Built</h2>
+  <div class="mt-8 grid grid-cols-1 gap-y-10 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12">
+    {secondaryProjects.map((project) => <ProjectCard {...project} headingLevel="h3" />)}
   </div>
 </Base>
