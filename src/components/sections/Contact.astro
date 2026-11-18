@@ -9,19 +9,19 @@ import { site } from '../../data/site.ts';
   aria-labelledby="contact-heading"
 >
   <div class="flex flex-col gap-2">
-    <h2 id="contact-heading" class="text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+    <h2 id="contact-heading" class="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
       {site.contactSection.title}
     </h2>
   </div>
 
-  <p class="mt-4 max-w-[62ch] text-left text-sm leading-relaxed text-body sm:text-base">
+  <p class="mt-4 max-w-prose text-base text-body">
     {site.contactSection.body}
   </p>
 
   <div class="mt-6 flex">
     <a
       href={`mailto:${site.email}`}
-      class="group inline-flex min-h-[44px] items-center gap-1.5 font-mono text-sm font-medium text-accent underline-offset-4 hover:underline sm:text-base"
+      class="group inline-flex min-h-[44px] items-center gap-1.5 text-base font-medium text-accent underline-offset-4 hover:underline"
     >
       <span>{site.email}</span>
       <Icon

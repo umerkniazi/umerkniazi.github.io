@@ -4,16 +4,16 @@ import { site } from '../../data/site.ts';
 
 <section id="about" class="scroll-mt-24 mt-16 sm:mt-24" aria-labelledby="about-heading">
   <div class="flex flex-col gap-2">
-    <h2 id="about-heading" class="text-2xl font-bold tracking-tight text-ink sm:text-3xl">{site.aboutSection.title}</h2>
+    <h2 id="about-heading" class="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">{site.aboutSection.title}</h2>
   </div>
 
-  <div class="mt-6 flex max-w-[60ch] flex-col gap-4">
-    <p class="text-sm sm:text-base leading-relaxed text-body">
+  <div class="mt-6 flex max-w-prose flex-col gap-4">
+    <p class="text-base text-body">
       {site.bio.summary}
     </p>
     {
       site.bio.about.map((paragraph) => (
-        <p class="text-sm sm:text-base leading-relaxed text-body">
+        <p class="text-base text-body">
           {paragraph}
         </p>
       ))
@@ -21,7 +21,7 @@ import { site } from '../../data/site.ts';
   </div>
 
   <p class="mt-7">
-    <a href="#contact" class="text-sm text-accent underline-offset-4 hover:underline transition-colors duration-150">
+    <a href="#contact" class="text-base font-medium text-accent underline-offset-4 hover:underline transition-colors duration-150">
       {site.aboutSection.emailCta}
     </a>
   </p>
@@ -33,9 +33,9 @@ import { site } from '../../data/site.ts';
         <p class="text-sm font-semibold text-ink">
           {site.education.degree}
         </p>
-        <p class="mt-0.5 font-mono text-xs text-muted">{site.education.school}</p>
+        <p class="mt-0.5 text-xs text-muted">{site.education.school}</p>
       </div>
-      <p class="font-mono text-xs text-muted">{site.education.period}</p>
+      <p class="text-xs text-muted">{site.education.period}</p>
     </div>
   </div>
 
@@ -47,10 +47,10 @@ import { site } from '../../data/site.ts';
           {
             site.skills.map((group) => (
               <div class="flex flex-col gap-2.5">
-                <span class="font-mono text-[11px] font-medium uppercase tracking-wider text-muted">{group.category}</span>
+                <span class="type-label text-muted">{group.category}</span>
                 <ul class="flex flex-wrap gap-1.5">
                   {group.items.map((skill) => (
-                    <li class="rounded-none border border-border-strong bg-transparent px-2 py-0.5 font-mono text-xs text-body">
+                    <li class="rounded-none border border-border-strong bg-transparent px-2 py-0.5 text-xs text-body">
                       {skill}
                     </li>
                   ))}
@@ -63,7 +63,7 @@ import { site } from '../../data/site.ts';
 
       <div>
         <h3 id="interests-heading" class="text-xl font-semibold tracking-tight text-ink">{site.aboutSection.interestsTitle}</h3>
-        <ul class="mt-6 flex flex-col gap-2.5 text-sm leading-relaxed text-body sm:gap-3">
+        <ul class="mt-6 flex flex-col gap-2.5 text-sm text-body sm:gap-3">
           {
             site.interests.map((interest) => (
               <li>{interest}</li>
@@ -82,10 +82,10 @@ import { site } from '../../data/site.ts';
       {
         site.environment.map((group) => (
           <div class="flex flex-col gap-1">
-            <dt class="font-mono text-[11px] font-medium uppercase tracking-wider text-muted">
+            <dt class="type-label text-muted">
               {group.category}
             </dt>
-            <dd class="font-mono text-sm leading-relaxed text-body">
+            <dd class="text-sm text-body">
               {
                 group.category === 'Linux distribution' ? (
                   group.items.map((item, idx) => (

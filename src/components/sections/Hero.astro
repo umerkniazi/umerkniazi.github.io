@@ -5,18 +5,18 @@ import { site } from '../../data/site.ts';
 ---
 
 <section id="home" class="scroll-mt-24 max-w-prose" aria-label="Introduction">
-  <h1 class="text-4xl font-bold tracking-tight text-ink sm:text-5xl">{site.name}</h1>
-  <p class="mt-1 text-lg text-muted">{site.role}</p>
-  <p class="mt-6 text-base leading-relaxed text-body">{site.tagline}</p>
+  <h1 class="text-5xl font-bold tracking-tight text-ink sm:text-6xl">{site.name}</h1>
+  <p class="mt-2 text-lg text-muted">{site.role}</p>
+  <p class="mt-6 text-base text-body">{site.tagline}</p>
 
-  <dl class="mt-8 flex flex-col gap-2 text-xs font-mono">
+  <dl class="mt-8 flex flex-col gap-2 text-xs">
     <div class="grid grid-cols-[4.5rem_1fr] items-baseline gap-2">
-      <dt class="text-[11px] font-medium uppercase tracking-wider text-muted">{site.hero.focusLabel}</dt>
-      <dd class="text-body leading-relaxed">{site.currentFocus}</dd>
+      <dt class="type-label text-muted">{site.hero.focusLabel}</dt>
+      <dd class="text-body">{site.currentFocus}</dd>
     </div>
     <div class="grid grid-cols-[4.5rem_1fr] items-baseline gap-2">
-      <dt class="text-[11px] font-medium uppercase tracking-wider text-muted">{site.hero.statusLabel}</dt>
-      <dd class="text-ink font-medium leading-relaxed">
+      <dt class="type-label text-muted">{site.hero.statusLabel}</dt>
+      <dd class="text-ink font-medium">
         {site.statusText}<span class="caret" aria-hidden="true" />
       </dd>
     </div>

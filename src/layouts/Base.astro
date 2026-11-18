@@ -3,6 +3,10 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 import { site } from '../data/site.ts';
+import monoRegular from '@fontsource/jetbrains-mono/files/jetbrains-mono-latin-400-normal.woff2?url';
+import monoMedium from '@fontsource/jetbrains-mono/files/jetbrains-mono-latin-500-normal.woff2?url';
+import monoSemibold from '@fontsource/jetbrains-mono/files/jetbrains-mono-latin-600-normal.woff2?url';
+import monoBold from '@fontsource/jetbrains-mono/files/jetbrains-mono-latin-700-normal.woff2?url';
 
 interface Props {
   title: string;
@@ -47,6 +51,11 @@ const schemaData = {
         cl.toggle('light', !isDark);
       } catch (e) {}
     </script>
+
+    <link rel="preload" href={monoRegular} as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href={monoMedium} as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href={monoSemibold} as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href={monoBold} as="font" type="font/woff2" crossorigin="anonymous" />
 
     <link rel="canonical" href={canonicalURL.href} />
     <meta name="generator" content={Astro.generator} />

@@ -83,11 +83,25 @@
   --text-3xl--line-height: 1.2;
   --text-4xl: 2.75rem;
   --text-4xl--line-height: 1.12;
-  --text-5xl: 3.25rem;
+  --text-5xl: 3rem;
   --text-5xl--line-height: 1.08;
+  --text-6xl: 3.75rem;
+  --text-6xl--line-height: 1.05;
 
-  --max-width-prose: 36rem;
+  --tracking-label: 0.08em;
+
+  --max-width-prose: 65ch;
   --max-width-content: 52rem;
+}
+
+/* Metadata label: uppercase, tracked, and always 12px across the site */
+@utility type-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: var(--text-xs--line-height);
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
 }
 
 @layer base {
@@ -98,7 +112,6 @@
   html {
     background-color: var(--color-bg);
     color-scheme: light dark;
-    text-rendering: geometricPrecision;
     scroll-behavior: smooth;
   }
 
@@ -121,6 +134,12 @@
   h2,
   h3 {
     color: var(--color-ink);
+    text-wrap: balance;
+  }
+
+  p,
+  li {
+    text-wrap: pretty;
   }
 
   ::selection {
