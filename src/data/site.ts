@@ -20,22 +20,22 @@ export interface EnvironmentCategory {
 }
 
 export const site = {
-  name: 'Umer Niazi',
+  name: 'Umer Khan Niazi',
   role: 'Software Engineer & AI Student',
   tagline:
     'I build machine learning projects and software tools, working with real datasets and practical constraints.',
-  email: 'umer.niazi@proton.me',
-  github: 'https://github.com/umer-niazi',
-  linkedin: 'https://linkedin.com/in/umer-niazi',
+  email: 'umerkniazi@proton.me',
+  github: 'https://github.com/umerkniazi',
+  linkedin: 'https://linkedin.com/in/umerkniazi',
   statusText: 'Open to AI/ML and SWE internships',
   currentFocus: 'Machine learning, software engineering, and terminal tools',
   resumeUrl: '/resume.pdf',
   description:
-    'Portfolio of Umer Niazi, a software engineer and AI student at UET Lahore. Machine learning projects, terminal tools, and software experiments.',
+    'Portfolio of Umer Khan Niazi, a software engineer and AI student at UET Lahore. Machine learning projects, terminal tools, and software experiments.',
 
   socials: [
-    { label: 'GitHub', url: 'https://github.com/umer-niazi' },
-    { label: 'LinkedIn', url: 'https://linkedin.com/in/umer-niazi' },
+    { label: 'GitHub', url: 'https://github.com/umerkniazi' },
+    { label: 'LinkedIn', url: 'https://linkedin.com/in/umerkniazi' },
   ] as SocialLink[],
 
   nav: [

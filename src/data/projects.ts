@@ -16,7 +16,7 @@ export const projects: Project[] = [
     stack: ['Python', 'SQLite', 'BERTopic', 'spaCy', 'Transformers', 'Streamlit'],
     outcome: ['350K+ headlines', '420K+ entity mentions', 'Unsupervised topic discovery'],
     demoUrl: 'https://news-nlp-pipeline.streamlit.app/',
-    sourceUrl: 'https://github.com/umer-niazi/news-nlp-pipeline',
+    sourceUrl: 'https://github.com/umerkniazi/news-nlp-pipeline',
   },
   {
     name: 'Himalayan Wildlife Classifier',
@@ -25,7 +25,7 @@ export const projects: Project[] = [
     stack: ['Python', 'PyTorch', 'ResNet18', 'Streamlit'],
     outcome: ['96.55% validation accuracy', 'Confidence-based rejection', 'Fine-tuned ResNet18'],
     demoUrl: 'https://himalayan-wildlife-classifier.streamlit.app/',
-    sourceUrl: 'https://github.com/umer-niazi/himalayan-wildlife-classifier',
+    sourceUrl: 'https://github.com/umerkniazi/himalayan-wildlife-classifier',
   },
   {
     name: 'wmus',
@@ -34,7 +34,7 @@ export const projects: Project[] = [
     stack: ['Python', 'windows-curses', 'pygame'],
     outcome: ['Keyboard-driven workflow', 'Fuzzy track search', 'Local metadata caching'],
     demoUrl: null,
-    sourceUrl: 'https://github.com/umer-niazi/wmus',
+    sourceUrl: 'https://github.com/umerkniazi/wmus',
   },
   {
     name: 'Shelter Outcome Predictor',
@@ -43,16 +43,6 @@ export const projects: Project[] = [
     stack: ['Python', 'scikit-learn', 'Pandas', 'Streamlit'],
     outcome: ['62K+ intake records', '63% euthanasia recall', '76% overall accuracy'],
     demoUrl: 'https://shelter-outcome-predictor.streamlit.app/',
-    sourceUrl: 'https://github.com/umer-niazi/shelter-outcome-predictor',
-  },
-  {
-    name: 'Waddle Away',
-    description:
-      'A 2D endless runner built with Godot and GDScript, released for browser and desktop play on Itch.io. Features progressive difficulty scaling, custom animations, and responsive controls.',
-    stack: ['Godot', 'GDScript'],
-    outcome: ['Browser and desktop releases', 'Keyboard and touch controls', 'Progressive difficulty scaling'],
-    demoUrl: 'https://umer-niazi.itch.io/waddle-away',
-    demoLabel: 'Play',
-    sourceUrl: 'https://github.com/umer-niazi/waddle-away',
+    sourceUrl: 'https://github.com/umerkniazi/shelter-outcome-predictor',
   },
 ];
